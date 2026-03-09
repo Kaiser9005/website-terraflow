@@ -29,7 +29,7 @@ export default function Demo() {
       <div className="demo-grid">
         <div className="demo-info">
           <Reveal>
-            <div className="eyebrow" style={{ color: "var(--accent)" }}>Demo Gratuite</div>
+            <div className="eyebrow" style={{ color: "var(--accent)" }}>Démo Gratuite</div>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="display-lg" style={{ marginTop: "1rem", color: "white" }}>
@@ -38,14 +38,14 @@ export default function Demo() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="body-lg" style={{ marginTop: "1rem", color: "rgba(255,255,255,0.7)" }}>
-              Un expert vous presente la plateforme avec vos donnees. 60 jours d'essai gratuit, aucun engagement, aucune carte bancaire.
+              Un expert vous présente la plateforme avec vos données. 60 jours d'essai gratuit, aucun engagement, aucune carte bancaire.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="demo-benefits">
               <div className="demo-benefit">
                 <span className="demo-check">&#10003;</span>
-                <span>Demo personnalisee en 30 min</span>
+                <span>Démo personnalisée en 30 min</span>
               </div>
               <div className="demo-benefit">
                 <span className="demo-check">&#10003;</span>
@@ -53,11 +53,11 @@ export default function Demo() {
               </div>
               <div className="demo-benefit">
                 <span className="demo-check">&#10003;</span>
-                <span>Migration de donnees assistee</span>
+                <span>Migration de données assistée</span>
               </div>
               <div className="demo-benefit">
                 <span className="demo-check">&#10003;</span>
-                <span>Formation equipe incluse</span>
+                <span>Formation équipe incluse</span>
               </div>
             </div>
           </Reveal>
@@ -76,7 +76,7 @@ export default function Demo() {
             <input type="tel" placeholder="Telephone" value={formData.phone} onChange={onChange("phone")} />
             <textarea placeholder="Dites-nous en plus sur vos besoins..." value={formData.message} onChange={onChange("message")} />
             <MagneticButton className="btn btn-primary btn-full" as="button" type="submit">
-              {sent ? "Demande envoyee !" : "Demander ma Demo Gratuite"}
+              {sent ? "Demande envoyée !" : "Demander ma Démo Gratuite"}
             </MagneticButton>
           </form>
         </Reveal>

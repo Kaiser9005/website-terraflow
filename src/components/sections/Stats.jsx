@@ -6,14 +6,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { value: 27, suffix: "", label: "Modules", desc: "integres dans une seule plateforme" },
-  { value: 9, suffix: "", label: "Sous-Modules RH", desc: "paie, conges, presence, formation..." },
-  { value: 99, suffix: ".95%", label: "Disponibilite", desc: "uptime garanti SLA" },
-  { value: 50, suffix: "ms", label: "Latence P95", desc: "temps de reponse" },
-  { value: 5, suffix: "+", label: "Modeles IA", desc: "rendement, prix, sante, meteo" },
-  { value: 0, suffix: "", label: "Solvants Chimiques", desc: "extraction 100% mecanique" },
+  { value: 27, suffix: "", label: "Modules", desc: "intégrés dans une seule plateforme" },
+  { value: 9, suffix: "", label: "Sous-Modules RH", desc: "paie, congés, présence, formation..." },
+  { value: 99, suffix: ".95%", label: "Disponibilité", desc: "uptime garanti SLA" },
+  { value: 50, suffix: "ms", label: "Latence P95", desc: "temps de réponse" },
+  { value: 5, suffix: "+", label: "Modèles IA", desc: "rendement, prix, santé, météo" },
+  { value: 0, suffix: "", label: "Solvants Chimiques", desc: "extraction 100% mécanique" },
   { value: 192, suffix: "", label: "Tests Auto", desc: "couverture 87%+" },
-  { value: 100, suffix: "%", label: "OHADA", desc: "conformite comptable garantie" },
+  { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable garantie" },
 ];
 
 export default function Stats() {
@@ -62,7 +62,7 @@ export default function Stats() {
       <div ref={headerRef} className="section-header" style={{ textAlign: "center", margin: "0 auto", marginBottom: "clamp(3rem, 5vh, 5rem)", opacity: 0 }}>
         <div className="eyebrow">TerraFlow en Chiffres</div>
         <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-          La mesure de notre <em>fiabilite</em>
+          La mesure de notre <em>fiabilité</em>
         </h2>
       </div>
       <div className="stats-grid">

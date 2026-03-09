@@ -20,7 +20,7 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
           ))}
         </ul>
         <a className="btn btn-primary btn-nav" onClick={() => scrollTo("demo")}>
-          Demo Gratuite
+          Démo Gratuite
         </a>
         <button
           className="hamburger"
@@ -40,7 +40,7 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
           </a>
         ))}
         <a className="btn btn-primary" onClick={() => scrollTo("demo")}>
-          Demo Gratuite
+          Démo Gratuite
         </a>
       </div>
     </>

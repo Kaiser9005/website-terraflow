@@ -14,10 +14,10 @@ const plans = [
     period: "/mois",
     target: "20-100 hectares",
     features: [
-      "5-10 modules au choix",
+      "5–10 modules au choix",
       "Gestion parcellaire de base",
       "Paie & RH essentiels",
-      "Support email",
+      "Support e-mail",
       "1 utilisateur admin",
     ],
     cta: "Commencer",
@@ -29,10 +29,10 @@ const plans = [
     period: "/mois",
     target: "100-1000 hectares",
     features: [
-      "15-20 modules",
-      "IA predictive (rendement, meteo)",
-      "Comptabilite OHADA complete",
-      "Tracabilite parcelle-export",
+      "15–20 modules",
+      "IA prédictive (rendement, météo)",
+      "Comptabilité OHADA complète",
+      "Traçabilité parcelle-export",
       "Support prioritaire",
       "5 utilisateurs inclus",
     ],
@@ -46,12 +46,12 @@ const plans = [
     target: "1000+ hectares",
     features: [
       "27 modules complets",
-      "IA avancee + chatbot agronomique",
+      "IA avancée + chatbot agronomique",
       "API partenaires & webhooks",
       "Multi-sites, multi-devises",
       "SLA 99.95% garanti",
-      "Utilisateurs illimites",
-      "Formation & onboarding dedie",
+      "Utilisateurs illimités",
+      "Formation & onboarding dédié",
     ],
     cta: "Nous Contacter",
     featured: false,
@@ -83,12 +83,12 @@ export default function Pricing({ scrollTo }) {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-            Un investissement, pas une <em>depense</em>
+            Un investissement, pas une <em>dépense</em>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-lg" style={{ marginTop: "1rem", color: "var(--gris)" }}>
-            60 jours d'essai gratuit. Aucun engagement. ROI mesurable des le premier mois.
+            60 jours d'essai gratuit. Aucun engagement. ROI mesurable dès le premier mois.
           </p>
         </Reveal>
       </div>

@@ -115,15 +115,15 @@ export default function Hero({ scrollTo }) {
         <div ref={overlayRef} className="hero-overlay">
           <div className="hero-content">
             <div className="hero-eyebrow" style={{ opacity: 0 }}>
-              ERP Agricole Intelligent
+              ERP Agricole Intelligent pour l'Afrique
             </div>
             <h1 className="display-xl hero-title">
               <span className="kinetic-line"><span className="hero-title-line">Cultivez la</span></span>
               <span className="kinetic-line"><span className="hero-title-line"><em>performance</em></span></span>
             </h1>
             <p className="hero-subtitle" style={{ opacity: 0 }}>
-              27 modules. IA predictive. Conformite OHADA.
-              La plateforme qui transforme chaque exploitation agricole en entreprise connectee.
+              27 modules. IA prédictive. Conformité OHADA.
+              La plateforme qui transforme chaque exploitation agricole en entreprise connectée.
             </p>
             <div className="hero-cta-row" style={{ opacity: 0 }}>
               <MagneticButton className="btn btn-primary" onClick={() => scrollTo("demo")}>

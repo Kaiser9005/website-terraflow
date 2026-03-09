@@ -5,21 +5,21 @@ import Reveal from "../ui/Reveal";
 
 const testimonials = [
   {
-    text: "Avant TerraFlow, on passait 3 jours a reconcilier les fiches de paie. Maintenant, c'est automatique. On a recupere 2 semaines de productivite par mois.",
+    text: "Avant TerraFlow, on passait 3 jours à réconcilier les fiches de paie. Maintenant, c'est automatique. On a récupéré 2 semaines de productivité par mois.",
     author: "Jean Paul F.",
-    role: "Directeur General, Exploitation 80 ha",
+    role: "Directeur Général, Exploitation 80 ha",
     initials: "JP",
   },
   {
-    text: "La tracabilite parcelle-a-export nous a permis d'obtenir la certification HACCP en 6 mois au lieu de 18. Un avantage competitif enorme.",
+    text: "La traçabilité parcelle-à-export nous a permis d'obtenir la certification HACCP en 6 mois au lieu de 18. Un avantage compétitif énorme.",
     author: "Aminata K.",
-    role: "Responsable Qualite, Cooperative 200 ha",
+    role: "Responsable Qualité, Coopérative 200 ha",
     initials: "AK",
   },
   {
-    text: "Le mode hors-ligne est un game-changer. Mes superviseurs enregistrent les donnees au champ, et tout se synchronise quand ils rentrent au bureau.",
-    author: "Kouame D.",
-    role: "Directeur Operations, Agro-industrie",
+    text: "Le mode hors-ligne est un game-changer. Mes superviseurs enregistrent les données au champ, et tout se synchronise quand ils rentrent au bureau.",
+    author: "Kouamé D.",
+    role: "Directeur Opérations, Agro-industrie",
     initials: "KD",
   },
 ];
@@ -52,11 +52,11 @@ export default function Testimonials() {
     <section id="testimonials" className="section" ref={sectionRef}>
       <div className="section-header" style={{ textAlign: "center", margin: "0 auto", maxWidth: 700 }}>
         <Reveal>
-          <div className="eyebrow">Temoignages</div>
+          <div className="eyebrow">Témoignages</div>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-            Ils font <em>confiance</em> a TerraFlow
+            Ils font <em>confiance</em> à TerraFlow
           </h2>
         </Reveal>
       </div>

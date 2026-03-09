@@ -7,8 +7,8 @@ export default function Footer({ navItems, scrollTo }) {
             Terra<span>Flow</span>
           </a>
           <p>
-            L'ERP agricole intelligent concu pour l'Afrique. 27 modules integres,
-            IA predictive, conformite OHADA. De la parcelle a l'export.
+            L'ERP agricole intelligent conçu pour l'Afrique. 27 modules intégrés,
+            IA prédictive, conformité OHADA. De la parcelle à l'export.
           </p>
         </div>
 
@@ -23,7 +23,7 @@ export default function Footer({ navItems, scrollTo }) {
           <h4>Modules</h4>
           <a onClick={() => scrollTo("modules")}>RH & Paie</a>
           <a onClick={() => scrollTo("modules")}>Agriculture</a>
-          <a onClick={() => scrollTo("modules")}>Comptabilite</a>
+          <a onClick={() => scrollTo("modules")}>Comptabilité</a>
           <a onClick={() => scrollTo("modules")}>IA & Analytics</a>
         </div>
 

@@ -34,9 +34,9 @@ export default function Marquee() {
             <span className="marquee-dot">&#10022;</span>
             <span className="marquee-item">Paie CNPS/OHADA</span>
             <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">IA Predictive</span>
+            <span className="marquee-item">IA Prédictive</span>
             <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">Tracabilite Parcelle-Export</span>
+            <span className="marquee-item">Traçabilité Parcelle-Export</span>
             <span className="marquee-dot">&#10022;</span>
             <span className="marquee-item">27 Modules</span>
             <span className="marquee-dot">&#10022;</span>

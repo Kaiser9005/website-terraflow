@@ -22,12 +22,12 @@ import CustomCursor from "./components/ui/CustomCursor";
 gsap.registerPlugin(ScrollTrigger);
 
 const navItems = [
-  { id: "features", label: "Fonctionnalites" },
+  { id: "features", label: "Fonctionnalités" },
   { id: "stats", label: "Chiffres" },
   { id: "modules", label: "Modules" },
   { id: "pricing", label: "Tarifs" },
-  { id: "testimonials", label: "Temoignages" },
-  { id: "demo", label: "Demo" },
+  { id: "testimonials", label: "Témoignages" },
+  { id: "demo", label: "Démo" },
 ];
 
 const sectionColors = {
