@@ -1381,6 +1381,28 @@ em { font-style: normal; color: var(--accent); }
 }
 .roi-dot-loss { background: #EF4444; opacity: 0.5; }
 .roi-dot-gain { background: var(--primary); }
+.roi-recommendation {
+  background: linear-gradient(135deg, rgba(217,119,6,0.06), rgba(22,101,52,0.06));
+  border: 1px solid rgba(217,119,6,0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+.roi-recommendation-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.roi-recommendation h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.roi-recommendation p {
+  font-size: 0.9rem;
+  color: var(--gris);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
 @media (max-width: 900px) {
   .roi-layout { grid-template-columns: 1fr; }
   .roi-kpis { grid-template-columns: 1fr; }
