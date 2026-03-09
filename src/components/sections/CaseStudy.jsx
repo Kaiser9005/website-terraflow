@@ -13,7 +13,7 @@ const beforeAfter = [
   { metric: "Traçabilité lots", before: "Papier", after: "100% numérique", icon: "\uD83D\uDD17" },
   { metric: "Données terrain", before: "J+2 à J+3", after: "Temps réel", icon: "\uD83D\uDCF1" },
   { metric: "Prédiction rendement", before: "Intuition", after: "R²=0.79 (IA)", icon: "\uD83E\uDD16" },
-  { metric: "Conformité CNPS", before: "Manuelle", after: "Automatisée", icon: "\u2705" },
+  { metric: "Conformité sociale", before: "Manuelle", after: "Automatisée", icon: "\u2705" },
 ];
 
 export default function CaseStudy({ scrollTo }) {

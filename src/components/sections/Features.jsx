@@ -30,7 +30,7 @@ const features = [
   {
     icon: "\uD83D\uDCB0",
     title: "Paie & RH",
-    desc: "Gestion complète des 9 sous-modules RH. Calcul automatique CNPS, IRPP, CFC, FNE, CRTV. Conformité Cameroun & Zone CEMAC.",
+    desc: "Gestion complète des 9 sous-modules RH. Calcul automatique des cotisations sociales et fiscales. Conformité multi-pays Zone OHADA.",
   },
   {
     icon: "\uD83D\uDCF1",

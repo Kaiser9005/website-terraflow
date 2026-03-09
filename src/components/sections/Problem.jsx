@@ -67,7 +67,7 @@ export default function Problem() {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-lg" style={{ marginTop: "1rem", color: "rgba(255,255,255,0.6)" }}>
-            Les ERP occidentaux ignorent les réalités du terrain africain. Pas de conformité OHADA, pas de mode hors-ligne, pas de paie CNPS. Résultat :
+            Les ERP occidentaux ignorent les réalités du terrain africain. Pas de conformité OHADA, pas de mode hors-ligne, pas de paie locale adaptée. Résultat :
           </p>
         </Reveal>
       </div>

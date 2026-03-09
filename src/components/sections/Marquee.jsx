@@ -32,7 +32,7 @@ export default function Marquee() {
           <div key={i} style={{ display: "flex" }}>
             <span className="marquee-item">Gestion Parcellaire</span>
             <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">Paie CNPS/OHADA</span>
+            <span className="marquee-item">Paie Multi-Pays OHADA</span>
             <span className="marquee-dot">&#10022;</span>
             <span className="marquee-item">IA Prédictive</span>
             <span className="marquee-dot">&#10022;</span>

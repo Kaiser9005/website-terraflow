@@ -7,7 +7,7 @@ const testimonials = [
   {
     text: "Avant TerraFlow, on passait 3 jours à réconcilier les fiches de paie. Maintenant, c'est automatique. On a récupéré 2 semaines de productivité par mois.",
     author: "Jean Paul F.",
-    role: "Directeur Général, Exploitation 80 ha",
+    role: "Directeur Général, Agro-industrie Cameroun",
     initials: "JP",
   },
   {

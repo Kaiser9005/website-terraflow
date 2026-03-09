@@ -23,9 +23,9 @@ const personas = [
     label: "DAF / Comptable",
     icon: "\uD83D\uDCCA",
     title: "Conformité & automatisation",
-    pain: "La conformité OHADA/CNPS prend des semaines et le risque d'erreur est permanent.",
-    solution: "Paie automatisée conforme CNPS/IRPP/CFC. SYSCOHADA complet avec clôture automatique.",
-    modules: ["Paie & CNPS", "Comptabilité OHADA", "Inventaire"],
+    pain: "La conformité OHADA et les cotisations sociales prennent des semaines et le risque d'erreur est permanent.",
+    solution: "Paie automatisée conforme multi-pays (CNPS, CNSS, INSS...). SYSCOHADA complet avec clôture automatique.",
+    modules: ["Paie Multi-Pays", "Comptabilité OHADA", "Inventaire"],
     result: "Zéro erreur de paie, conformité garantie, audit-ready",
   },
   {

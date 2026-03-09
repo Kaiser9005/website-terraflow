@@ -11,7 +11,7 @@ const stats = [
   { value: 99, suffix: ".95%", label: "Disponibilité", desc: "uptime garanti SLA" },
   { value: 50, suffix: "ms", label: "Latence P95", desc: "temps de réponse" },
   { value: 5, suffix: "+", label: "Modèles IA", desc: "rendement, prix, santé, météo" },
-  { value: 0, suffix: "", label: "Solvants Chimiques", desc: "extraction 100% mécanique" },
+  { value: 17, suffix: "", label: "Pays OHADA", desc: "conformité multi-juridictions" },
   { value: 192, suffix: "", label: "Tests Auto", desc: "couverture 87%+" },
   { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable garantie" },
 ];

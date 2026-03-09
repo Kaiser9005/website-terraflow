@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -6,93 +6,28 @@ import MagneticButton from "../ui/MagneticButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FRAME_COUNT = 60;
-
-function preloadFrames() {
-  const frames = [];
-  for (let i = 1; i <= FRAME_COUNT; i++) {
-    const img = new Image();
-    img.src = `/frames/frame_${String(i).padStart(4, "0")}.webp`;
-    frames.push(img);
-  }
-  return frames;
-}
-
 export default function Hero({ scrollTo }) {
   const sectionRef = useRef(null);
-  const canvasRef = useRef(null);
-  const framesRef = useRef([]);
   const overlayRef = useRef(null);
 
-  useEffect(() => {
-    framesRef.current = preloadFrames();
-  }, []);
-
   useGSAP(() => {
-    const canvas = canvasRef.current;
     const section = sectionRef.current;
-    if (!canvas || !section) return;
+    if (!section) return;
 
-    const ctx = canvas.getContext("2d");
-
-    const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = "100vw";
-      canvas.style.height = "100vh";
-      ctx.scale(dpr, dpr);
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    const drawFrame = (index) => {
-      const img = framesRef.current[index];
-      if (!img || !img.complete) return;
-
-      const cw = canvas.width / (window.devicePixelRatio || 1);
-      const ch = canvas.height / (window.devicePixelRatio || 1);
-      const iw = img.naturalWidth;
-      const ih = img.naturalHeight;
-
-      const scale = Math.max(cw / iw, ch / ih);
-      const w = iw * scale;
-      const h = ih * scale;
-      const x = (cw - w) / 2;
-      const y = (ch - h) / 2;
-
-      ctx.clearRect(0, 0, cw, ch);
-      ctx.drawImage(img, x, y, w, h);
-    };
-
-    // Draw first frame immediately
-    const tryDraw = () => {
-      if (framesRef.current[0]?.complete) {
-        drawFrame(0);
-      } else {
-        framesRef.current[0]?.addEventListener("load", () => drawFrame(0), { once: true });
-      }
-    };
-    tryDraw();
-
-    // Scroll-driven frame animation
+    // Parallax on the gradient orbs
     ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: "+=200%",
-      pin: ".hero-canvas-wrapper",
-      pinSpacing: true,
-      scrub: 0.5,
+      end: "bottom top",
+      scrub: true,
       onUpdate: (self) => {
-        const frameIndex = Math.min(
-          FRAME_COUNT - 1,
-          Math.floor(self.progress * FRAME_COUNT)
-        );
-        requestAnimationFrame(() => drawFrame(frameIndex));
-
-        // Fade overlay
+        const orbs = section.querySelectorAll(".hero-orb");
+        orbs.forEach((orb, i) => {
+          const speed = 0.3 + i * 0.15;
+          gsap.set(orb, { y: self.progress * 200 * speed });
+        });
         if (overlayRef.current) {
-          const opacity = Math.max(0, 1 - self.progress * 3);
+          const opacity = Math.max(0, 1 - self.progress * 2.5);
           overlayRef.current.style.opacity = opacity;
         }
       },
@@ -104,23 +39,39 @@ export default function Hero({ scrollTo }) {
     tl.fromTo(".hero-title-line", { yPercent: 120, rotate: 2 }, { yPercent: 0, rotate: 0, stagger: 0.12, duration: 1, ease: "power4.out" }, "-=0.5");
     tl.fromTo(".hero-subtitle", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5");
     tl.fromTo(".hero-cta-row", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.4");
+    tl.fromTo(".hero-mockup", { opacity: 0, y: 60, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 1.2, ease: "power3.out" }, "-=0.6");
 
-    return () => window.removeEventListener("resize", resize);
+    // Animate orbs floating
+    section.querySelectorAll(".hero-orb").forEach((orb, i) => {
+      gsap.to(orb, {
+        x: `random(-40, 40)`,
+        y: `random(-30, 30)`,
+        duration: 6 + i * 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    });
   }, { scope: sectionRef });
 
   return (
     <section id="hero" ref={sectionRef} className="hero-section">
       <div className="hero-canvas-wrapper">
-        <canvas ref={canvasRef} className="hero-canvas" />
+        <div className="hero-gradient-bg">
+          <div className="hero-orb hero-orb-1" />
+          <div className="hero-orb hero-orb-2" />
+          <div className="hero-orb hero-orb-3" />
+        </div>
         <div className="hero-grain" />
         <div ref={overlayRef} className="hero-overlay">
           <div className="hero-content">
             <div className="hero-eyebrow" style={{ opacity: 0 }}>
-              ERP Agricole Intelligent pour l'Afrique
+              De la Parcelle au Profit
             </div>
             <h1 className="display-xl hero-title">
-              <span className="kinetic-line"><span className="hero-title-line">Cultivez la</span></span>
-              <span className="kinetic-line"><span className="hero-title-line"><em>performance</em></span></span>
+              <span className="kinetic-line"><span className="hero-title-line">L'ERP Agricole</span></span>
+              <span className="kinetic-line"><span className="hero-title-line">de Référence en</span></span>
+              <span className="kinetic-line"><span className="hero-title-line"><em>Afrique</em></span></span>
             </h1>
             <p className="hero-subtitle" style={{ opacity: 0 }}>
               27 modules. IA prédictive. Conformité OHADA.
@@ -134,6 +85,20 @@ export default function Hero({ scrollTo }) {
                 Explorer les Modules
               </MagneticButton>
             </div>
+          </div>
+          <div className="hero-mockup" style={{ opacity: 0 }}>
+            <div className="hero-browser-chrome">
+              <div className="hero-browser-dots">
+                <span /><span /><span />
+              </div>
+              <span className="hero-browser-url">app.terraflow.cm</span>
+            </div>
+            <img
+              src="/screenshots/dashboard.png"
+              alt="TerraFlow ERP — Tableau de bord"
+              className="hero-screenshot"
+              loading="eager"
+            />
           </div>
           <div className="scroll-indicator">
             <span>Scroll</span>

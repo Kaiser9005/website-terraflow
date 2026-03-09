@@ -20,9 +20,11 @@ import Modules from "./components/sections/Modules";
 import Pricing from "./components/sections/Pricing";
 import Trust from "./components/sections/Trust";
 import Testimonials from "./components/sections/Testimonials";
+import Coverage from "./components/sections/Coverage";
 import Demo from "./components/sections/Demo";
 import Preloader from "./components/ui/Preloader";
 import CustomCursor from "./components/ui/CustomCursor";
+import WhatsAppButton from "./components/ui/WhatsAppButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,6 +47,7 @@ const sectionColors = {
   modules: { bg: "#1A1A18", text: "#FFFFFF" },
   pricing: { bg: "#F5F0E8", text: "#1A1A18" },
   trust: { bg: "#1A1A18", text: "#FFFFFF" },
+  coverage: { bg: "#F5F0E8", text: "#1A1A18" },
   testimonials: { bg: "#FAFAF5", text: "#1A1A18" },
   demo: { bg: "#0D3B1F", text: "#FFFFFF" },
 };
@@ -122,6 +125,7 @@ export default function TerraFlowSite() {
     <>
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       <CustomCursor />
+      <WhatsAppButton />
       <SmoothScroll>
         <div className="scroll-progress" />
         <div ref={mainRef}>
@@ -145,6 +149,7 @@ export default function TerraFlowSite() {
             <CaseStudy scrollTo={scrollTo} />
             <Modules />
             <Pricing scrollTo={scrollTo} />
+            <Coverage />
             <Trust />
             <Testimonials />
             <Demo />

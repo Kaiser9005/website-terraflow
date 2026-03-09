@@ -41,7 +41,7 @@ export default function Footer({ navItems, scrollTo }) {
         <span>&copy; {new Date().getFullYear()} TerraFlow. Tous droits réservés.</span>
         <div className="footer-certs">
           <span className="footer-cert">OHADA</span>
-          <span className="footer-cert">CNPS</span>
+          <span className="footer-cert">Multi-Pays</span>
           <span className="footer-cert">CEMAC</span>
           <span className="footer-cert footer-cert-pending">ISO 9001</span>
           <span className="footer-cert footer-cert-pending">HACCP</span>

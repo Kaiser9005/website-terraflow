@@ -6,18 +6,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const metrics = [
-  { value: "80", unit: "ha", label: "en production active" },
-  { value: "28", unit: "", label: "parcelles cartographiées" },
+  { value: "27", unit: "", label: "modules intégrés" },
+  { value: "17", unit: "", label: "pays OHADA couverts" },
   { value: "3x", unit: "", label: "ROI dès la 1ère année" },
   { value: "<48", unit: "ms", label: "temps de réponse P95" },
 ];
 
 const logos = [
-  { name: "FOFAL", sub: "Cameroun" },
-  { name: "CNPS", sub: "Compatible" },
   { name: "OHADA", sub: "Certifié" },
   { name: "CEMAC", sub: "Conforme" },
+  { name: "UEMOA", sub: "Compatible" },
   { name: "CIRAD", sub: "Données" },
+  { name: "ISO 9001", sub: "Traçabilité" },
 ];
 
 export default function SocialProof() {

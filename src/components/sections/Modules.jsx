@@ -12,7 +12,7 @@ const moduleGroups = [
     color: "var(--primary)",
     modules: [
       { name: "Gestion des Employés", desc: "Cycle de vie complet, contrats, documents" },
-      { name: "Paie & CNPS", desc: "Calcul automatique IRPP, CFC, FNE, CRTV" },
+      { name: "Paie Multi-Pays", desc: "Cotisations sociales & fiscales adaptées par juridiction OHADA" },
       { name: "Congés & Absences", desc: "Validation multi-niveaux, soldes temps réel" },
       { name: "Présence & Pointage", desc: "Suivi quotidien, heures supplémentaires" },
       { name: "Formation", desc: "Plans de développement, certifications" },
@@ -24,7 +24,7 @@ const moduleGroups = [
     color: "var(--accent)",
     modules: [
       { name: "Gestion Parcellaire", desc: "Cartographie, cycles culturaux, GPS" },
-      { name: "Production Palmier", desc: "FFB, extraction, rendement huilerie" },
+      { name: "Production & Filières", desc: "Palmier, cacao, café, hévéa — suivi par filière" },
       { name: "Plantation", desc: "30+ unités de travail, tarification" },
       { name: "GMAO & IoT", desc: "Maintenance prédictive, capteurs temps réel" },
       { name: "Équipements", desc: "Gestion d'actifs, maintenance, amortissements" },

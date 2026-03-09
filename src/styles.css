@@ -175,12 +175,40 @@ em { font-style: normal; color: var(--accent); }
   width: 100%;
   height: 100vh;
 }
-.hero-canvas {
+.hero-gradient-bg {
   position: absolute;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+.hero-orb-1 {
+  width: clamp(300px, 50vw, 700px);
+  height: clamp(300px, 50vw, 700px);
+  background: radial-gradient(circle, rgba(37,99,60,0.5) 0%, transparent 70%);
+  top: -10%;
+  left: -10%;
+}
+.hero-orb-2 {
+  width: clamp(250px, 40vw, 500px);
+  height: clamp(250px, 40vw, 500px);
+  background: radial-gradient(circle, rgba(181,148,64,0.35) 0%, transparent 70%);
+  bottom: 10%;
+  right: -5%;
+}
+.hero-orb-3 {
+  width: clamp(200px, 30vw, 400px);
+  height: clamp(200px, 30vw, 400px);
+  background: radial-gradient(circle, rgba(37,99,60,0.3) 0%, transparent 70%);
+  top: 40%;
+  left: 50%;
 }
 .hero-grain {
   position: absolute;
@@ -436,8 +464,8 @@ em { font-style: normal; color: var(--accent); }
 /* ─── PRICING ─── */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-top: clamp(3rem, 5vh, 5rem);
   align-items: start;
 }
@@ -514,7 +542,10 @@ em { font-style: normal; color: var(--accent); }
   color: var(--primary);
   font-weight: 700;
 }
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
   .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
   .pricing-card.featured { transform: none; }
   .pricing-card.featured:hover { transform: translateY(-8px); }
@@ -1211,6 +1242,170 @@ em { font-style: normal; color: var(--accent); }
 }
 @media (max-width: 768px) { .trust-grid { grid-template-columns: 1fr; } }
 
+/* ─── HERO MOCKUP ─── */
+.hero-mockup {
+  position: absolute;
+  right: clamp(2rem, 5vw, 6rem);
+  bottom: clamp(3rem, 6vh, 6rem);
+  width: clamp(300px, 40vw, 600px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+  z-index: 3;
+}
+.hero-browser-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  background: rgba(30,30,30,0.95);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.hero-browser-dots {
+  display: flex;
+  gap: 5px;
+}
+.hero-browser-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+.hero-browser-dots span:first-child { background: #FF5F57; }
+.hero-browser-dots span:nth-child(2) { background: #FEBC2E; }
+.hero-browser-dots span:nth-child(3) { background: #28C840; }
+.hero-browser-url {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-body);
+}
+.hero-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 1024px) {
+  .hero-mockup {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem auto 0;
+  }
+  .hero-overlay {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 2rem !important;
+  }
+}
+@media (max-width: 640px) {
+  .hero-mockup { width: 95%; }
+}
+
+/* ─── WHATSAPP FAB ─── */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9990;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  text-decoration: none;
+}
+.whatsapp-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+@media (pointer: coarse) {
+  .whatsapp-fab { width: 52px; height: 52px; bottom: 1rem; right: 1rem; }
+}
+
+/* ─── COVERAGE / OHADA MAP ─── */
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-top: clamp(2rem, 4vh, 4rem);
+}
+.coverage-country {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.coverage-country:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(22, 101, 52, 0.1);
+  transform: translateY(-2px);
+}
+.coverage-flag {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+.coverage-country-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.coverage-country-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--noir);
+}
+.coverage-country-meta {
+  font-size: 0.65rem;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.coverage-filieres {
+  margin-top: clamp(3rem, 5vh, 5rem);
+}
+.coverage-filieres-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.coverage-filiere {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.coverage-filiere:hover {
+  border-color: var(--accent);
+  background: rgba(217, 119, 6, 0.04);
+}
+.coverage-filiere-emoji { font-size: 1.2rem; }
+
+/* ─── PRICING FCFA ─── */
+.pricing-fcfa {
+  font-size: 0.75rem;
+  color: var(--gris);
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
+
 /* ─── REDUCED MOTION ─── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1222,4 +1417,5 @@ em { font-style: normal; color: var(--accent); }
   .preloader { display: none !important; }
   .custom-cursor { display: none !important; }
   .scroll-progress { display: none; }
+  .whatsapp-fab { transition: none; }
 }

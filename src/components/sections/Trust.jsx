@@ -13,8 +13,8 @@ const certifications = [
     status: "active",
   },
   {
-    name: "CNPS Cameroun",
-    desc: "Taux vérifiés Décret 2016/072 : AVID 4.2%, PF 5.65%, AT 2.5%. Calcul automatique.",
+    name: "Caisses Sociales Multi-Pays",
+    desc: "Cotisations sociales adaptées par pays : CNPS, CNSS, INSS, CSS. Taux vérifiés, calcul automatique.",
     status: "active",
   },
   {
@@ -40,7 +40,7 @@ const security = [
   { icon: "\uD83C\uDF10", label: "Infrastructure Supabase (SOC 2 Type II)" },
   { icon: "\uD83D\uDD11", label: "Authentification 2FA + sessions sécurisées" },
   { icon: "\uD83D\uDCCA", label: "Monitoring Sentry 24/7, SLA 99.95%" },
-  { icon: "\uD83C\uDDEA\uD83C\uDDFA", label: "Hébergement EU (RGPD-compatible)" },
+  { icon: "\uD83C\uDF0D", label: "Résidence données flexible (EU / Afrique)" },
 ];
 
 export default function Trust() {

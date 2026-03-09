@@ -11,8 +11,9 @@ const plans = [
   {
     name: "Starter",
     price: "150",
+    priceFCFA: "98 400 FCFA",
     period: "/mois",
-    target: "20-100 hectares",
+    target: "Petites exploitations · 20-100 ha",
     features: [
       "5–10 modules au choix",
       "Gestion parcellaire de base",
@@ -25,9 +26,10 @@ const plans = [
   },
   {
     name: "Professional",
-    price: "500",
+    price: "À partir de 500",
+    priceFCFA: "~328 000 FCFA",
     period: "/mois",
-    target: "100-1000 hectares",
+    target: "Moyennes exploitations · 100-1 000 ha",
     features: [
       "15–20 modules",
       "IA prédictive (rendement, météo)",
@@ -43,7 +45,7 @@ const plans = [
     name: "Enterprise",
     price: "Sur mesure",
     period: "",
-    target: "1000+ hectares",
+    target: "Agro-industries · 1 000+ ha",
     features: [
       "27 modules complets",
       "IA avancée + chatbot agronomique",
@@ -52,6 +54,21 @@ const plans = [
       "SLA 99.95% garanti",
       "Utilisateurs illimités",
       "Formation & onboarding dédié",
+    ],
+    cta: "Nous Contacter",
+    featured: false,
+  },
+  {
+    name: "Public",
+    price: "Sur mesure",
+    period: "",
+    target: "Institutionnels · Ministères, agences",
+    features: [
+      "Déploiement souverain dédié",
+      "Tableau de bord filière nationale",
+      "Intégration systèmes publics",
+      "Conformité marchés publics",
+      "Support & SLA gouvernemental",
     ],
     cta: "Nous Contacter",
     featured: false,
@@ -102,6 +119,7 @@ export default function Pricing({ scrollTo }) {
             <div className="pricing-price">
               <span className="pricing-amount">{plan.price}</span>
               {plan.period && <span className="pricing-currency"> EUR{plan.period}</span>}
+              {plan.priceFCFA && <div className="pricing-fcfa">{plan.priceFCFA}/mois</div>}
             </div>
             <ul className="pricing-features">
               {plan.features.map((f, j) => (
