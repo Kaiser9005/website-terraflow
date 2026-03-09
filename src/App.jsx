@@ -20,7 +20,9 @@ import Modules from "./components/sections/Modules";
 import Pricing from "./components/sections/Pricing";
 import Trust from "./components/sections/Trust";
 import Testimonials from "./components/sections/Testimonials";
+import ROICalculator from "./components/sections/ROICalculator";
 import Coverage from "./components/sections/Coverage";
+import Onboarding from "./components/sections/Onboarding";
 import Demo from "./components/sections/Demo";
 import Preloader from "./components/ui/Preloader";
 import CustomCursor from "./components/ui/CustomCursor";
@@ -45,9 +47,11 @@ const sectionColors = {
   "use-cases": { bg: "#FAFAF5", text: "#1A1A18" },
   "case-study": { bg: "#FAFAF5", text: "#1A1A18" },
   modules: { bg: "#1A1A18", text: "#FFFFFF" },
+  roi: { bg: "#FAFAF5", text: "#1A1A18" },
   pricing: { bg: "#F5F0E8", text: "#1A1A18" },
-  trust: { bg: "#1A1A18", text: "#FFFFFF" },
   coverage: { bg: "#F5F0E8", text: "#1A1A18" },
+  onboarding: { bg: "#1A1A18", text: "#FFFFFF" },
+  trust: { bg: "#1A1A18", text: "#FFFFFF" },
   testimonials: { bg: "#FAFAF5", text: "#1A1A18" },
   demo: { bg: "#0D3B1F", text: "#FFFFFF" },
 };
@@ -147,9 +151,11 @@ export default function TerraFlowSite() {
             <Stats />
             <UseCases scrollTo={scrollTo} />
             <CaseStudy scrollTo={scrollTo} />
+            <ROICalculator scrollTo={scrollTo} />
             <Modules />
             <Pricing scrollTo={scrollTo} />
             <Coverage />
+            <Onboarding />
             <Trust />
             <Testimonials />
             <Demo />

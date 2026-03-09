@@ -26,8 +26,16 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
           >
             Se connecter
           </a>
+          <a
+            className="btn btn-outline btn-nav"
+            href="https://modules-rh-authentification-expert.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Essai Gratuit
+          </a>
           <a className="btn btn-primary btn-nav" onClick={() => scrollTo("demo")}>
-            Démo Gratuite
+            Démo Guidée
           </a>
         </div>
         <button
