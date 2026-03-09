@@ -79,8 +79,9 @@ export default function Hero({ scrollTo }) {
     ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: "bottom top",
+      end: "+=200%",
       pin: ".hero-canvas-wrapper",
+      pinSpacing: true,
       scrub: 0.5,
       onUpdate: (self) => {
         const frameIndex = Math.min(
@@ -140,7 +141,6 @@ export default function Hero({ scrollTo }) {
           </div>
         </div>
       </div>
-      <div className="hero-scroll-spacer" />
     </section>
   );
 }

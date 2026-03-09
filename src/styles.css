@@ -221,8 +221,6 @@ em { font-style: normal; color: var(--accent); }
   line-height: 1.7;
 }
 .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-.hero-scroll-spacer { height: 200vh; }
-
 .scroll-indicator {
   position: absolute;
   bottom: 2rem; right: 3rem;
