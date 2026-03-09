@@ -9,11 +9,16 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
 import Hero from "./components/sections/Hero";
+import SocialProof from "./components/sections/SocialProof";
 import Marquee from "./components/sections/Marquee";
+import Problem from "./components/sections/Problem";
 import Features from "./components/sections/Features";
 import Stats from "./components/sections/Stats";
+import UseCases from "./components/sections/UseCases";
+import CaseStudy from "./components/sections/CaseStudy";
 import Modules from "./components/sections/Modules";
 import Pricing from "./components/sections/Pricing";
+import Trust from "./components/sections/Trust";
 import Testimonials from "./components/sections/Testimonials";
 import Demo from "./components/sections/Demo";
 import Preloader from "./components/ui/Preloader";
@@ -22,20 +27,24 @@ import CustomCursor from "./components/ui/CustomCursor";
 gsap.registerPlugin(ScrollTrigger);
 
 const navItems = [
-  { id: "features", label: "Fonctionnalités" },
-  { id: "stats", label: "Chiffres" },
+  { id: "problem", label: "Problème" },
+  { id: "features", label: "Solutions" },
+  { id: "use-cases", label: "Cas d'Usage" },
   { id: "modules", label: "Modules" },
   { id: "pricing", label: "Tarifs" },
-  { id: "testimonials", label: "Témoignages" },
   { id: "demo", label: "Démo" },
 ];
 
 const sectionColors = {
   hero: { bg: "#0a0a0a", text: "#FFFFFF" },
+  problem: { bg: "#0a0a0a", text: "#FFFFFF" },
   features: { bg: "#FAFAF5", text: "#1A1A18" },
   stats: { bg: "#F5F0E8", text: "#1A1A18" },
+  "use-cases": { bg: "#FAFAF5", text: "#1A1A18" },
+  "case-study": { bg: "#FAFAF5", text: "#1A1A18" },
   modules: { bg: "#1A1A18", text: "#FFFFFF" },
   pricing: { bg: "#F5F0E8", text: "#1A1A18" },
+  trust: { bg: "#1A1A18", text: "#FFFFFF" },
   testimonials: { bg: "#FAFAF5", text: "#1A1A18" },
   demo: { bg: "#0D3B1F", text: "#FFFFFF" },
 };
@@ -127,11 +136,16 @@ export default function TerraFlowSite() {
           />
           <main id="main-content">
             <Hero scrollTo={scrollTo} />
+            <SocialProof />
             <Marquee />
+            <Problem />
             <Features />
             <Stats />
+            <UseCases scrollTo={scrollTo} />
+            <CaseStudy scrollTo={scrollTo} />
             <Modules />
             <Pricing scrollTo={scrollTo} />
+            <Trust />
             <Testimonials />
             <Demo />
           </main>

@@ -13,7 +13,7 @@ export default function Footer({ navItems, scrollTo }) {
         </div>
 
         <div className="footer-col">
-          <h4>Navigation</h4>
+          <h4>Plateforme</h4>
           {navItems.map((item) => (
             <a key={item.id} onClick={() => scrollTo(item.id)}>{item.label}</a>
           ))}
@@ -31,14 +31,18 @@ export default function Footer({ navItems, scrollTo }) {
           <h4>Contact</h4>
           <a href="mailto:contact@terraflow.cm">contact@terraflow.cm</a>
           <a href="https://wa.me/23799311413" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="https://modules-rh-authentification-expert.vercel.app" target="_blank" rel="noopener noreferrer" style={{ marginTop: "0.5rem", color: "var(--accent)" }}>
+            Se connecter
+          </a>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <span>&copy; {new Date().getFullYear()} TerraFlow. Tous droits reserves.</span>
+        <span>&copy; {new Date().getFullYear()} TerraFlow. Tous droits réservés.</span>
         <div className="footer-certs">
           <span className="footer-cert">OHADA</span>
           <span className="footer-cert">CNPS</span>
+          <span className="footer-cert">CEMAC</span>
           <span className="footer-cert footer-cert-pending">ISO 9001</span>
           <span className="footer-cert footer-cert-pending">HACCP</span>
         </div>

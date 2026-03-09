@@ -127,7 +127,7 @@ export default function Hero({ scrollTo }) {
             </p>
             <div className="hero-cta-row" style={{ opacity: 0 }}>
               <MagneticButton className="btn btn-primary" onClick={() => scrollTo("demo")}>
-                Demander une Demo
+                Demander une Démo
               </MagneticButton>
               <MagneticButton className="btn btn-outline" onClick={() => scrollTo("modules")}>
                 Explorer les Modules

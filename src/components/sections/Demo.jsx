@@ -73,7 +73,7 @@ export default function Demo() {
               <input type="text" placeholder="Entreprise / Exploitation *" value={formData.company} onChange={onChange("company")} required />
               <input type="text" placeholder="Superficie (hectares)" value={formData.hectares} onChange={onChange("hectares")} />
             </div>
-            <input type="tel" placeholder="Telephone" value={formData.phone} onChange={onChange("phone")} />
+            <input type="tel" placeholder="Téléphone" value={formData.phone} onChange={onChange("phone")} />
             <textarea placeholder="Dites-nous en plus sur vos besoins..." value={formData.message} onChange={onChange("message")} />
             <MagneticButton className="btn btn-primary btn-full" as="button" type="submit">
               {sent ? "Demande envoyée !" : "Demander ma Démo Gratuite"}

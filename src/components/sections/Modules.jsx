@@ -25,10 +25,10 @@ const moduleGroups = [
     modules: [
       { name: "Gestion Parcellaire", desc: "Cartographie, cycles culturaux, GPS" },
       { name: "Production Palmier", desc: "FFB, extraction, rendement huilerie" },
-      { name: "Plantation", desc: "30+ unites de travail, tarification" },
+      { name: "Plantation", desc: "30+ unités de travail, tarification" },
       { name: "GMAO & IoT", desc: "Maintenance prédictive, capteurs temps réel" },
       { name: "Équipements", desc: "Gestion d'actifs, maintenance, amortissements" },
-      { name: "Operations", desc: "6 commandes enterprise, optimisation" },
+      { name: "Opérations", desc: "6 commandes entreprise, optimisation" },
     ],
   },
   {
@@ -38,7 +38,7 @@ const moduleGroups = [
       { name: "Comptabilité OHADA", desc: "SYSCOHADA complet, clôture automatisée" },
       { name: "Analytique & BI", desc: "30+ indicateurs, tableaux de bord IA" },
       { name: "Ventes & CRM", desc: "Pipeline, scoring ML, multi-acheteurs" },
-      { name: "Inventaire", desc: "6 services spécialisés, traçabilité par lot" },
+      { name: "Inventaire", desc: "6 services spécialisés, traçabilité lot" },
       { name: "Achats", desc: "Flux fournisseurs, approbations, export" },
       { name: "Tarification", desc: "Moteur de prix dynamique" },
     ],
@@ -99,7 +99,7 @@ export default function Modules() {
 
       <Reveal delay={0.3}>
         <p className="modules-count" style={{ textAlign: "center", marginTop: "3rem", color: "rgba(255,255,255,0.4)", fontSize: "0.85rem" }}>
-          + Documents/GED, Import de Donnees, Administration, Authentification 2FA, HR Analytics, Planning Genetique
+          + Documents/GED, Import de Données, Administration, Authentification 2FA, HR Analytics, Planning Génétique
         </p>
       </Reveal>
     </section>

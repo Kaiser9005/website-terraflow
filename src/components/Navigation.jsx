@@ -1,5 +1,3 @@
-import { getLenis } from "./ui/SmoothScroll";
-
 export default function Navigation({ scrollY, navItems, activeSection, menuOpen, setMenuOpen, scrollTo }) {
   return (
     <>
@@ -19,9 +17,19 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
             </li>
           ))}
         </ul>
-        <a className="btn btn-primary btn-nav" onClick={() => scrollTo("demo")}>
-          Démo Gratuite
-        </a>
+        <div className="nav-actions">
+          <a
+            className="nav-signin"
+            href="https://modules-rh-authentification-expert.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Se connecter
+          </a>
+          <a className="btn btn-primary btn-nav" onClick={() => scrollTo("demo")}>
+            Démo Gratuite
+          </a>
+        </div>
         <button
           className="hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
