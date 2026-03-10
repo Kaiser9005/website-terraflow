@@ -94,7 +94,7 @@ export default function Hero({ scrollTo }) {
               <span className="hero-browser-url">modules-rh-authentification-expert.vercel.app</span>
             </div>
             <img
-              src="/screenshots/dashboard.png"
+              src="/screenshots/dashboard.webp"
               alt="TerraFlow ERP — Tableau de bord"
               className="hero-screenshot"
               loading="eager"

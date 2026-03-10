@@ -46,14 +46,17 @@ export default function Blog() {
       <div className="blog-grid">
         {articles.map((a, i) => (
           <Reveal key={i} delay={i * 0.1}>
-            <article className="blog-card">
+            <article className="blog-card blog-card-interactive" onClick={() => { const el = document.getElementById("demo"); if (el) el.scrollIntoView({ behavior: "smooth" }); }}>
               <div className="blog-card-top">
                 <span className="blog-tag">{a.tag}</span>
                 <span className="blog-read-time">{a.readTime}</span>
               </div>
               <h3 className="blog-card-title">{a.title}</h3>
               <p className="blog-card-excerpt">{a.excerpt}</p>
-              <span className="blog-card-category">{a.category}</span>
+              <div className="blog-card-bottom">
+                <span className="blog-card-category">{a.category}</span>
+                <span className="blog-card-cta">Lire l'article &rarr;</span>
+              </div>
             </article>
           </Reveal>
         ))}
