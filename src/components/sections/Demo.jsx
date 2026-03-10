@@ -129,6 +129,21 @@ export default function Demo() {
             <p className="demo-whatsapp-alt">
               Préférez WhatsApp ? <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Écrivez-nous directement</a>
             </p>
+            <div className="demo-self-service">
+              <p className="demo-self-service-title">Explorer la plateforme maintenant</p>
+              <p className="demo-self-service-desc">
+                Accédez à l'environnement de démonstration avec des données réelles d'exploitation agricole.
+              </p>
+              <a
+                href="https://modules-rh-authentification-expert.vercel.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline btn-full"
+                style={{ marginTop: "0.75rem" }}
+              >
+                Accéder à la démo en ligne
+              </a>
+            </div>
           </form>
         </Reveal>
       </div>

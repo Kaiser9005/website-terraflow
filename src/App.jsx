@@ -24,10 +24,13 @@ import ROICalculator from "./components/sections/ROICalculator";
 import Coverage from "./components/sections/Coverage";
 import Onboarding from "./components/sections/Onboarding";
 import FAQ from "./components/sections/FAQ";
+import Blog from "./components/sections/Blog";
 import Demo from "./components/sections/Demo";
 import Preloader from "./components/ui/Preloader";
 import CustomCursor from "./components/ui/CustomCursor";
 import WhatsAppButton from "./components/ui/WhatsAppButton";
+import StickyBar from "./components/ui/StickyBar";
+import LangToggle, { LangProvider } from "./components/ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,6 +58,7 @@ const sectionColors = {
   trust: { bg: "#1A1A18", text: "#FFFFFF" },
   testimonials: { bg: "#FAFAF5", text: "#1A1A18" },
   faq: { bg: "#FAFAF5", text: "#1A1A18" },
+  blog: { bg: "#F5F0E8", text: "#1A1A18" },
   demo: { bg: "#0D3B1F", text: "#FFFFFF" },
 };
 
@@ -128,10 +132,11 @@ export default function TerraFlowSite() {
   }, []);
 
   return (
-    <>
+    <LangProvider>
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       <CustomCursor />
       <WhatsAppButton />
+      <StickyBar scrollTo={scrollTo} />
       <SmoothScroll>
         <div className="scroll-progress" />
         <div ref={mainRef}>
@@ -161,11 +166,12 @@ export default function TerraFlowSite() {
             <Trust />
             <Testimonials />
             <FAQ />
+            <Blog />
             <Demo />
           </main>
           <Footer navItems={navItems} scrollTo={scrollTo} />
         </div>
       </SmoothScroll>
-    </>
+    </LangProvider>
   );
 }

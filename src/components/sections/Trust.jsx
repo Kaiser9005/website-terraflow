@@ -117,6 +117,26 @@ export default function Trust() {
           </div>
         </div>
       </div>
+
+      <Reveal delay={0.3}>
+        <div className="trust-badges">
+          <div className="trust-badge">
+            <span className="trust-badge-icon">&#9733;</span>
+            <span className="trust-badge-name">Capterra</span>
+            <span className="trust-badge-sub">Profil vérifié</span>
+          </div>
+          <div className="trust-badge">
+            <span className="trust-badge-icon">&#9733;</span>
+            <span className="trust-badge-name">G2</span>
+            <span className="trust-badge-sub">Agri-ERP Africa</span>
+          </div>
+          <div className="trust-badge">
+            <span className="trust-badge-icon">&#9733;</span>
+            <span className="trust-badge-name">GetApp</span>
+            <span className="trust-badge-sub">Recommandé</span>
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

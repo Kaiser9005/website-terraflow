@@ -1,3 +1,5 @@
+import LangToggle from "./ui/LangToggle";
+
 export default function Navigation({ scrollY, navItems, activeSection, menuOpen, setMenuOpen, scrollTo }) {
   return (
     <>
@@ -37,6 +39,7 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
           <a className="btn btn-primary btn-nav" onClick={() => scrollTo("demo")}>
             Démo Guidée
           </a>
+          <LangToggle />
         </div>
         <button
           className="hamburger"
