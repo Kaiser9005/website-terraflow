@@ -23,6 +23,7 @@ import Testimonials from "./components/sections/Testimonials";
 import ROICalculator from "./components/sections/ROICalculator";
 import Coverage from "./components/sections/Coverage";
 import Onboarding from "./components/sections/Onboarding";
+import FAQ from "./components/sections/FAQ";
 import Demo from "./components/sections/Demo";
 import Preloader from "./components/ui/Preloader";
 import CustomCursor from "./components/ui/CustomCursor";
@@ -53,6 +54,7 @@ const sectionColors = {
   onboarding: { bg: "#1A1A18", text: "#FFFFFF" },
   trust: { bg: "#1A1A18", text: "#FFFFFF" },
   testimonials: { bg: "#FAFAF5", text: "#1A1A18" },
+  faq: { bg: "#FAFAF5", text: "#1A1A18" },
   demo: { bg: "#0D3B1F", text: "#FFFFFF" },
 };
 
@@ -158,6 +160,7 @@ export default function TerraFlowSite() {
             <Onboarding />
             <Trust />
             <Testimonials />
+            <FAQ />
             <Demo />
           </main>
           <Footer navItems={navItems} scrollTo={scrollTo} />

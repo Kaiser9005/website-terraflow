@@ -20,6 +20,14 @@ const logos = [
   { name: "ISO 9001", sub: "Traçabilité" },
 ];
 
+const poweredBy = [
+  { name: "Supabase", desc: "Base de données" },
+  { name: "Vercel", desc: "Hébergement" },
+  { name: "PostgreSQL", desc: "Stockage" },
+  { name: "Sentry", desc: "Monitoring" },
+  { name: "Fly.io", desc: "ML Server" },
+];
+
 export default function SocialProof() {
   const sectionRef = useRef(null);
 
@@ -62,6 +70,17 @@ export default function SocialProof() {
             <div key={i} className="sp-logo" style={{ opacity: 0 }}>
               <span className="sp-logo-name">{l.name}</span>
               <span className="sp-logo-sub">{l.sub}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="sp-powered">
+        <span className="sp-trust-label">Propulsé par</span>
+        <div className="sp-logo-row">
+          {poweredBy.map((p, i) => (
+            <div key={i} className="sp-logo sp-powered-logo" style={{ opacity: 0 }}>
+              <span className="sp-logo-name">{p.name}</span>
+              <span className="sp-logo-sub">{p.desc}</span>
             </div>
           ))}
         </div>

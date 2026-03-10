@@ -1,28 +1,56 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Reveal from "../ui/Reveal";
 import MagneticButton from "../ui/MagneticButton";
+
+const FORMSPREE_URL = "https://formspree.io/f/xeojkvbg";
+const WHATSAPP_URL = "https://wa.me/23799311413?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo%20de%20TerraFlow.";
 
 export default function Demo() {
   const [formData, setFormData] = useState({
     name: "", email: "", company: "", hectares: "", phone: "", message: "",
   });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, company } = formData;
     if (!name || !email || !company) return;
 
-    const subject = encodeURIComponent(`[TerraFlow] Demande de demo — ${company}`);
-    const body = encodeURIComponent(
-      `Nom: ${name}\nEmail: ${email}\nEntreprise: ${company}\nSuperficie: ${formData.hectares || "Non renseignee"}\nTel: ${formData.phone || "Non renseigne"}\n\n${formData.message || "Je souhaite une demonstration de TerraFlow."}`
-    );
-    window.open(`mailto:contact@terraflow.cm?subject=${subject}&body=${body}`, "_self");
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          _replyto: formData.email,
+          email: formData.email,
+          company: formData.company,
+          hectares: formData.hectares || "Non renseigné",
+          phone: formData.phone || "Non renseigné",
+          message: formData.message || "Je souhaite une démonstration de TerraFlow.",
+          _subject: `[TerraFlow] Demande de démo — ${formData.company}`,
+        }),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setFormData({ name: "", email: "", company: "", hectares: "", phone: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   const onChange = (field) => (e) => setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+
+  const buttonText = {
+    idle: "Demander ma Démo Gratuite",
+    sending: "Envoi en cours...",
+    sent: "Demande envoyée !",
+    error: "Erreur — Réessayer",
+  };
 
   return (
     <section id="demo" className="section section-vert">
@@ -64,20 +92,43 @@ export default function Demo() {
         </div>
 
         <Reveal direction="left" delay={0.2}>
-          <form className="demo-form" onSubmit={handleSubmit}>
-            <div className="form-row">
-              <input type="text" placeholder="Votre nom *" value={formData.name} onChange={onChange("name")} required />
-              <input type="email" placeholder="Email professionnel *" value={formData.email} onChange={onChange("email")} required />
-            </div>
-            <div className="form-row">
-              <input type="text" placeholder="Entreprise / Exploitation *" value={formData.company} onChange={onChange("company")} required />
-              <input type="text" placeholder="Superficie (hectares)" value={formData.hectares} onChange={onChange("hectares")} />
-            </div>
-            <input type="tel" placeholder="Téléphone" value={formData.phone} onChange={onChange("phone")} />
-            <textarea placeholder="Dites-nous en plus sur vos besoins..." value={formData.message} onChange={onChange("message")} />
-            <MagneticButton className="btn btn-primary btn-full" as="button" type="submit">
-              {sent ? "Demande envoyée !" : "Demander ma Démo Gratuite"}
+          <form className="demo-form" onSubmit={handleSubmit} noValidate>
+            <fieldset disabled={status === "sending"}>
+              <div className="form-row">
+                <div className="form-field">
+                  <label htmlFor="demo-name">Votre nom *</label>
+                  <input id="demo-name" type="text" placeholder="Jean Paul Dupont" value={formData.name} onChange={onChange("name")} required aria-required="true" />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="demo-email">Email professionnel *</label>
+                  <input id="demo-email" type="email" placeholder="jean@entreprise.com" value={formData.email} onChange={onChange("email")} required aria-required="true" />
+                </div>
+              </div>
+              <div className="form-row">
+                <div className="form-field">
+                  <label htmlFor="demo-company">Entreprise / Exploitation *</label>
+                  <input id="demo-company" type="text" placeholder="Nom de votre exploitation" value={formData.company} onChange={onChange("company")} required aria-required="true" />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="demo-hectares">Superficie (hectares)</label>
+                  <input id="demo-hectares" type="text" placeholder="ex: 200" value={formData.hectares} onChange={onChange("hectares")} />
+                </div>
+              </div>
+              <div className="form-field">
+                <label htmlFor="demo-phone">Téléphone</label>
+                <input id="demo-phone" type="tel" placeholder="+237 6XX XXX XXX" value={formData.phone} onChange={onChange("phone")} />
+              </div>
+              <div className="form-field">
+                <label htmlFor="demo-message">Message</label>
+                <textarea id="demo-message" placeholder="Dites-nous en plus sur vos besoins..." value={formData.message} onChange={onChange("message")} />
+              </div>
+            </fieldset>
+            <MagneticButton className={`btn btn-primary btn-full ${status === "sent" ? "btn-success" : ""}`} as="button" type="submit" disabled={status === "sending"}>
+              {buttonText[status]}
             </MagneticButton>
+            <p className="demo-whatsapp-alt">
+              Préférez WhatsApp ? <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Écrivez-nous directement</a>
+            </p>
           </form>
         </Reveal>
       </div>

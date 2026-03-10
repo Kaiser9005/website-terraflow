@@ -70,7 +70,7 @@ export default function Stats() {
           <div key={i} className="stat-item" style={{ opacity: 0 }}>
             <div className="stat-value">
               <span className="stat-value-num" data-target={s.value}>
-                {s.value === 0 ? "0" : "0"}
+                0
               </span>
               {s.suffix}
             </div>

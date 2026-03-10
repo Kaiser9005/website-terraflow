@@ -68,7 +68,7 @@ export default function CaseStudy({ scrollTo }) {
           </Reveal>
           <Reveal delay={0.4}>
             <MagneticButton className="btn btn-primary" onClick={() => scrollTo("demo")}>
-              Obtenir les mêmes résultats
+              Obtenir les mêmes résultats pour mon exploitation
             </MagneticButton>
           </Reveal>
         </div>

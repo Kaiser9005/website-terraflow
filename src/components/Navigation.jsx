@@ -20,7 +20,7 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
         <div className="nav-actions">
           <a
             className="nav-signin"
-            href="https://modules-rh-authentification-expert.vercel.app"
+            href="https://modules-rh-authentification-expert.vercel.app/login"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -28,7 +28,7 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
           </a>
           <a
             className="btn btn-outline btn-nav"
-            href="https://modules-rh-authentification-expert.vercel.app"
+            href="https://modules-rh-authentification-expert.vercel.app/signup"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -21,7 +21,7 @@ const plans = [
       "Support e-mail",
       "1 utilisateur admin",
     ],
-    cta: "Commencer",
+    cta: "Démarrer mon essai gratuit",
     featured: false,
   },
   {
@@ -35,10 +35,10 @@ const plans = [
       "IA prédictive (rendement, météo)",
       "Comptabilité OHADA complète",
       "Traçabilité parcelle-export",
-      "Support prioritaire",
+      "Support prioritaire (réponse < 4h)",
       "5 utilisateurs inclus",
     ],
-    cta: "Choisir Pro",
+    cta: "Essayer 60 jours gratuit",
     featured: true,
   },
   {
@@ -55,7 +55,7 @@ const plans = [
       "Utilisateurs illimités",
       "Formation & onboarding dédié",
     ],
-    cta: "Nous Contacter",
+    cta: "Demander un devis",
     featured: false,
   },
   {
@@ -70,7 +70,7 @@ const plans = [
       "Conformité marchés publics",
       "Support & SLA gouvernemental",
     ],
-    cta: "Nous Contacter",
+    cta: "Demander un devis",
     featured: false,
   },
 ];
@@ -135,6 +135,48 @@ export default function Pricing({ scrollTo }) {
           </div>
         ))}
       </div>
+
+      <Reveal delay={0.3}>
+        <div className="pricing-compare">
+          <h3 style={{ textAlign: "center", marginBottom: "1.5rem", fontSize: "1.1rem", fontWeight: 600 }}>
+            Comparaison détaillée
+          </h3>
+          <div className="pricing-matrix">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fonctionnalité</th>
+                  <th>Starter</th>
+                  <th className="pricing-matrix-featured">Pro</th>
+                  <th>Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Modules", "5–10", "15–20", "27"],
+                  ["Utilisateurs", "1", "5", "Illimité"],
+                  ["Gestion parcellaire", "Base", "Avancée", "Complète"],
+                  ["Comptabilité OHADA", "—", "Complète", "Complète"],
+                  ["IA prédictive", "—", "Rendement + météo", "Tous modèles"],
+                  ["Traçabilité", "—", "Parcelle-export", "ISO/HACCP"],
+                  ["Mode hors-ligne", "Basique", "Complet", "Complet + ONNX"],
+                  ["Support", "Email", "Prioritaire < 4h", "SLA + manager dédié"],
+                  ["Multi-sites", "—", "—", "Illimité"],
+                  ["API & webhooks", "—", "—", "Complet"],
+                  ["Facturation annuelle", "—", "2 mois offerts", "Sur mesure"],
+                ].map(([feature, s, p, e], i) => (
+                  <tr key={i}>
+                    <td>{feature}</td>
+                    <td>{s}</td>
+                    <td className="pricing-matrix-featured">{p}</td>
+                    <td>{e}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }
