@@ -88,8 +88,22 @@ em { font-style: normal; color: var(--accent); }
   cursor: pointer;
   letter-spacing: -0.02em;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .nav-logo span { color: var(--accent); }
+.nav-logo-img {
+  height: 2.2rem;
+  width: auto;
+  transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav.scrolled .nav-logo-img {
+  height: 1.6rem;
+}
+.footer-logo-tf {
+  height: 2.8rem;
+}
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   color: rgba(255,255,255,0.6);

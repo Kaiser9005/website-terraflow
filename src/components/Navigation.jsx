@@ -5,6 +5,13 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
     <>
       <nav className={`nav ${scrollY > 50 ? "scrolled" : ""}`} aria-label="Navigation principale">
         <a className="nav-logo" onClick={() => scrollTo("hero")}>
+          <img
+            src="/logo-terraflow.svg"
+            alt="TerraFlow — Accueil"
+            className="nav-logo-img"
+            width="48"
+            height="48"
+          />
           Terra<span>Flow</span>
         </a>
         <ul className="nav-links">

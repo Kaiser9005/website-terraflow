@@ -14,6 +14,13 @@ export default function Footer({ navItems, scrollTo }) {
       <div className="footer-top">
         <div className="footer-brand">
           <a className="nav-logo" onClick={() => scrollTo("hero")} style={{ cursor: "pointer" }}>
+            <img
+              src="/logo-terraflow.svg"
+              alt="TerraFlow"
+              className="nav-logo-img footer-logo-tf"
+              width="48"
+              height="48"
+            />
             Terra<span>Flow</span>
           </a>
           <p>
