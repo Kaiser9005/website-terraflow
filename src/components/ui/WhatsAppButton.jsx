@@ -1,7 +1,9 @@
+import { WHATSAPP_BASE } from "../../constants";
+
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/23799311413?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20TerraFlow."
+      href={`${WHATSAPP_BASE}?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20TerraFlow.`}
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-fab"

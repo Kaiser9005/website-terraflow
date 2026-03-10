@@ -59,11 +59,6 @@ export default function Blog() {
         ))}
       </div>
 
-      <Reveal delay={0.3}>
-        <p style={{ textAlign: "center", marginTop: "2rem", fontSize: "0.85rem", color: "var(--gris)" }}>
-          Blog complet bientôt disponible. Inscrivez-vous à la newsletter pour être notifié.
-        </p>
-      </Reveal>
     </section>
   );
 }

@@ -1804,6 +1804,43 @@ em { font-style: normal; color: var(--accent); }
   text-decoration: none;
 }
 .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+.footer-legal-content {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer-legal-inner {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.footer-legal-inner h4 {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.footer-legal-inner p {
+  margin-bottom: 0.6rem;
+}
+.footer-legal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem;
+}
+.footer-legal-close:hover { color: white; }
 
 /* ─── FEATURES BENTO GRID ─── */
 .features-bento {
@@ -1944,41 +1981,6 @@ em { font-style: normal; color: var(--accent); }
   letter-spacing: 0.05em;
 }
 @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
-
-/* ─── TRUST BADGES ─── */
-.trust-badges {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: clamp(2rem, 4vh, 4rem);
-  flex-wrap: wrap;
-}
-.trust-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 1rem 1.5rem;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  text-align: center;
-}
-.trust-badge-icon {
-  font-size: 1.5rem;
-  color: var(--accent);
-}
-.trust-badge-name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: white;
-}
-.trust-badge-sub {
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
 
 /* ─── LANG TOGGLE ─── */
 .lang-toggle {

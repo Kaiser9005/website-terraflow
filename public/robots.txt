@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://website-terraflow.vercel.app/sitemap.xml

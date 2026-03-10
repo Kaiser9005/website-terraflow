@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Reveal from "../ui/Reveal";
 import MagneticButton from "../ui/MagneticButton";
+import { WHATSAPP_BASE } from "../../constants";
 
 const FORMSPREE_URL = "https://formspree.io/f/xeojkvbg";
-const WHATSAPP_URL = "https://wa.me/23799311413?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo%20de%20TerraFlow.";
+const WHATSAPP_URL = `${WHATSAPP_BASE}?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo%20de%20TerraFlow.`;
 
 export default function Demo() {
   const [formData, setFormData] = useState({
