@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Fonts loaded via <link> in index.html (no render-blocking @import) */
 
 :root {
   --primary: #166534;
@@ -1590,6 +1590,11 @@ em { font-style: normal; color: var(--accent); }
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
   flex-shrink: 0;
+}
+.coverage-flag-emoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
 }
 .coverage-country-info {
   display: flex;

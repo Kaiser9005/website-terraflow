@@ -107,6 +107,9 @@ export default function Pricing({ scrollTo }) {
           <p className="body-lg" style={{ marginTop: "1rem", color: "var(--gris)" }}>
             60 jours d'essai gratuit. Aucun engagement. ROI mesurable dès le premier mois.
           </p>
+          <p className="pricing-payments" style={{ marginTop: "0.5rem", fontSize: "0.8rem", color: "var(--gris)" }}>
+            Paiement par virement, carte bancaire ou Mobile Money (Orange Money, MTN MoMo, Wave)
+          </p>
         </Reveal>
       </div>
 
@@ -174,6 +177,49 @@ export default function Pricing({ scrollTo }) {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.4}>
+        <div className="pricing-compare" style={{ marginTop: "3rem" }}>
+          <h3 style={{ textAlign: "center", marginBottom: "1.5rem", fontSize: "1.1rem", fontWeight: 600 }}>
+            TerraFlow vs Alternatives
+          </h3>
+          <div className="pricing-matrix">
+            <table>
+              <thead>
+                <tr>
+                  <th>Critère</th>
+                  <th className="pricing-matrix-featured">TerraFlow</th>
+                  <th>Odoo</th>
+                  <th>Excel</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Conformité OHADA", "Natif", "Module tiers", "Manuelle"],
+                  ["Paie multi-pays", "17 pays OHADA", "Par extension", "Non"],
+                  ["Mode hors-ligne", "PWA + ONNX", "Non", "Fichier local"],
+                  ["IA prédictive", "CatBoost/LightGBM", "Non", "Non"],
+                  ["Agriculture spécialisé", "27 modules", "Générique", "Non"],
+                  ["Traçabilité lot", "Parcelle-export", "Module séparé", "Non"],
+                  ["Mobile Money", "Orange, MTN, Wave", "Non natif", "Non"],
+                  ["Temps de déploiement", "4 semaines", "3-6 mois", "Immédiat"],
+                  ["Prix (PME)", "150-500 EUR/mois", "~1 000+ EUR/mois", "Gratuit*"],
+                ].map(([feature, tf, odoo, excel], i) => (
+                  <tr key={i}>
+                    <td>{feature}</td>
+                    <td className="pricing-matrix-featured">{tf}</td>
+                    <td>{odoo}</td>
+                    <td>{excel}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p style={{ textAlign: "center", fontSize: "0.7rem", color: "var(--gris)", marginTop: "0.75rem" }}>
+              * Excel : coût caché estimé ~15% du CA en inefficacités (source : FAO/World Bank)
+            </p>
           </div>
         </div>
       </Reveal>

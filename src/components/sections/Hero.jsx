@@ -91,7 +91,7 @@ export default function Hero({ scrollTo }) {
               <div className="hero-browser-dots">
                 <span /><span /><span />
               </div>
-              <span className="hero-browser-url">app.terraflow.cm</span>
+              <span className="hero-browser-url">modules-rh-authentification-expert.vercel.app</span>
             </div>
             <img
               src="/screenshots/dashboard.png"
