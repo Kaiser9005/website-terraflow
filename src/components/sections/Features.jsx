@@ -36,7 +36,7 @@ const features = [
   {
     icon: "\uD83D\uDCB0",
     title: "Paie & RH",
-    desc: "Gestion complète des 9 sous-modules RH. Calcul automatique des cotisations sociales et fiscales. Conformité multi-pays Zone OHADA.",
+    desc: "Gestion complète des 11 sous-modules RH. Calcul automatique des cotisations sociales et fiscales. Conformité multi-pays Zone OHADA.",
     size: "normal",
   },
   {
