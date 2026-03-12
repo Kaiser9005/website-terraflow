@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { value: 27, suffix: "", label: "Modules", desc: "intégrés dans une seule plateforme" },
-  { value: 9, suffix: "", label: "Sous-Modules RH", desc: "paie, congés, présence, formation..." },
+  { value: 11, suffix: "", label: "Sous-Modules RH", desc: "paie, congés, présence, formation, tâches..." },
   { value: 99, suffix: ".9%", label: "Disponibilité", desc: "objectif uptime" },
   { value: 6, suffix: "", label: "Modèles IA", desc: "rendement, qualité, prix (×3 produits)" },
   { value: 17, suffix: "", label: "Pays OHADA", desc: "architecture multi-juridictions" },
