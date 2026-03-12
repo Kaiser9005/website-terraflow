@@ -14,7 +14,7 @@ const certifications = [
   },
   {
     name: "Caisses Sociales Multi-Pays",
-    desc: "Cotisations sociales adaptées par pays : CNPS, CNSS, INSS, CSS. Taux vérifiés, calcul automatique.",
+    desc: "Cotisations CNPS Cameroun vérifiées. Architecture extensible aux autres caisses (CNSS, INSS, CSS).",
     status: "active",
   },
   {
@@ -39,7 +39,7 @@ const security = [
   { icon: "\uD83D\uDEE1\uFE0F", label: "Row Level Security (RLS) multi-tenant" },
   { icon: "\uD83C\uDF10", label: "Infrastructure Supabase (SOC 2 Type II)" },
   { icon: "\uD83D\uDD11", label: "Authentification 2FA + sessions sécurisées" },
-  { icon: "\uD83D\uDCCA", label: "Monitoring Sentry 24/7, SLA 99.95%" },
+  { icon: "\uD83D\uDCCA", label: "Monitoring Sentry 24/7" },
   { icon: "\uD83C\uDF0D", label: "Résidence données flexible (EU / Afrique)" },
 ];
 
@@ -111,8 +111,8 @@ export default function Trust() {
               <div className="trust-uptime-fill" />
             </div>
             <div className="trust-uptime-info">
-              <span className="trust-uptime-value">99.95%</span>
-              <span className="trust-uptime-label">Uptime garanti SLA</span>
+              <span className="trust-uptime-value">99.9%</span>
+              <span className="trust-uptime-label">Objectif disponibilité</span>
             </div>
           </div>
         </div>

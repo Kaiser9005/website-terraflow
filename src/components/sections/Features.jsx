@@ -41,8 +41,8 @@ const features = [
   },
   {
     icon: "\uD83D\uDCF1",
-    title: "Mode Hors-Ligne",
-    desc: "Les modèles IA tournent en local via ONNX. Synchronisation automatique quand la connexion revient. Fait pour le terrain.",
+    title: "PWA & Terrain",
+    desc: "Application installable sur mobile. Mode hors-ligne avec synchronisation automatique en développement (ONNX + PowerSync).",
     size: "normal",
   },
 ];

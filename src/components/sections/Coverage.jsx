@@ -74,7 +74,7 @@ export default function Coverage() {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-lg" style={{ marginTop: "1rem", color: "var(--gris)" }}>
-            Conformité sociale et comptable adaptée à chaque juridiction de l'espace OHADA. Multi-devises FCFA, EUR, USD.
+            Plan comptable OHADA natif. Cotisations CNPS Cameroun vérifiées. Architecture extensible aux 17 juridictions. Multi-devises FCFA, EUR, USD.
           </p>
         </Reveal>
       </div>

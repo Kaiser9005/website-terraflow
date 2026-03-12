@@ -8,12 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const stats = [
   { value: 27, suffix: "", label: "Modules", desc: "intégrés dans une seule plateforme" },
   { value: 9, suffix: "", label: "Sous-Modules RH", desc: "paie, congés, présence, formation..." },
-  { value: 99, suffix: ".95%", label: "Disponibilité", desc: "uptime garanti SLA" },
-  { value: 50, suffix: "ms", label: "Latence P95", desc: "temps de réponse" },
-  { value: 5, suffix: "+", label: "Modèles IA", desc: "rendement, prix, santé, météo" },
-  { value: 17, suffix: "", label: "Pays OHADA", desc: "conformité multi-juridictions" },
-  { value: 192, suffix: "", label: "Tests Auto", desc: "couverture 87%+" },
-  { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable garantie" },
+  { value: 99, suffix: ".9%", label: "Disponibilité", desc: "objectif uptime" },
+  { value: 6, suffix: "", label: "Modèles IA", desc: "rendement, qualité, prix (×3 produits)" },
+  { value: 17, suffix: "", label: "Pays OHADA", desc: "architecture multi-juridictions" },
+  { value: 180, suffix: "+", label: "Tests Auto", desc: "fichiers de test" },
+  { value: 800, suffix: "+", label: "Données Météo", desc: "jours de données Open-Meteo" },
+  { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable Cameroun" },
 ];
 
 export default function Stats() {

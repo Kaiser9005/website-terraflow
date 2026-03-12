@@ -51,7 +51,7 @@ const plans = [
       "IA avancée + chatbot agronomique",
       "API partenaires & webhooks",
       "Multi-sites, multi-devises",
-      "SLA 99.95% garanti",
+      "SLA sur mesure",
       "Utilisateurs illimités",
       "Formation & onboarding dédié",
     ],
@@ -108,7 +108,7 @@ export default function Pricing({ scrollTo }) {
             60 jours d'essai gratuit. Aucun engagement. ROI mesurable dès le premier mois.
           </p>
           <p className="pricing-payments" style={{ marginTop: "0.5rem", fontSize: "0.8rem", color: "var(--gris)" }}>
-            Paiement par virement, carte bancaire ou Mobile Money (Orange Money, MTN MoMo, Wave)
+            Paiement par virement ou carte bancaire. Mobile Money bientôt disponible.
           </p>
         </Reveal>
       </div>
@@ -199,12 +199,12 @@ export default function Pricing({ scrollTo }) {
               <tbody>
                 {[
                   ["Conformité OHADA", "Natif", "Module tiers", "Manuelle"],
-                  ["Paie multi-pays", "17 pays OHADA", "Par extension", "Non"],
-                  ["Mode hors-ligne", "PWA + ONNX", "Non", "Fichier local"],
+                  ["Paie multi-pays", "Cameroun + extensible", "Par extension", "Non"],
+                  ["Mode hors-ligne", "PWA (en dev)", "Non", "Fichier local"],
                   ["IA prédictive", "CatBoost/LightGBM", "Non", "Non"],
                   ["Agriculture spécialisé", "27 modules", "Générique", "Non"],
                   ["Traçabilité lot", "Parcelle-export", "Module séparé", "Non"],
-                  ["Mobile Money", "Orange, MTN, Wave", "Non natif", "Non"],
+                  ["Mobile Money", "Bientôt", "Non natif", "Non"],
                   ["Temps de déploiement", "4 semaines", "3-6 mois", "Immédiat"],
                   ["Prix (PME)", "150-500 EUR/mois", "~1 000+ EUR/mois", "Gratuit*"],
                 ].map(([feature, tf, odoo, excel], i) => (

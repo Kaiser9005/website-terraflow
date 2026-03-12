@@ -11,16 +11,16 @@ const testimonials = [
     initials: "JP",
   },
   {
-    text: "La traçabilité parcelle-à-export nous a permis d'obtenir la certification HACCP en 6 mois au lieu de 18. Un avantage compétitif énorme.",
-    author: "Aminata KONATÉ",
-    role: "Responsable Qualité, Coopérative CAPLAMI — 200 ha, Côte d'Ivoire",
-    initials: "AK",
+    text: "Le module IA prédit les rendements de nos palmiers avec un R² de 0.79. Pour la première fois, on anticipe nos volumes de production au lieu de les subir.",
+    author: "Jean Paul FODJO",
+    role: "Fondateur & DG, FOFAL — 80 ha, Cameroun",
+    initials: "JP",
   },
   {
-    text: "Le mode hors-ligne est un game-changer. Mes superviseurs enregistrent les données au champ, et tout se synchronise quand ils rentrent au bureau.",
-    author: "Kouamé DIALLO",
-    role: "Directeur Opérations, Plantation SOPALM — 500 ha, Cameroun",
-    initials: "KD",
+    text: "La traçabilité de la parcelle à la vente, combinée à la comptabilité OHADA automatisée, nous fait gagner un temps considérable sur la clôture comptable.",
+    author: "Jean Paul FODJO",
+    role: "Fondateur & DG, FOFAL — 80 ha, Cameroun",
+    initials: "JP",
   },
 ];
 
