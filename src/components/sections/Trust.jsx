@@ -40,7 +40,7 @@ const security = [
   { icon: "\uD83C\uDF10", label: "Infrastructure Supabase (SOC 2 Type II)" },
   { icon: "\uD83D\uDD11", label: "Authentification 2FA + sessions sécurisées" },
   { icon: "\uD83D\uDCCA", label: "Monitoring Sentry 24/7" },
-  { icon: "\uD83C\uDF0D", label: "Résidence données flexible (EU / Afrique)" },
+  { icon: "\uD83C\uDF0D", label: "Résidence données EU (extensible Afrique)" },
 ];
 
 export default function Trust() {

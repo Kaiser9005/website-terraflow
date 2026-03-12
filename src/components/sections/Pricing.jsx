@@ -162,7 +162,7 @@ export default function Pricing({ scrollTo }) {
                   ["Comptabilité OHADA", "—", "Complète", "Complète"],
                   ["IA prédictive", "—", "Rendement + météo", "Tous modèles"],
                   ["Traçabilité", "—", "Parcelle-export", "ISO/HACCP"],
-                  ["Mode hors-ligne", "Basique", "Complet", "Complet + ONNX"],
+                  ["Mode hors-ligne", "Basique", "En dev", "En dev + ONNX"],
                   ["Support", "Email", "Prioritaire < 4h", "SLA + manager dédié"],
                   ["Multi-sites", "—", "—", "Illimité"],
                   ["API & webhooks", "—", "—", "Complet"],
