@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const metrics = [
-  { value: "27", unit: "", label: "modules intégrés" },
+  { value: "30+", unit: "", label: "modules intégrés" },
   { value: "17", unit: "", label: "pays OHADA couverts" },
   { value: "3x", unit: "", label: "ROI dès la 1ère année" },
   { value: "<48", unit: "ms", label: "temps de réponse P95" },

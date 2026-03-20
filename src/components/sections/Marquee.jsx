@@ -38,7 +38,7 @@ export default function Marquee() {
             <span className="marquee-dot">&#10022;</span>
             <span className="marquee-item">Traçabilité Parcelle-Export</span>
             <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">27 Modules</span>
+            <span className="marquee-item">30+ Modules</span>
             <span className="marquee-dot">&#10022;</span>
             <span className="marquee-item">Offline-First</span>
             <span className="marquee-dot">&#10022;</span>

@@ -24,8 +24,8 @@ export default function Footer({ navItems, scrollTo }) {
             Terra<span>Flow</span>
           </a>
           <p>
-            L'ERP agricole intelligent conçu pour l'Afrique. 27 modules intégrés,
-            IA prédictive, conformité OHADA. De la parcelle à l'export.
+            L'ERP agricole intelligent conçu pour l'Afrique. 30+ modules intégrés,
+            IA prédictive, chatbot agronomique, conformité OHADA. De la parcelle à l'export.
           </p>
           <div className="footer-payments">
             <span className="footer-payment">Visa</span>

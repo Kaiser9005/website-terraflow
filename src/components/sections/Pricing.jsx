@@ -158,7 +158,7 @@ export default function Pricing({ scrollTo }) {
               </thead>
               <tbody>
                 {[
-                  ["Modules", "5–10", "15–20", "27"],
+                  ["Modules", "5–10", "20–25", "30+"],
                   ["Utilisateurs", "1", "5", "Illimité"],
                   ["Gestion parcellaire", "Base", "Avancée", "Complète"],
                   ["Comptabilité OHADA", "—", "Complète", "Complète"],
@@ -204,7 +204,7 @@ export default function Pricing({ scrollTo }) {
                   ["Paie multi-pays", "Cameroun + extensible", "Par extension", "Non"],
                   ["Mode hors-ligne", "PWA (en dev)", "Non", "Fichier local"],
                   ["IA prédictive", "CatBoost/LightGBM", "Non", "Non"],
-                  ["Agriculture spécialisé", "27 modules", "Générique", "Non"],
+                  ["Agriculture spécialisé", "30+ modules", "Générique", "Non"],
                   ["Traçabilité lot", "Parcelle-export", "Module séparé", "Non"],
                   ["Mobile Money", "Bientôt", "Non natif", "Non"],
                   ["Temps de déploiement", "4 semaines", "3-6 mois", "Immédiat"],
