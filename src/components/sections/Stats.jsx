@@ -6,13 +6,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { value: 27, suffix: "", label: "Modules", desc: "intégrés dans une seule plateforme" },
-  { value: 11, suffix: "", label: "Sous-Modules RH", desc: "paie, congés, présence, formation, tâches..." },
-  { value: 99, suffix: ".9%", label: "Disponibilité", desc: "objectif uptime" },
-  { value: 6, suffix: "", label: "Modèles IA", desc: "rendement, qualité, prix (×3 produits)" },
+  { value: 30, suffix: "+", label: "Modules", desc: "dont qualité, budget, chatbot IA" },
+  { value: 11, suffix: "", label: "Sous-Modules RH", desc: "paie, congés, compétences, évaluations 360°..." },
+  { value: 99, suffix: ".9%", label: "Disponibilité", desc: "objectif uptime (Sentry monitoring)" },
+  { value: 6, suffix: "", label: "Modèles IA", desc: "rendement, qualité, prix (×3 produits), demande" },
   { value: 17, suffix: "", label: "Pays OHADA", desc: "architecture multi-juridictions" },
-  { value: 180, suffix: "+", label: "Tests Auto", desc: "fichiers de test" },
-  { value: 800, suffix: "+", label: "Données Météo", desc: "jours de données Open-Meteo" },
+  { value: 900, suffix: "+", label: "Tests Auto", desc: "couverture 100% hooks & services" },
+  { value: 15, suffix: "K+", label: "Clés i18n", desc: "interface bilingue FR/EN complète" },
   { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable Cameroun" },
 ];
 

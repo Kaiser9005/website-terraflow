@@ -74,7 +74,7 @@ export default function Hero({ scrollTo }) {
               <span className="kinetic-line"><span className="hero-title-line"><em>Afrique</em></span></span>
             </h1>
             <p className="hero-subtitle" style={{ opacity: 0 }}>
-              27 modules. IA prédictive. Conformité OHADA.
+              30+ modules. IA prédictive. Chatbot agronomique. Qualité & Excellence.
               La plateforme qui transforme chaque exploitation agricole en entreprise connectée.
             </p>
             <div className="hero-cta-row" style={{ opacity: 0 }}>

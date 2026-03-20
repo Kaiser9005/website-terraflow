@@ -15,7 +15,7 @@ const moduleGroups = [
       { name: "Paie Multi-Pays", desc: "Cotisations sociales & fiscales adaptées par juridiction OHADA" },
       { name: "Congés & Absences", desc: "Validation multi-niveaux, soldes temps réel" },
       { name: "Présence & Pointage", desc: "Suivi quotidien, heures supplémentaires" },
-      { name: "Formation", desc: "Plans de développement, certifications" },
+      { name: "Formation & Compétences", desc: "Plans de développement, matrice de compétences, évaluations 360°" },
       { name: "Tâches & Planning", desc: "Attribution, suivi, rendement par équipe" },
     ],
   },
@@ -36,11 +36,23 @@ const moduleGroups = [
     color: "var(--secondary)",
     modules: [
       { name: "Comptabilité OHADA", desc: "SYSCOHADA complet, clôture automatisée" },
-      { name: "Analytique & BI", desc: "30+ indicateurs, tableaux de bord IA" },
+      { name: "Budget & Trésorerie", desc: "Prévisions cash flow ML, budgets par département" },
       { name: "Ventes & CRM", desc: "Pipeline, scoring ML, multi-acheteurs" },
       { name: "Inventaire", desc: "6 services spécialisés, traçabilité lot" },
       { name: "Achats", desc: "Flux fournisseurs, approbations, export" },
       { name: "Tarification", desc: "Moteur de prix dynamique" },
+    ],
+  },
+  {
+    category: "Qualité & Excellence",
+    color: "#8b5cf6",
+    modules: [
+      { name: "PDCA / 8D / QRQC", desc: "Résolution structurée de problèmes qualité" },
+      { name: "Kanban & OKR", desc: "Gestion visuelle des flux, objectifs stratégiques" },
+      { name: "SPC & AMDEC", desc: "Cartes de contrôle statistique, analyse de risques" },
+      { name: "5S & Gemba Walk", desc: "Audits terrain géolocalisés, organisation postes" },
+      { name: "VSM & SMED", desc: "Cartographie flux de valeur, réduction temps changement" },
+      { name: "Chatbot IA Agronomique", desc: "12 outils Claude, 489 embeddings, conseils terrain" },
     ],
   },
 ];
@@ -67,7 +79,7 @@ export default function Modules() {
     <section id="modules" className="section section-dark" ref={sectionRef}>
       <div className="section-header">
         <Reveal>
-          <div className="eyebrow" style={{ color: "var(--accent)" }}>27 Modules Intégrés</div>
+          <div className="eyebrow" style={{ color: "var(--accent)" }}>30+ Modules Intégrés</div>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem", color: "white" }}>
@@ -99,7 +111,7 @@ export default function Modules() {
 
       <Reveal delay={0.3}>
         <p className="modules-count" style={{ textAlign: "center", marginTop: "3rem", color: "rgba(255,255,255,0.4)", fontSize: "0.85rem" }}>
-          + Documents/GED, Import de Données, Administration, Authentification 2FA, HR Analytics, Planning Génétique
+          + Documents/GED, Import de Données, Administration, Authentification 2FA, HR Analytics, Planning Génétique, Analytique & BI, TPM Maintenance
         </p>
       </Reveal>
     </section>
