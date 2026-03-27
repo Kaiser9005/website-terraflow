@@ -2,10 +2,12 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Marquee() {
+  const { t } = useLang();
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
 
@@ -30,18 +32,12 @@ export default function Marquee() {
       <div className="marquee-track" ref={trackRef}>
         {[...Array(2)].map((_, i) => (
           <div key={i} style={{ display: "flex" }}>
-            <span className="marquee-item">KALTIV</span>
-            <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">Command Platform</span>
-            <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">27+ Modules</span>
-            <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">268 Tables</span>
-            <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">5 Pays</span>
-            <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">Offline-First</span>
-            <span className="marquee-dot">&#10022;</span>
+            {t("marquee.items").map((item, j) => (
+              <span key={j}>
+                <span className="marquee-item">{item}</span>
+                <span className="marquee-dot">&#10022;</span>
+              </span>
+            ))}
           </div>
         ))}
       </div>

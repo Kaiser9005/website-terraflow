@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Reveal from "../ui/Reveal";
 import MagneticButton from "../ui/MagneticButton";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,6 +64,7 @@ function calculateROI(revenusAnnuels, nombreEmployes, erpActuel) {
 }
 
 export default function ROICalculator({ scrollTo }) {
+  const { t } = useLang();
   const sectionRef = useRef(null);
   const [revenus, setRevenus] = useState(50);
   const [employes, setEmployes] = useState(40);
@@ -95,16 +97,20 @@ export default function ROICalculator({ scrollTo }) {
     <section id="roi" className="section" ref={sectionRef}>
       <div className="section-header" style={{ textAlign: "center", margin: "0 auto", maxWidth: 750 }}>
         <Reveal>
-          <div className="eyebrow">Calculateur ROI</div>
+          <div className="eyebrow">{t("roi.eyebrow")}</div>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-            Combien <em>économisez</em>-vous ?
+            {(() => {
+              const raw = t("roi.title");
+              const parts = raw.split(/\{|\}/);
+              return <>{parts[0]}<em>{parts[1]}</em>{parts[2]}</>;
+            })()}
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-lg" style={{ marginTop: "1rem", color: "var(--gris)" }}>
-            Estimez vos gains annuels en adoptant KALTIV. Base sur les benchmarks FAO et les donnees de nos clients.
+            {t("roi.subtitle")}
           </p>
         </Reveal>
       </div>
@@ -112,7 +118,7 @@ export default function ROICalculator({ scrollTo }) {
       <div className="roi-layout">
         <div className="roi-inputs">
           <div className="roi-field">
-            <label>Revenus annuels (M FCFA)</label>
+            <label>{t("roi.revenueLabel")}</label>
             <input
               type="range"
               min="10"
@@ -124,7 +130,7 @@ export default function ROICalculator({ scrollTo }) {
             <span className="roi-field-value">{revenus}M FCFA</span>
           </div>
           <div className="roi-field">
-            <label>Nombre d'employés</label>
+            <label>{t("roi.employeesLabel")}</label>
             <input
               type="range"
               min="1"
@@ -136,13 +142,9 @@ export default function ROICalculator({ scrollTo }) {
             <span className="roi-field-value">{employes}</span>
           </div>
           <div className="roi-field">
-            <label>Système actuel</label>
+            <label>{t("roi.systemLabel")}</label>
             <div className="roi-radio-group">
-              {[
-                { val: "aucun", label: "Papier / Rien" },
-                { val: "excel", label: "Excel" },
-                { val: "autre", label: "Autre ERP" },
-              ].map((opt) => (
+              {t("roi.systemOptions").map((opt) => (
                 <button
                   key={opt.val}
                   className={`roi-radio ${erp === opt.val ? "active" : ""}`}
@@ -160,43 +162,41 @@ export default function ROICalculator({ scrollTo }) {
             <div className="roi-kpis">
               <div className="roi-kpi roi-kpi-savings">
                 <span className="roi-kpi-value">{formatFCFA(result.economiesAnnuelles)}</span>
-                <span className="roi-kpi-label">Économies annuelles nettes</span>
+                <span className="roi-kpi-label">{t("roi.netSavings")}</span>
               </div>
               <div className="roi-kpi roi-kpi-roi">
                 <span className="roi-kpi-value">{result.roiPercent}%</span>
-                <span className="roi-kpi-label">Retour sur investissement</span>
+                <span className="roi-kpi-label">{t("roi.returnOnInvestment")}</span>
               </div>
               <div className="roi-kpi roi-kpi-breakeven">
-                <span className="roi-kpi-value">{result.breakEvenMonths} mois</span>
-                <span className="roi-kpi-label">Rentabilité atteinte</span>
+                <span className="roi-kpi-value">{result.breakEvenMonths} {t("roi.months")}</span>
+                <span className="roi-kpi-label">{t("roi.breakEven")}</span>
               </div>
             </div>
           ) : (
             <div className="roi-recommendation">
               <div className="roi-recommendation-icon">💡</div>
-              <h3>Nous avons une offre adaptée pour vous</h3>
+              <h3>{t("roi.recommendTitle")}</h3>
               <p>
-                Pour votre profil ({revenus}M FCFA, {employes} employés),
-                nous recommandons le plan <strong>{suggestedTier}</strong>.
-                Contactez-nous pour une tarification personnalisée et un ROI garanti.
+                {t("roi.recommendText", { revenus, employes, tier: suggestedTier })}
               </p>
               <div className="roi-kpis" style={{ marginTop: "1rem" }}>
                 <div className="roi-kpi roi-kpi-savings">
                   <span className="roi-kpi-value">{formatFCFA(result.gainsTotaux)}</span>
-                  <span className="roi-kpi-label">Gains bruts potentiels</span>
+                  <span className="roi-kpi-label">{t("roi.grossGains")}</span>
                 </div>
                 <div className="roi-kpi roi-kpi-breakeven">
                   <span className="roi-kpi-value">{formatFCFA(result.pertesTotales)}</span>
-                  <span className="roi-kpi-label">Pertes actuelles estimées</span>
+                  <span className="roi-kpi-label">{t("roi.currentLosses")}</span>
                 </div>
               </div>
             </div>
           )}
 
           <div className="roi-bars">
-            {result.details.map((d) => (
+            {result.details.map((d, idx) => (
               <div key={d.key} className="roi-bar-row">
-                <span className="roi-bar-label">{d.label}</span>
+                <span className="roi-bar-label">{t("roi.lossLabels")[idx]}</span>
                 <div className="roi-bar-track">
                   <div
                     className="roi-bar-loss"
@@ -210,14 +210,14 @@ export default function ROICalculator({ scrollTo }) {
               </div>
             ))}
             <div className="roi-bar-legend">
-              <span><span className="roi-dot roi-dot-loss" /> Pertes actuelles</span>
-              <span><span className="roi-dot roi-dot-gain" /> Gains KALTIV</span>
+              <span><span className="roi-dot roi-dot-loss" /> {t("roi.legendLoss")}</span>
+              <span><span className="roi-dot roi-dot-gain" /> {t("roi.legendGain")}</span>
             </div>
           </div>
 
           <div style={{ textAlign: "center", marginTop: "2rem" }}>
             <MagneticButton className="btn btn-primary" onClick={() => scrollTo("demo")}>
-              {isPositive ? "Obtenir mon rapport ROI détaillé" : "Discuter de mon offre personnalisée"}
+              {isPositive ? t("roi.ctaPositive") : t("roi.ctaNegative")}
             </MagneticButton>
           </div>
         </div>

@@ -3,10 +3,12 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MagneticButton from "../ui/MagneticButton";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero({ scrollTo }) {
+  const { t } = useLang();
   const sectionRef = useRef(null);
   const overlayRef = useRef(null);
 
@@ -66,22 +68,29 @@ export default function Hero({ scrollTo }) {
         <div ref={overlayRef} className="hero-overlay">
           <div className="hero-content">
             <div className="hero-eyebrow" style={{ opacity: 0 }}>
-              The Agribusiness Command Platform
+              {t("hero.eyebrow")}
             </div>
             <h1 className="display-xl hero-title">
-              <span className="kinetic-line"><span className="hero-title-line">Run your entire</span></span>
-              <span className="kinetic-line"><span className="hero-title-line"><em>value chain.</em></span></span>
+              {(() => {
+                const raw = t("hero.title");
+                const parts = raw.split(/\{|\}/);
+                return (
+                  <>
+                    <span className="kinetic-line"><span className="hero-title-line">{parts[0]}</span></span>
+                    <span className="kinetic-line"><span className="hero-title-line"><em>{parts[1]}</em></span></span>
+                  </>
+                );
+              })()}
             </h1>
             <p className="hero-subtitle" style={{ opacity: 0 }}>
-              27+ modules. IA prédictive. Chatbot agronomique. Digital Chief of Staff.
-              Conformité multi-régionale native (OHADA, CEMAC, UEMOA). Du terrain au bilan, un seul système.
+              {t("hero.subtitle")}
             </p>
             <div className="hero-cta-row" style={{ opacity: 0 }}>
               <MagneticButton className="btn btn-primary" onClick={() => scrollTo("demo")}>
-                Démarrer — 60 jours gratuit
+                {t("hero.ctaPrimary")}
               </MagneticButton>
               <MagneticButton className="btn btn-outline" onClick={() => scrollTo("demo")}>
-                Demander une démo
+                {t("hero.ctaSecondary")}
               </MagneticButton>
             </div>
           </div>
@@ -94,13 +103,13 @@ export default function Hero({ scrollTo }) {
             </div>
             <img
               src="/screenshots/dashboard.webp"
-              alt="KALTIV — Tableau de bord"
+              alt={t("hero.screenshotAlt")}
               className="hero-screenshot"
               loading="eager"
             />
           </div>
           <div className="scroll-indicator">
-            <span>Scroll</span>
+            <span>{t("hero.scroll")}</span>
             <div className="scroll-line" />
           </div>
         </div>

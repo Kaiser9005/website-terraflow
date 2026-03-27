@@ -1,58 +1,25 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Reveal from "../ui/Reveal";
 import MagneticButton from "../ui/MagneticButton";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const personas = [
-  {
-    id: "pdg",
-    label: "PDG / DG",
-    icon: "\uD83C\uDFE2",
-    title: "Vision stratégique & ROI",
-    pain: "Vous passez des heures à consolider des rapports Excel pour prendre des décisions.",
-    solution: "Dashboard temps réel avec KPIs consolidés, prévisions IA, et reporting automatique OHADA.",
-    modules: ["Analytics & BI", "Comptabilité OHADA", "Planning"],
-    result: "Décisions data-driven, clôture en 1 jour, visibilité 360°",
-  },
-  {
-    id: "daf",
-    label: "DAF / Comptable",
-    icon: "\uD83D\uDCCA",
-    title: "Conformité & automatisation",
-    pain: "La conformité OHADA et les cotisations sociales prennent des semaines et le risque d'erreur est permanent.",
-    solution: "Paie automatisée conforme multi-pays (CNPS, CNSS, INSS...). SYSCOHADA complet avec clôture automatique.",
-    modules: ["Paie Multi-Pays", "Comptabilité OHADA", "Inventaire"],
-    result: "Zéro erreur de paie, conformité garantie, audit-ready",
-  },
-  {
-    id: "dt",
-    label: "Dir. Technique",
-    icon: "\u2699\uFE0F",
-    title: "Terrain & traçabilité",
-    pain: "Les données terrain arrivent avec 2-3 jours de retard. Impossible de réagir vite.",
-    solution: "Saisie mobile hors-ligne, IoT temps réel, traçabilité GPS de la parcelle à l'export.",
-    modules: ["Gestion Parcellaire", "GMAO & IoT", "Traçabilité"],
-    result: "Données en temps réel, maintenance prédictive, certification HACCP",
-  },
-  {
-    id: "investisseur",
-    label: "Investisseur",
-    icon: "\uD83D\uDCB0",
-    title: "Marché & différenciateurs",
-    pain: "Vous cherchez une solution agritech scalable pour le marché africain.",
-    solution: "Multi-tenant, multi-devises, offline-first. Le seul ERP agricole avec IA et conformité OHADA intégrées.",
-    modules: ["Multi-tenant", "API & Webhooks", "IA Prédictive"],
-    result: "TAM $800M Afrique, CAGR +23%, 4% VC = faible concurrence",
-  },
-];
+const personaIcons = ["🏢", "📊", "⚙️", "💰"];
+const personaIds = ["pdg", "daf", "dt", "investisseur"];
 
 export default function UseCases({ scrollTo }) {
   const sectionRef = useRef(null);
   const [activePersona, setActivePersona] = useState(0);
+  const { t } = useLang();
+
+  const personas = useMemo(() => {
+    const raw = t("useCases.personas");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
 
   useGSAP(() => {
     const content = sectionRef.current?.querySelector(".uc-content");
@@ -64,21 +31,25 @@ export default function UseCases({ scrollTo }) {
   }, { scope: sectionRef, dependencies: [activePersona] });
 
   const p = personas[activePersona];
+  if (!p) return null;
+
+  const titleRaw = t("useCases.title");
+  const titleParts = titleRaw.split(/\{|\}/);
 
   return (
     <section id="use-cases" className="section section-creme" ref={sectionRef}>
       <div className="section-header" style={{ textAlign: "center", margin: "0 auto", maxWidth: 700 }}>
         <Reveal>
-          <div className="eyebrow">Cas d'Usage</div>
+          <div className="eyebrow">{t("useCases.eyebrow")}</div>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-            Vous êtes <em>qui</em> ?
+            {titleParts[0]}<em>{titleParts[1]}</em>{titleParts[2]}
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-lg" style={{ marginTop: "1rem", color: "var(--gris)" }}>
-            KALTIV s'adapte a votre role. Selectionnez votre profil.
+            {t("useCases.subtitle")}
           </p>
         </Reveal>
       </div>
@@ -86,11 +57,11 @@ export default function UseCases({ scrollTo }) {
       <div className="uc-tabs">
         {personas.map((per, i) => (
           <button
-            key={per.id}
+            key={personaIds[i]}
             className={`uc-tab ${activePersona === i ? "active" : ""}`}
             onClick={() => setActivePersona(i)}
           >
-            <span className="uc-tab-icon">{per.icon}</span>
+            <span className="uc-tab-icon">{personaIcons[i]}</span>
             <span className="uc-tab-label">{per.label}</span>
           </button>
         ))}
@@ -101,27 +72,27 @@ export default function UseCases({ scrollTo }) {
           <div className="uc-card-left">
             <h3 className="uc-title">{p.title}</h3>
             <div className="uc-pain">
-              <span className="uc-pain-label">Le problème</span>
+              <span className="uc-pain-label">{t("useCases.painLabel")}</span>
               <p>{p.pain}</p>
             </div>
             <div className="uc-solution">
-              <span className="uc-solution-label">La solution KALTIV</span>
+              <span className="uc-solution-label">{t("useCases.solutionLabel")}</span>
               <p>{p.solution}</p>
             </div>
           </div>
           <div className="uc-card-right">
             <div className="uc-modules">
-              <span className="uc-modules-label">Modules clés</span>
+              <span className="uc-modules-label">{t("useCases.modulesLabel")}</span>
               {p.modules.map((m, i) => (
                 <span key={i} className="uc-module-tag">{m}</span>
               ))}
             </div>
             <div className="uc-result">
-              <span className="uc-result-label">Résultat</span>
+              <span className="uc-result-label">{t("useCases.resultLabel")}</span>
               <p>{p.result}</p>
             </div>
             <MagneticButton className="btn btn-primary" onClick={() => scrollTo("demo")}>
-              Voir la démo {p.label}
+              {t("useCases.viewDemo")} {p.label}
             </MagneticButton>
           </div>
         </div>

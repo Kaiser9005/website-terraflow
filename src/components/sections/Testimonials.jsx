@@ -1,27 +1,13 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import Reveal from "../ui/Reveal";
+import { useLang } from "../ui/LangToggle";
 
-const testimonials = [
-  {
-    text: "Avant KALTIV, on passait 3 jours a reconcilier les fiches de paie. Maintenant, c'est automatique. On a recupere 2 semaines de productivite par mois.",
-    author: "Jean Paul FODJO",
-    role: "Fondateur & DG, FOFAL — 80 ha, Cameroun",
-    initials: "JP",
-  },
-  {
-    text: "Le module IA prédit les rendements de nos palmiers avec un R² de 0.79. Pour la première fois, on anticipe nos volumes de production au lieu de les subir.",
-    author: "Jean Paul FODJO",
-    role: "Fondateur & DG, FOFAL — 80 ha, Cameroun",
-    initials: "JP",
-  },
-  {
-    text: "La traçabilité de la parcelle à la vente, combinée à la comptabilité OHADA automatisée, nous fait gagner un temps considérable sur la clôture comptable.",
-    author: "Jean Paul FODJO",
-    role: "Fondateur & DG, FOFAL — 80 ha, Cameroun",
-    initials: "JP",
-  },
+const authors = [
+  { author: "Jean Paul FODJO", role: "Fondateur & DG, FOFAL — 80 ha, Cameroun", initials: "JP" },
+  { author: "Jean Paul FODJO", role: "Fondateur & DG, FOFAL — 80 ha, Cameroun", initials: "JP" },
+  { author: "Jean Paul FODJO", role: "Fondateur & DG, FOFAL — 80 ha, Cameroun", initials: "JP" },
 ];
 
 const INTERVAL = 6000;
@@ -30,13 +16,20 @@ export default function Testimonials() {
   const sectionRef = useRef(null);
   const [active, setActive] = useState(0);
   const slideRef = useRef(null);
+  const { t } = useLang();
+
+  const items = useMemo(() => {
+    const raw = t("testimonials.items");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
 
   useEffect(() => {
+    const count = items.length || 3;
     const timer = setInterval(() => {
-      setActive((prev) => (prev + 1) % testimonials.length);
+      setActive((prev) => (prev + 1) % count);
     }, INTERVAL);
     return () => clearInterval(timer);
-  }, []);
+  }, [items.length]);
 
   useEffect(() => {
     if (!slideRef.current) return;
@@ -46,17 +39,21 @@ export default function Testimonials() {
     );
   }, [active]);
 
-  const t = testimonials[active];
+  const currentText = items[active] || "";
+  const currentAuthor = authors[active] || authors[0];
+
+  const titleRaw = t("testimonials.title");
+  const titleParts = titleRaw.split(/\{|\}/);
 
   return (
     <section id="testimonials" className="section" ref={sectionRef}>
       <div className="section-header" style={{ textAlign: "center", margin: "0 auto", maxWidth: 700 }}>
         <Reveal>
-          <div className="eyebrow">Témoignages</div>
+          <div className="eyebrow">{t("testimonials.eyebrow")}</div>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-            Ils font <em>confiance</em> a KALTIV
+            {titleParts[0]}<em>{titleParts[1]}</em>{titleParts[2]}
           </h2>
         </Reveal>
       </div>
@@ -64,23 +61,23 @@ export default function Testimonials() {
       <div className="testimonial-carousel">
         <div ref={slideRef} className="testimonial-slide">
           <div className="testimonial-quote">&ldquo;</div>
-          <p className="testimonial-text">{t.text}</p>
+          <p className="testimonial-text">{currentText}</p>
           <div className="testimonial-author">
-            <div className="testimonial-avatar">{t.initials}</div>
+            <div className="testimonial-avatar">{currentAuthor.initials}</div>
             <div>
-              <div className="testimonial-name">{t.author}</div>
-              <div className="testimonial-role">{t.role}</div>
+              <div className="testimonial-name">{currentAuthor.author}</div>
+              <div className="testimonial-role">{currentAuthor.role}</div>
             </div>
           </div>
         </div>
 
         <div className="testimonial-dots">
-          {testimonials.map((_, i) => (
+          {items.map((_, i) => (
             <button
               key={i}
               className={`testimonial-dot ${active === i ? "active" : ""}`}
               onClick={() => setActive(i)}
-              aria-label={`Temoignage ${i + 1}`}
+              aria-label={`${t("testimonials.eyebrow")} ${i + 1}`}
             >
               <span className="dot-inner" />
               {active === i && (

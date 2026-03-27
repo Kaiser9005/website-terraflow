@@ -1,6 +1,8 @@
-import LangToggle from "./ui/LangToggle";
+import LangToggle, { useLang } from "./ui/LangToggle";
 
 export default function Navigation({ scrollY, navItems, activeSection, menuOpen, setMenuOpen, scrollTo }) {
+  const { t } = useLang();
+
   return (
     <>
       <nav className={`nav ${scrollY > 50 ? "scrolled" : ""}`} aria-label="Navigation principale">
@@ -33,7 +35,7 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
             target="_blank"
             rel="noopener noreferrer"
           >
-            Se connecter
+            {t("nav.signin")}
           </a>
           <a
             className="btn btn-outline btn-nav"
@@ -41,10 +43,10 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
             target="_blank"
             rel="noopener noreferrer"
           >
-            Essai Gratuit
+            {t("nav.trial")}
           </a>
           <a className="btn btn-primary btn-nav" onClick={() => scrollTo("demo")}>
-            Démo Guidée
+            {t("nav.demo")}
           </a>
           <LangToggle />
         </div>
@@ -66,7 +68,7 @@ export default function Navigation({ scrollY, navItems, activeSection, menuOpen,
           </a>
         ))}
         <a className="btn btn-primary" onClick={() => scrollTo("demo")}>
-          Démo Gratuite
+          {t("demo.eyebrow")}
         </a>
       </div>
     </>

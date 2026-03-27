@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useMemo } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,18 +30,11 @@ import Preloader from "./components/ui/Preloader";
 import CustomCursor from "./components/ui/CustomCursor";
 import WhatsAppButton from "./components/ui/WhatsAppButton";
 import StickyBar from "./components/ui/StickyBar";
-import LangToggle, { LangProvider } from "./components/ui/LangToggle";
+import LangToggle, { LangProvider, useLang } from "./components/ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const navItems = [
-  { id: "problem", label: "Problème" },
-  { id: "features", label: "Solutions" },
-  { id: "use-cases", label: "Cas d'Usage" },
-  { id: "modules", label: "Modules" },
-  { id: "pricing", label: "Tarifs" },
-  { id: "demo", label: "Démo" },
-];
+const navItemIds = ["problem", "features", "use-cases", "modules", "pricing", "demo"];
 
 const sectionColors = {
   hero: { bg: "#0a0a0a", text: "#FFFFFF" },
@@ -62,12 +55,22 @@ const sectionColors = {
   demo: { bg: "#061F14", text: "#FFFFFF" },
 };
 
-export default function KaltivSite() {
+function KaltivSiteInner() {
   const [loading, setLoading] = useState(true);
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const mainRef = useRef(null);
+  const { t } = useLang();
+
+  const navItems = useMemo(() => [
+    { id: "problem", label: t("nav.problem") },
+    { id: "features", label: t("nav.solutions") },
+    { id: "use-cases", label: t("nav.useCases") },
+    { id: "modules", label: t("nav.modules") },
+    { id: "pricing", label: t("nav.pricing") },
+    { id: "demo", label: t("nav.demoNav") },
+  ], [t]);
 
   useGSAP(() => {
     if (loading) return;
@@ -79,15 +82,15 @@ export default function KaltivSite() {
       onUpdate: () => setScrollY(window.scrollY),
     });
 
-    navItems.forEach((item) => {
-      const el = document.getElementById(item.id);
+    navItemIds.forEach((id) => {
+      const el = document.getElementById(id);
       if (!el) return;
       ScrollTrigger.create({
         trigger: el,
         start: "top center",
         end: "bottom center",
-        onEnter: () => setActiveSection(item.id),
-        onEnterBack: () => setActiveSection(item.id),
+        onEnter: () => setActiveSection(id),
+        onEnterBack: () => setActiveSection(id),
       });
     });
 
@@ -132,7 +135,7 @@ export default function KaltivSite() {
   }, []);
 
   return (
-    <LangProvider>
+    <>
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       <CustomCursor />
       <WhatsAppButton />
@@ -172,6 +175,14 @@ export default function KaltivSite() {
           <Footer navItems={navItems} scrollTo={scrollTo} />
         </div>
       </SmoothScroll>
+    </>
+  );
+}
+
+export default function KaltivSite() {
+  return (
+    <LangProvider>
+      <KaltivSiteInner />
     </LangProvider>
   );
 }

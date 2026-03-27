@@ -2,23 +2,15 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const stats = [
-  { value: 30, suffix: "+", label: "Modules", desc: "dont qualité, budget, chatbot IA" },
-  { value: 11, suffix: "", label: "Sous-Modules RH", desc: "paie, congés, compétences, évaluations 360°..." },
-  { value: 99, suffix: ".9%", label: "Disponibilité", desc: "objectif uptime (Sentry monitoring)" },
-  { value: 6, suffix: "", label: "Modèles IA", desc: "rendement, qualité, prix (×3 produits), demande" },
-  { value: 17, suffix: "", label: "Pays OHADA", desc: "architecture multi-juridictions" },
-  { value: 900, suffix: "+", label: "Tests Auto", desc: "couverture 100% hooks & services" },
-  { value: 15, suffix: "K+", label: "Clés i18n", desc: "interface bilingue FR/EN complète" },
-  { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable Cameroun" },
-];
-
 export default function Stats() {
+  const { t } = useLang();
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
+  const stats = t("stats.items");
 
   useGSAP(() => {
     const section = sectionRef.current;
@@ -60,9 +52,13 @@ export default function Stats() {
   return (
     <section id="stats" className="section section-creme" ref={sectionRef}>
       <div ref={headerRef} className="section-header" style={{ textAlign: "center", margin: "0 auto", marginBottom: "clamp(3rem, 5vh, 5rem)", opacity: 0 }}>
-        <div className="eyebrow">KALTIV en Chiffres</div>
+        <div className="eyebrow">{t("stats.eyebrow")}</div>
         <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-          La mesure de notre <em>fiabilité</em>
+          {(() => {
+            const raw = t("stats.title");
+            const parts = raw.split(/\{|\}/);
+            return <>{parts[0]}<em>{parts[1]}</em>{parts[2]}</>;
+          })()}
         </h2>
       </div>
       <div className="stats-grid">

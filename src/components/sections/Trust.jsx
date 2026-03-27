@@ -1,50 +1,28 @@
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Reveal from "../ui/Reveal";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const certifications = [
-  {
-    name: "OHADA / SYSCOHADA",
-    desc: "Plan comptable conforme aux 17 pays de l'espace OHADA. Clôture automatisée.",
-    status: "active",
-  },
-  {
-    name: "Caisses Sociales Multi-Pays",
-    desc: "Cotisations CNPS Cameroun vérifiées. Architecture extensible aux autres caisses (CNSS, INSS, CSS).",
-    status: "active",
-  },
-  {
-    name: "CEMAC / Zone Franc",
-    desc: "Multi-devises FCFA/EUR/USD. Conformité réglementaire CEMAC intégrée.",
-    status: "active",
-  },
-  {
-    name: "ISO 9001",
-    desc: "Traçabilité complète lot-par-lot pour certification qualité internationale.",
-    status: "in-progress",
-  },
-  {
-    name: "HACCP",
-    desc: "Chaîne de traçabilité parcelle-à-export compatible avec les exigences HACCP.",
-    status: "in-progress",
-  },
-];
-
-const security = [
-  { icon: "\uD83D\uDD12", label: "Chiffrement AES-256 au repos" },
-  { icon: "\uD83D\uDEE1\uFE0F", label: "Row Level Security (RLS) multi-tenant" },
-  { icon: "\uD83C\uDF10", label: "Infrastructure Supabase (SOC 2 Type II)" },
-  { icon: "\uD83D\uDD11", label: "Authentification 2FA + sessions sécurisées" },
-  { icon: "\uD83D\uDCCA", label: "Monitoring Sentry 24/7" },
-  { icon: "\uD83C\uDF0D", label: "Résidence données EU (extensible Afrique)" },
-];
+const certStatuses = ["active", "active", "active", "in-progress", "in-progress"];
+const securityIcons = ["🔒", "🛡️", "🌐", "🔑", "📊", "🌍"];
 
 export default function Trust() {
   const sectionRef = useRef(null);
+  const { t } = useLang();
+
+  const certifications = useMemo(() => {
+    const raw = t("trust.certifications");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
+
+  const securityLabels = useMemo(() => {
+    const raw = t("trust.security");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
 
   useGSAP(() => {
     const section = sectionRef.current;
@@ -67,26 +45,29 @@ export default function Trust() {
     );
   }, { scope: sectionRef });
 
+  const titleRaw = t("trust.title");
+  const titleParts = titleRaw.split(/\{|\}/);
+
   return (
     <section id="trust" className="section section-dark" ref={sectionRef}>
       <div className="section-header" style={{ textAlign: "center", margin: "0 auto", maxWidth: 700 }}>
         <Reveal>
-          <div className="eyebrow" style={{ color: "var(--accent)" }}>Confiance & Conformité</div>
+          <div className="eyebrow" style={{ color: "var(--accent)" }}>{t("trust.eyebrow")}</div>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem", color: "white" }}>
-            Sécurité de niveau <em>entreprise</em>
+            {titleParts[0]}<em>{titleParts[1]}</em>{titleParts[2]}
           </h2>
         </Reveal>
       </div>
 
       <div className="trust-grid">
         <div className="trust-certs">
-          <h3 className="trust-subtitle">Certifications & Conformité</h3>
+          <h3 className="trust-subtitle">{t("trust.certTitle")}</h3>
           {certifications.map((c, i) => (
-            <div key={i} className={`trust-cert ${c.status}`} style={{ opacity: 0 }}>
+            <div key={i} className={`trust-cert ${certStatuses[i]}`} style={{ opacity: 0 }}>
               <div className="trust-cert-status">
-                {c.status === "active" ? "\u2705" : "\u23F3"}
+                {certStatuses[i] === "active" ? "\u2705" : "\u23F3"}
               </div>
               <div className="trust-cert-info">
                 <h4>{c.name}</h4>
@@ -97,12 +78,12 @@ export default function Trust() {
         </div>
 
         <div className="trust-security">
-          <h3 className="trust-subtitle">Sécurité & Infrastructure</h3>
+          <h3 className="trust-subtitle">{t("trust.secTitle")}</h3>
           <div className="trust-security-list">
-            {security.map((s, i) => (
+            {securityLabels.map((label, i) => (
               <div key={i} className="trust-security-item" style={{ opacity: 0 }}>
-                <span className="trust-security-icon">{s.icon}</span>
-                <span>{s.label}</span>
+                <span className="trust-security-icon">{securityIcons[i]}</span>
+                <span>{label}</span>
               </div>
             ))}
           </div>
@@ -112,7 +93,7 @@ export default function Trust() {
             </div>
             <div className="trust-uptime-info">
               <span className="trust-uptime-value">99.9%</span>
-              <span className="trust-uptime-label">Objectif disponibilité</span>
+              <span className="trust-uptime-label">{t("trust.uptime")}</span>
             </div>
           </div>
         </div>

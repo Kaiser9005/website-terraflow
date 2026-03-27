@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { WHATSAPP_BASE } from "../constants";
+import { useLang } from "./ui/LangToggle";
 
 export default function Footer({ navItems, scrollTo }) {
   const [legalOpen, setLegalOpen] = useState(null); // null | "mentions" | "privacy"
+  const { t } = useLang();
+
+  const moduleLinks = useMemo(() => {
+    const raw = t("footer.moduleLinks");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
 
   const toggleLegal = (section) => (e) => {
     e.preventDefault();
@@ -24,8 +31,7 @@ export default function Footer({ navItems, scrollTo }) {
             <span>K</span>ALTIV
           </a>
           <p>
-            The Agribusiness Command Platform. 27+ modules, predictive AI,
-            agronomic chatbot, multi-regional compliance. From field to balance sheet.
+            {t("footer.desc")}
           </p>
           <div className="footer-payments">
             <span className="footer-payment">Visa</span>
@@ -36,37 +42,36 @@ export default function Footer({ navItems, scrollTo }) {
         </div>
 
         <div className="footer-col">
-          <h4>Plateforme</h4>
+          <h4>{t("footer.platform")}</h4>
           {navItems.map((item) => (
             <a key={item.id} onClick={() => scrollTo(item.id)}>{item.label}</a>
           ))}
-          <a onClick={() => scrollTo("faq")}>FAQ</a>
+          <a onClick={() => scrollTo("faq")}>{t("footer.faqLink")}</a>
         </div>
 
         <div className="footer-col">
-          <h4>Modules</h4>
-          <a onClick={() => scrollTo("modules")}>RH & Paie</a>
-          <a onClick={() => scrollTo("modules")}>Agriculture</a>
-          <a onClick={() => scrollTo("modules")}>Comptabilité</a>
-          <a onClick={() => scrollTo("modules")}>IA & Analytics</a>
+          <h4>{t("footer.modulesCol")}</h4>
+          {moduleLinks.map((label, i) => (
+            <a key={i} onClick={() => scrollTo("modules")}>{label}</a>
+          ))}
         </div>
 
         <div className="footer-col">
-          <h4>Contact</h4>
+          <h4>{t("footer.contact")}</h4>
           <a href="mailto:contact@kaltiv.com">contact@kaltiv.com</a>
           <a href={WHATSAPP_BASE} target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a href="https://modules-rh-authentification-expert.vercel.app/login" target="_blank" rel="noopener noreferrer" style={{ marginTop: "0.5rem", color: "var(--accent)" }}>
-            Se connecter
+            {t("footer.signin")}
           </a>
         </div>
       </div>
 
       <div className="footer-bottom">
         <div className="footer-bottom-left">
-          <span>&copy; {new Date().getFullYear()} KALTIV. All rights reserved.</span>
+          <span>{t("footer.copyright").replace("{year}", new Date().getFullYear())}</span>
           <div className="footer-legal">
-            <a href="/mentions-legales" onClick={toggleLegal("mentions")} aria-expanded={legalOpen === "mentions"}>Mentions légales</a>
-            <a href="/confidentialite" onClick={toggleLegal("privacy")} aria-expanded={legalOpen === "privacy"}>Politique de confidentialité</a>
+            <a href="/mentions-legales" onClick={toggleLegal("mentions")} aria-expanded={legalOpen === "mentions"}>{t("footer.legalTitle")}</a>
+            <a href="/confidentialite" onClick={toggleLegal("privacy")} aria-expanded={legalOpen === "privacy"}>{t("footer.privacyTitle")}</a>
           </div>
         </div>
         <div className="footer-certs">

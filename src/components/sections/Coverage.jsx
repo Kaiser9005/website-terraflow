@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Reveal from "../ui/Reveal";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,19 +27,16 @@ const countries = [
   { name: "RD Congo", emoji: "\uD83C\uDDE8\uD83C\uDDE9", zone: "—", social: "CNSS" },
 ];
 
-const filières = [
-  { name: "Palmier à huile", emoji: "🌴" },
-  { name: "Cacao", emoji: "🫘" },
-  { name: "Café", emoji: "☕" },
-  { name: "Hévéa", emoji: "🌳" },
-  { name: "Coton", emoji: "🧶" },
-  { name: "Banane", emoji: "🍌" },
-  { name: "Manioc", emoji: "🥔" },
-  { name: "Ananas", emoji: "🍍" },
-];
+const cropEmojis = ["🌴", "🫘", "☕", "🌳", "🧶", "🍌", "🥔", "🍍"];
 
 export default function Coverage() {
   const sectionRef = useRef(null);
+  const { t } = useLang();
+
+  const crops = useMemo(() => {
+    const raw = t("coverage.crops");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
 
   useGSAP(() => {
     const section = sectionRef.current;
@@ -61,20 +59,23 @@ export default function Coverage() {
     );
   }, { scope: sectionRef });
 
+  const titleRaw = t("coverage.title");
+  const titleParts = titleRaw.split(/\{|\}/);
+
   return (
     <section id="coverage" className="section section-creme" ref={sectionRef}>
       <div className="section-header" style={{ textAlign: "center", margin: "0 auto", maxWidth: 750 }}>
         <Reveal>
-          <div className="eyebrow">Couverture</div>
+          <div className="eyebrow">{t("coverage.eyebrow")}</div>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-            17 pays, une seule <em>plateforme</em>
+            {titleParts[0]}<em>{titleParts[1]}</em>{titleParts[2]}
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-lg" style={{ marginTop: "1rem", color: "var(--gris)" }}>
-            Plan comptable OHADA natif. Cotisations CNPS Cameroun vérifiées. Architecture extensible aux 17 juridictions. Multi-devises FCFA, EUR, USD.
+            {t("coverage.subtitle")}
           </p>
         </Reveal>
       </div>
@@ -82,7 +83,7 @@ export default function Coverage() {
       <div className="coverage-grid">
         {countries.map((c, i) => (
           <div key={i} className="coverage-country" style={{ opacity: 0 }}>
-            <span className="coverage-flag-emoji" role="img" aria-label={`Drapeau ${c.name}`}>{c.emoji}</span>
+            <span className="coverage-flag-emoji" role="img" aria-label={`${t("coverage.flagAlt")} ${c.name}`}>{c.emoji}</span>
             <div className="coverage-country-info">
               <span className="coverage-country-name">{c.name}</span>
               <span className="coverage-country-meta">{c.zone} · {c.social}</span>
@@ -94,14 +95,14 @@ export default function Coverage() {
       <div className="coverage-filieres">
         <Reveal>
           <h3 style={{ textAlign: "center", marginBottom: "1.5rem", fontSize: "1.1rem", fontWeight: 600 }}>
-            Filières agricoles supportées
+            {t("coverage.cropTitle")}
           </h3>
         </Reveal>
         <div className="coverage-filieres-row">
-          {filières.map((f, i) => (
+          {crops.map((name, i) => (
             <div key={i} className="coverage-filiere" style={{ opacity: 0 }}>
-              <span className="coverage-filiere-emoji">{f.emoji}</span>
-              <span>{f.name}</span>
+              <span className="coverage-filiere-emoji">{cropEmojis[i]}</span>
+              <span>{name}</span>
             </div>
           ))}
         </div>

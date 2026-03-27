@@ -1,23 +1,28 @@
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Reveal from "../ui/Reveal";
 import MagneticButton from "../ui/MagneticButton";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const beforeAfter = [
-  { metric: "Clôture comptable", before: "3 semaines", after: "1 jour", icon: "\uD83D\uDCC5" },
-  { metric: "Réconciliation paie", before: "3 jours", after: "Automatique", icon: "\u23F1\uFE0F" },
-  { metric: "Traçabilité lots", before: "Papier", after: "100% numérique", icon: "\uD83D\uDD17" },
-  { metric: "Données terrain", before: "J+2 à J+3", after: "Temps réel", icon: "\uD83D\uDCF1" },
-  { metric: "Prédiction rendement", before: "Intuition", after: "R²=0.79 (IA)", icon: "\uD83E\uDD16" },
-  { metric: "Conformité sociale", before: "Manuelle", after: "Automatisée", icon: "\u2705" },
-];
+const metricIcons = ["📅", "⏱️", "🔗", "📱", "🤖", "✅"];
 
 export default function CaseStudy({ scrollTo }) {
   const sectionRef = useRef(null);
+  const { t } = useLang();
+
+  const metrics = useMemo(() => {
+    const raw = t("caseStudy.metrics");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
+
+  const badges = useMemo(() => {
+    const raw = t("caseStudy.badges");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
 
   useGSAP(() => {
     const rows = sectionRef.current?.querySelectorAll(".cs-row");
@@ -33,42 +38,47 @@ export default function CaseStudy({ scrollTo }) {
     );
   }, { scope: sectionRef });
 
+  const titleRaw = t("caseStudy.title");
+  const titleParts = titleRaw.split(/\{|\}/);
+
+  const contextRaw = t("caseStudy.context");
+  const contextParts = contextRaw.split(/\{|\}/);
+
   return (
     <section id="case-study" className="section" ref={sectionRef}>
       <div className="cs-layout">
         <div className="cs-info">
           <Reveal>
-            <div className="eyebrow">Étude de Cas</div>
+            <div className="eyebrow">{t("caseStudy.eyebrow")}</div>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-              FOFAL : de la gestion papier à l'<em>excellence</em> opérationnelle
+              {titleParts[0]}<em>{titleParts[1]}</em>{titleParts[2]}
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="cs-context">
               <p className="body-lg" style={{ color: "var(--gris)" }}>
-                Exploitation agro-industrielle de <strong>80 hectares</strong> au Centre du Cameroun.
-                28 parcelles, 45+ employés, 3 cultures (palmier, papaye, vivrier).
+                {contextParts[0]}<strong>{contextParts[1]}</strong>{contextParts[2]}
               </p>
               <div className="cs-badges">
-                <span className="cs-badge">Palmier à huile Tenera</span>
-                <span className="cs-badge">Papayes F1 Horizon</span>
-                <span className="cs-badge">Noix de palme</span>
+                {badges.map((b, i) => (
+                  <span key={i} className="cs-badge">{b}</span>
+                ))}
               </div>
             </div>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="cs-quote">
               <blockquote>
-                "On a recupere 2 semaines de productivite par mois. KALTIV a transforme notre facon de gerer l'exploitation."
+                {t("caseStudy.quote")}
               </blockquote>
-              <cite>— Jean Paul FODJO, Fondateur FOFAL</cite>
+              <cite>{t("caseStudy.author")}</cite>
             </div>
           </Reveal>
           <Reveal delay={0.4}>
             <MagneticButton className="btn btn-primary" onClick={() => scrollTo("demo")}>
-              Obtenir les mêmes résultats pour mon exploitation
+              {t("caseStudy.cta")}
             </MagneticButton>
           </Reveal>
         </div>
@@ -76,13 +86,13 @@ export default function CaseStudy({ scrollTo }) {
         <div className="cs-table">
           <div className="cs-table-header">
             <span></span>
-            <span className="cs-header-before">Avant</span>
-            <span className="cs-header-after">Avec KALTIV</span>
+            <span className="cs-header-before">{t("caseStudy.before")}</span>
+            <span className="cs-header-after">{t("caseStudy.after")}</span>
           </div>
-          {beforeAfter.map((row, i) => (
+          {metrics.map((row, i) => (
             <div key={i} className="cs-row" style={{ opacity: 0 }}>
               <span className="cs-metric">
-                <span className="cs-metric-icon">{row.icon}</span>
+                <span className="cs-metric-icon">{metricIcons[i]}</span>
                 {row.metric}
               </span>
               <span className="cs-before">{row.before}</span>

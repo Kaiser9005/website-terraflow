@@ -2,34 +2,17 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLang } from "../ui/LangToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const metrics = [
-  { value: "27+", unit: "", label: "modules intégrés" },
-  { value: "268", unit: "", label: "tables de données" },
-  { value: "6", unit: "", label: "modèles ML déployés" },
-  { value: "5", unit: "", label: "pays opérationnels" },
-];
-
-const logos = [
-  { name: "OHADA", sub: "Certifié" },
-  { name: "CEMAC", sub: "Conforme" },
-  { name: "UEMOA", sub: "Compatible" },
-  { name: "CIRAD", sub: "Données" },
-  { name: "ISO 9001", sub: "Traçabilité" },
-];
-
-const poweredBy = [
-  { name: "Supabase", desc: "Base de données" },
-  { name: "Anthropic Claude", desc: "IA" },
-  { name: "Vercel", desc: "Hébergement" },
-  { name: "Sentry", desc: "Monitoring" },
-  { name: "Fly.io", desc: "ML Server" },
-];
-
 export default function SocialProof() {
+  const { t } = useLang();
   const sectionRef = useRef(null);
+
+  const metrics = t("socialProof.metrics");
+  const logos = t("socialProof.logos");
+  const poweredBy = t("socialProof.poweredBy");
 
   useGSAP(() => {
     const section = sectionRef.current;
@@ -64,7 +47,7 @@ export default function SocialProof() {
       </div>
       <div className="sp-divider" />
       <div className="sp-logos">
-        <span className="sp-trust-label">Certifié & Compatible</span>
+        <span className="sp-trust-label">{t("socialProof.trustLabel")}</span>
         <div className="sp-logo-row">
           {logos.map((l, i) => (
             <div key={i} className="sp-logo" style={{ opacity: 0 }}>
@@ -75,7 +58,7 @@ export default function SocialProof() {
         </div>
       </div>
       <div className="sp-powered">
-        <span className="sp-trust-label">Propulsé par</span>
+        <span className="sp-trust-label">{t("socialProof.poweredByLabel")}</span>
         <div className="sp-logo-row">
           {poweredBy.map((p, i) => (
             <div key={i} className="sp-logo sp-powered-logo" style={{ opacity: 0 }}>

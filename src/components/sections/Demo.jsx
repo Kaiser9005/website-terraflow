@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import Reveal from "../ui/Reveal";
 import MagneticButton from "../ui/MagneticButton";
 import { WHATSAPP_BASE } from "../../constants";
+import { useLang } from "../ui/LangToggle";
 
 const FORMSPREE_URL = "https://formspree.io/f/xeojkvbg";
 const WHATSAPP_URL = `${WHATSAPP_BASE}?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo%20de%20KALTIV.`;
@@ -11,8 +12,9 @@ export default function Demo() {
     name: "", email: "", company: "", hectares: "", phone: "", message: "",
   });
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const { t } = useLang();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     const { name, email, company } = formData;
     if (!name || !email || !company) return;
@@ -42,52 +44,50 @@ export default function Demo() {
     } catch {
       setStatus("error");
     }
-  };
+  }, [formData]);
 
   const onChange = (field) => (e) => setFormData((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const buttonText = {
-    idle: "Demander ma Démo Gratuite",
-    sending: "Envoi en cours...",
-    sent: "Demande envoyée !",
-    error: "Erreur — Réessayer",
-  };
+  const buttonText = useMemo(() => ({
+    idle: t("demo.cta"),
+    sending: t("demo.sending"),
+    sent: t("demo.sent"),
+    error: t("demo.error"),
+  }), [t]);
+
+  const benefits = useMemo(() => {
+    const raw = t("demo.benefits");
+    return Array.isArray(raw) ? raw : [];
+  }, [t]);
+
+  const titleRaw = t("demo.title");
+  const titleParts = titleRaw.split(/\{|\}/);
 
   return (
     <section id="demo" className="section section-vert">
       <div className="demo-grid">
         <div className="demo-info">
           <Reveal>
-            <div className="eyebrow" style={{ color: "var(--accent)" }}>Démo Gratuite</div>
+            <div className="eyebrow" style={{ color: "var(--accent)" }}>{t("demo.eyebrow")}</div>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="display-lg" style={{ marginTop: "1rem", color: "white" }}>
-              Transformez votre exploitation en <em style={{ color: "var(--accent)" }}>30 minutes</em>
+              {titleParts[0]}<em style={{ color: "var(--accent)" }}>{titleParts[1]}</em>{titleParts[2]}
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="body-lg" style={{ marginTop: "1rem", color: "rgba(255,255,255,0.7)" }}>
-              Un expert vous présente la plateforme avec vos données. 60 jours d'essai gratuit, aucun engagement, aucune carte bancaire.
+              {t("demo.subtitle")}
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="demo-benefits">
-              <div className="demo-benefit">
-                <span className="demo-check">&#10003;</span>
-                <span>Démo personnalisée en 30 min</span>
-              </div>
-              <div className="demo-benefit">
-                <span className="demo-check">&#10003;</span>
-                <span>60 jours d'essai gratuit</span>
-              </div>
-              <div className="demo-benefit">
-                <span className="demo-check">&#10003;</span>
-                <span>Migration de données assistée</span>
-              </div>
-              <div className="demo-benefit">
-                <span className="demo-check">&#10003;</span>
-                <span>Formation équipe incluse</span>
-              </div>
+              {benefits.map((b, i) => (
+                <div key={i} className="demo-benefit">
+                  <span className="demo-check">&#10003;</span>
+                  <span>{b}</span>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -97,30 +97,30 @@ export default function Demo() {
             <fieldset disabled={status === "sending"}>
               <div className="form-row">
                 <div className="form-field">
-                  <label htmlFor="demo-name">Votre nom *</label>
+                  <label htmlFor="demo-name">{t("demo.nameLabel")}</label>
                   <input id="demo-name" type="text" placeholder="Jean Paul Dupont" value={formData.name} onChange={onChange("name")} required aria-required="true" />
                 </div>
                 <div className="form-field">
-                  <label htmlFor="demo-email">Email professionnel *</label>
+                  <label htmlFor="demo-email">{t("demo.emailLabel")}</label>
                   <input id="demo-email" type="email" placeholder="jean@entreprise.com" value={formData.email} onChange={onChange("email")} required aria-required="true" />
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-field">
-                  <label htmlFor="demo-company">Entreprise / Exploitation *</label>
+                  <label htmlFor="demo-company">{t("demo.companyLabel")}</label>
                   <input id="demo-company" type="text" placeholder="Nom de votre exploitation" value={formData.company} onChange={onChange("company")} required aria-required="true" />
                 </div>
                 <div className="form-field">
-                  <label htmlFor="demo-hectares">Superficie (hectares)</label>
+                  <label htmlFor="demo-hectares">{t("demo.hectaresLabel")}</label>
                   <input id="demo-hectares" type="text" placeholder="ex: 200" value={formData.hectares} onChange={onChange("hectares")} />
                 </div>
               </div>
               <div className="form-field">
-                <label htmlFor="demo-phone">Téléphone</label>
+                <label htmlFor="demo-phone">{t("demo.phoneLabel")}</label>
                 <input id="demo-phone" type="tel" placeholder="+237 6XX XXX XXX" value={formData.phone} onChange={onChange("phone")} />
               </div>
               <div className="form-field">
-                <label htmlFor="demo-message">Message</label>
+                <label htmlFor="demo-message">{t("demo.messageLabel")}</label>
                 <textarea id="demo-message" placeholder="Dites-nous en plus sur vos besoins..." value={formData.message} onChange={onChange("message")} />
               </div>
             </fieldset>
@@ -128,12 +128,12 @@ export default function Demo() {
               {buttonText[status]}
             </MagneticButton>
             <p className="demo-whatsapp-alt">
-              Préférez WhatsApp ? <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Écrivez-nous directement</a>
+              {t("demo.whatsapp")} <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">{t("demo.whatsappLink")}</a>
             </p>
             <div className="demo-self-service">
-              <p className="demo-self-service-title">Explorer la plateforme maintenant</p>
+              <p className="demo-self-service-title">{t("demo.selfService")}</p>
               <p className="demo-self-service-desc">
-                Accédez à l'environnement de démonstration avec des données réelles d'exploitation agricole.
+                {t("demo.selfServiceDesc")}
               </p>
               <a
                 href="https://modules-rh-authentification-expert.vercel.app/login"
@@ -142,7 +142,7 @@ export default function Demo() {
                 className="btn btn-outline btn-full"
                 style={{ marginTop: "0.75rem" }}
               >
-                Accéder à la démo en ligne
+                {t("demo.selfServiceCta")}
               </a>
             </div>
           </form>
