@@ -60,7 +60,7 @@ export default function Stats() {
   return (
     <section id="stats" className="section section-creme" ref={sectionRef}>
       <div ref={headerRef} className="section-header" style={{ textAlign: "center", margin: "0 auto", marginBottom: "clamp(3rem, 5vh, 5rem)", opacity: 0 }}>
-        <div className="eyebrow">TerraFlow en Chiffres</div>
+        <div className="eyebrow">KALTIV en Chiffres</div>
         <h2 className="display-lg" style={{ marginTop: "1rem" }}>
           La mesure de notre <em>fiabilité</em>
         </h2>

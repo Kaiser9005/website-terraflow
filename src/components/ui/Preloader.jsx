@@ -53,7 +53,7 @@ export default function Preloader({ onComplete }) {
       <div className="preloader-inner">
         <div ref={counterRef} className="preloader-counter">0</div>
         <div ref={logoRef} className="preloader-logo" style={{ opacity: 0 }}>
-          Terra<span>Flow</span>
+          <span>K</span>ALTIV
         </div>
       </div>
     </div>

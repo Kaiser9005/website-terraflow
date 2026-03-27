@@ -7,10 +7,8 @@ import MagneticButton from "../ui/MagneticButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const EUR_TO_FCFA = 656;
-
-// Taux calibrés sur benchmarks FAO/World Bank/Nucleus Research (mars 2026)
-// Total: 23% — aligné avec les données SSA (30-50% total, ~23% ERP-adressable)
+// Loss rates calibrated on FAO/World Bank/Nucleus Research benchmarks (March 2026)
+// Total: 23% — aligned with SSA data (30-50% total, ~23% ERP-addressable)
 const BASE_LOSS_RATES = [
   { key: "pertes_donnees", label: "Gestion manuelle des données", rate: 0.065 },
   { key: "pertes_recolte", label: "Pertes post-récolte", rate: 0.10 },
@@ -19,7 +17,7 @@ const BASE_LOSS_RATES = [
   { key: "pertes_stock", label: "Pertes de stock & intrants", rate: 0.02 },
 ];
 
-const TERRAFLOW_REDUCTION = {
+const KALTIV_REDUCTION = {
   pertes_donnees: 0.80,
   pertes_recolte: 0.60,
   surcharge_admin: 0.70,
@@ -29,12 +27,12 @@ const TERRAFLOW_REDUCTION = {
 
 const ERP_MULTIPLIER = { aucun: 1.0, excel: 0.6, autre: 0.5 };
 
-// Tiers alignés avec la page Tarifs du site
+// Tiers alignes avec la page Tarifs du site (en FCFA)
 const PRICING_TIERS = [
-  { max: 10, monthly: 150 },    // Starter
-  { max: 50, monthly: 500 },    // Professional (base)
-  { max: 200, monthly: 1500 },  // Enterprise
-  { max: Infinity, monthly: 5000 }, // Enterprise+
+  { max: 20, monthly: 75000, name: "Foundation" },
+  { max: 100, monthly: 200000, name: "Growth" },
+  { max: 500, monthly: 500000, name: "Command" },
+  { max: Infinity, monthly: 500000, name: "Enterprise" },
 ];
 
 function formatFCFA(n) {
@@ -49,14 +47,14 @@ function calculateROI(revenusAnnuels, nombreEmployes, erpActuel) {
   let gainsTotaux = 0;
   const details = BASE_LOSS_RATES.map((item) => {
     const loss = revenusAnnuels * item.rate * multiplier;
-    const gain = loss * TERRAFLOW_REDUCTION[item.key];
+    const gain = loss * KALTIV_REDUCTION[item.key];
     pertesTotales += loss;
     gainsTotaux += gain;
     return { ...item, loss, gain };
   });
 
   const tier = PRICING_TIERS.find((t) => nombreEmployes <= t.max);
-  const coutAnnuel = tier.monthly * 12 * EUR_TO_FCFA;
+  const coutAnnuel = tier.monthly * 12;
   const economiesAnnuelles = gainsTotaux - coutAnnuel;
   const roiPercent = coutAnnuel > 0 ? Math.round((economiesAnnuelles / coutAnnuel) * 100) : 0;
   const breakEvenMonths = gainsTotaux > 0 ? Math.ceil(coutAnnuel / (gainsTotaux / 12)) : 99;
@@ -91,7 +89,7 @@ export default function ROICalculator({ scrollTo }) {
   const maxBar = Math.max(result.pertesTotales, result.gainsTotaux, 1);
 
   // Suggest the right tier based on revenue/employee ratio
-  const suggestedTier = revenus < 20 ? "Starter" : revenus < 100 ? "Professional" : "Enterprise";
+  const suggestedTier = revenus < 20 ? "Foundation" : revenus < 100 ? "Growth" : revenus < 500 ? "Command" : "Enterprise";
 
   return (
     <section id="roi" className="section" ref={sectionRef}>
@@ -106,7 +104,7 @@ export default function ROICalculator({ scrollTo }) {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-lg" style={{ marginTop: "1rem", color: "var(--gris)" }}>
-            Estimez vos gains annuels en adoptant TerraFlow. Basé sur les benchmarks FAO et les données de nos clients.
+            Estimez vos gains annuels en adoptant KALTIV. Base sur les benchmarks FAO et les donnees de nos clients.
           </p>
         </Reveal>
       </div>
@@ -213,7 +211,7 @@ export default function ROICalculator({ scrollTo }) {
             ))}
             <div className="roi-bar-legend">
               <span><span className="roi-dot roi-dot-loss" /> Pertes actuelles</span>
-              <span><span className="roi-dot roi-dot-gain" /> Gains TerraFlow</span>
+              <span><span className="roi-dot roi-dot-gain" /> Gains KALTIV</span>
             </div>
           </div>
 

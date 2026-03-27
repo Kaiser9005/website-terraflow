@@ -4,7 +4,7 @@ import MagneticButton from "../ui/MagneticButton";
 import { WHATSAPP_BASE } from "../../constants";
 
 const FORMSPREE_URL = "https://formspree.io/f/xeojkvbg";
-const WHATSAPP_URL = `${WHATSAPP_BASE}?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo%20de%20TerraFlow.`;
+const WHATSAPP_URL = `${WHATSAPP_BASE}?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo%20de%20KALTIV.`;
 
 export default function Demo() {
   const [formData, setFormData] = useState({
@@ -29,8 +29,8 @@ export default function Demo() {
           company: formData.company,
           hectares: formData.hectares || "Non renseigné",
           phone: formData.phone || "Non renseigné",
-          message: formData.message || "Je souhaite une démonstration de TerraFlow.",
-          _subject: `[TerraFlow] Demande de démo — ${formData.company}`,
+          message: formData.message || "Je souhaite une demonstration de KALTIV.",
+          _subject: `[KALTIV] Demande de demo — ${formData.company}`,
         }),
       });
       if (res.ok) {

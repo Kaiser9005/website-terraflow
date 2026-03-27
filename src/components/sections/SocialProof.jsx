@@ -6,10 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const metrics = [
-  { value: "30+", unit: "", label: "modules intégrés" },
-  { value: "17", unit: "", label: "pays OHADA couverts" },
-  { value: "3x", unit: "", label: "ROI dès la 1ère année" },
-  { value: "<48", unit: "ms", label: "temps de réponse P95" },
+  { value: "27+", unit: "", label: "modules intégrés" },
+  { value: "268", unit: "", label: "tables de données" },
+  { value: "6", unit: "", label: "modèles ML déployés" },
+  { value: "5", unit: "", label: "pays opérationnels" },
 ];
 
 const logos = [
@@ -22,8 +22,8 @@ const logos = [
 
 const poweredBy = [
   { name: "Supabase", desc: "Base de données" },
+  { name: "Anthropic Claude", desc: "IA" },
   { name: "Vercel", desc: "Hébergement" },
-  { name: "PostgreSQL", desc: "Stockage" },
   { name: "Sentry", desc: "Monitoring" },
   { name: "Fly.io", desc: "ML Server" },
 ];

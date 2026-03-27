@@ -1,16 +1,16 @@
 /* Fonts loaded via <link> in index.html (no render-blocking @import) */
 
 :root {
-  --primary: #166534;
-  --primary-deep: #0D3B1F;
-  --primary-light: #22C55E;
-  --secondary: #D97706;
-  --accent: #D97706;
-  --accent-light: #F59E0B;
-  --accent-pale: #FEF3C7;
-  --terre: #78350F;
-  --blanc: #FAFAF5;
-  --creme: #F5F0E8;
+  --primary: #0A3622;
+  --primary-deep: #061F14;
+  --primary-light: #16A34A;
+  --secondary: #C8A036;
+  --accent: #C8A036;
+  --accent-light: #D4B04A;
+  --accent-pale: #FAF5E8;
+  --terre: #1A1A1A;
+  --blanc: #FAFAFA;
+  --creme: #F7F6F3;
   --noir: #0a0a0a;
   --gris: #6B7280;
   --font-display: 'Space Grotesk', -apple-system, sans-serif;
@@ -206,21 +206,21 @@ em { font-style: normal; color: var(--accent); }
 .hero-orb-1 {
   width: clamp(300px, 50vw, 700px);
   height: clamp(300px, 50vw, 700px);
-  background: radial-gradient(circle, rgba(37,99,60,0.5) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(10,54,34,0.6) 0%, transparent 70%);
   top: -10%;
   left: -10%;
 }
 .hero-orb-2 {
   width: clamp(250px, 40vw, 500px);
   height: clamp(250px, 40vw, 500px);
-  background: radial-gradient(circle, rgba(181,148,64,0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200,160,54,0.3) 0%, transparent 70%);
   bottom: 10%;
   right: -5%;
 }
 .hero-orb-3 {
   width: clamp(200px, 30vw, 400px);
   height: clamp(200px, 30vw, 400px);
-  background: radial-gradient(circle, rgba(37,99,60,0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(10,54,34,0.25) 0%, transparent 70%);
   top: 40%;
   left: 50%;
 }

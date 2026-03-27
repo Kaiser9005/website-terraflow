@@ -66,23 +66,22 @@ export default function Hero({ scrollTo }) {
         <div ref={overlayRef} className="hero-overlay">
           <div className="hero-content">
             <div className="hero-eyebrow" style={{ opacity: 0 }}>
-              De la Parcelle au Profit
+              The Agribusiness Command Platform
             </div>
             <h1 className="display-xl hero-title">
-              <span className="kinetic-line"><span className="hero-title-line">L'ERP Agricole</span></span>
-              <span className="kinetic-line"><span className="hero-title-line">de Référence en</span></span>
-              <span className="kinetic-line"><span className="hero-title-line"><em>Afrique</em></span></span>
+              <span className="kinetic-line"><span className="hero-title-line">Run your entire</span></span>
+              <span className="kinetic-line"><span className="hero-title-line"><em>value chain.</em></span></span>
             </h1>
             <p className="hero-subtitle" style={{ opacity: 0 }}>
-              30+ modules. IA prédictive. Chatbot agronomique. Qualité & Excellence.
-              La plateforme qui transforme chaque exploitation agricole en entreprise connectée.
+              27+ modules. IA prédictive. Chatbot agronomique. Digital Chief of Staff.
+              Conformité multi-régionale native (OHADA, CEMAC, UEMOA). Du terrain au bilan, un seul système.
             </p>
             <div className="hero-cta-row" style={{ opacity: 0 }}>
               <MagneticButton className="btn btn-primary" onClick={() => scrollTo("demo")}>
-                Demander une Démo
+                Démarrer — 60 jours gratuit
               </MagneticButton>
-              <MagneticButton className="btn btn-outline" onClick={() => scrollTo("modules")}>
-                Explorer les Modules
+              <MagneticButton className="btn btn-outline" onClick={() => scrollTo("demo")}>
+                Demander une démo
               </MagneticButton>
             </div>
           </div>
@@ -91,11 +90,11 @@ export default function Hero({ scrollTo }) {
               <div className="hero-browser-dots">
                 <span /><span /><span />
               </div>
-              <span className="hero-browser-url">modules-rh-authentification-expert.vercel.app</span>
+              <span className="hero-browser-url">app.kaltiv.com</span>
             </div>
             <img
               src="/screenshots/dashboard.webp"
-              alt="TerraFlow ERP — Tableau de bord"
+              alt="KALTIV — Tableau de bord"
               className="hero-screenshot"
               loading="eager"
             />

@@ -27,7 +27,7 @@ export default function StickyBar({ scrollTo }) {
         </button>
         <a
           className="sticky-bar-wa"
-          href={`${WHATSAPP_BASE}?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20TerraFlow.`}
+          href={`${WHATSAPP_BASE}?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20KALTIV.`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"

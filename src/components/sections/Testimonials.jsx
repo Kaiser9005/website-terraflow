@@ -5,7 +5,7 @@ import Reveal from "../ui/Reveal";
 
 const testimonials = [
   {
-    text: "Avant TerraFlow, on passait 3 jours à réconcilier les fiches de paie. Maintenant, c'est automatique. On a récupéré 2 semaines de productivité par mois.",
+    text: "Avant KALTIV, on passait 3 jours a reconcilier les fiches de paie. Maintenant, c'est automatique. On a recupere 2 semaines de productivite par mois.",
     author: "Jean Paul FODJO",
     role: "Fondateur & DG, FOFAL — 80 ha, Cameroun",
     initials: "JP",
@@ -56,7 +56,7 @@ export default function Testimonials() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-            Ils font <em>confiance</em> à TerraFlow
+            Ils font <em>confiance</em> a KALTIV
           </h2>
         </Reveal>
       </div>

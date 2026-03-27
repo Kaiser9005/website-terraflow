@@ -61,7 +61,7 @@ export default function CaseStudy({ scrollTo }) {
           <Reveal delay={0.3}>
             <div className="cs-quote">
               <blockquote>
-                "On a récupéré 2 semaines de productivité par mois. TerraFlow a transformé notre façon de gérer l'exploitation."
+                "On a recupere 2 semaines de productivite par mois. KALTIV a transforme notre facon de gerer l'exploitation."
               </blockquote>
               <cite>— Jean Paul FODJO, Fondateur FOFAL</cite>
             </div>
@@ -77,7 +77,7 @@ export default function CaseStudy({ scrollTo }) {
           <div className="cs-table-header">
             <span></span>
             <span className="cs-header-before">Avant</span>
-            <span className="cs-header-after">Avec TerraFlow</span>
+            <span className="cs-header-after">Avec KALTIV</span>
           </div>
           {beforeAfter.map((row, i) => (
             <div key={i} className="cs-row" style={{ opacity: 0 }}>

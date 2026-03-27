@@ -15,17 +15,17 @@ export default function Footer({ navItems, scrollTo }) {
         <div className="footer-brand">
           <a className="nav-logo" onClick={() => scrollTo("hero")} style={{ cursor: "pointer" }}>
             <img
-              src="/logo-terraflow.svg"
-              alt="TerraFlow"
+              src="/logo-kaltiv.svg"
+              alt="KALTIV"
               className="nav-logo-img footer-logo-tf"
               width="48"
               height="48"
             />
-            Terra<span>Flow</span>
+            <span>K</span>ALTIV
           </a>
           <p>
-            L'ERP agricole intelligent conçu pour l'Afrique. 30+ modules intégrés,
-            IA prédictive, chatbot agronomique, conformité OHADA. De la parcelle à l'export.
+            The Agribusiness Command Platform. 27+ modules, predictive AI,
+            agronomic chatbot, multi-regional compliance. From field to balance sheet.
           </p>
           <div className="footer-payments">
             <span className="footer-payment">Visa</span>
@@ -53,7 +53,7 @@ export default function Footer({ navItems, scrollTo }) {
 
         <div className="footer-col">
           <h4>Contact</h4>
-          <a href="mailto:contact@terraflow.cm">contact@terraflow.cm</a>
+          <a href="mailto:contact@kaltiv.com">contact@kaltiv.com</a>
           <a href={WHATSAPP_BASE} target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a href="https://modules-rh-authentification-expert.vercel.app/login" target="_blank" rel="noopener noreferrer" style={{ marginTop: "0.5rem", color: "var(--accent)" }}>
             Se connecter
@@ -63,7 +63,7 @@ export default function Footer({ navItems, scrollTo }) {
 
       <div className="footer-bottom">
         <div className="footer-bottom-left">
-          <span>&copy; {new Date().getFullYear()} TerraFlow. Tous droits réservés.</span>
+          <span>&copy; {new Date().getFullYear()} KALTIV. All rights reserved.</span>
           <div className="footer-legal">
             <a href="/mentions-legales" onClick={toggleLegal("mentions")} aria-expanded={legalOpen === "mentions"}>Mentions légales</a>
             <a href="/confidentialite" onClick={toggleLegal("privacy")} aria-expanded={legalOpen === "privacy"}>Politique de confidentialité</a>
@@ -83,11 +83,11 @@ export default function Footer({ navItems, scrollTo }) {
           <div className="footer-legal-inner">
             <button className="footer-legal-close" onClick={() => setLegalOpen(null)} aria-label="Fermer">&times;</button>
             <h4>Mentions légales</h4>
-            <p><strong>Éditeur :</strong> TerraFlow SAS — ERP agricole intelligent pour l'Afrique.</p>
-            <p><strong>Contact :</strong> contact@terraflow.cm | +237 99 311 413</p>
+            <p><strong>Editeur :</strong> KALTIV — The Agribusiness Command Platform.</p>
+            <p><strong>Contact :</strong> contact@kaltiv.com | +237 99 311 413</p>
             <p><strong>Hébergement :</strong> Vercel Inc. — 340 S Lemon Ave #4133, Walnut, CA 91789, USA.</p>
-            <p><strong>Propriété intellectuelle :</strong> L'ensemble du contenu de ce site (textes, images, logos, logiciels) est la propriété exclusive de TerraFlow ou de ses partenaires. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
-            <p><strong>Responsabilité :</strong> TerraFlow s'efforce de fournir des informations exactes et à jour. Toutefois, TerraFlow ne saurait être tenu responsable des erreurs, omissions ou résultats obtenus suite à l'utilisation de ces informations.</p>
+            <p><strong>Propriete intellectuelle :</strong> L'ensemble du contenu de ce site (textes, images, logos, logiciels) est la propriete exclusive de KALTIV ou de ses partenaires. Toute reproduction, meme partielle, est interdite sans autorisation prealable.</p>
+            <p><strong>Responsabilite :</strong> KALTIV s'efforce de fournir des informations exactes et a jour. Toutefois, KALTIV ne saurait etre tenu responsable des erreurs, omissions ou resultats obtenus suite a l'utilisation de ces informations.</p>
           </div>
         </div>
       )}
@@ -101,7 +101,7 @@ export default function Footer({ navItems, scrollTo }) {
             <p><strong>Utilisation des données :</strong> Vos données sont utilisées exclusivement pour répondre à vos demandes, vous fournir nos services et améliorer votre expérience utilisateur.</p>
             <p><strong>Analyse d'audience :</strong> Ce site utilise Plausible Analytics, une solution respectueuse de la vie privée qui ne dépose aucun cookie et ne collecte aucune donnée personnelle.</p>
             <p><strong>Stockage :</strong> Les données sont stockées de manière sécurisée sur Supabase (chiffrement AES-256 au repos, connexions TLS).</p>
-            <p><strong>Vos droits :</strong> Conformément aux réglementations en vigueur, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ces droits, contactez-nous à contact@terraflow.cm.</p>
+            <p><strong>Vos droits :</strong> Conformement aux reglementations en vigueur, vous disposez d'un droit d'acces, de rectification et de suppression de vos donnees personnelles. Pour exercer ces droits, contactez-nous a contact@kaltiv.com.</p>
             <p><strong>Durée de conservation :</strong> Vos données sont conservées pendant la durée nécessaire au traitement de votre demande, et au maximum 3 ans après votre dernier contact.</p>
           </div>
         </div>

@@ -9,71 +9,81 @@ gsap.registerPlugin(ScrollTrigger);
 
 const plans = [
   {
-    name: "Starter",
-    price: "150",
-    priceFCFA: "98 400 FCFA",
-    period: "/mois",
-    target: "Petites exploitations · 20-100 ha",
+    name: "Foundation",
+    price: "$115",
+    priceLocal: "75 000 FCFA · GHS 1 400 · KES 14 800",
+    period: "/mo",
+    target: "Small farms · < 50 ha",
     features: [
-      "5–10 modules au choix",
-      "Gestion parcellaire de base",
-      "Paie & RH essentiels",
-      "Support e-mail",
-      "1 utilisateur admin",
+      "15 essential modules",
+      "5 users included",
+      "Payroll + regulatory compliance",
+      "Real-time KPI dashboard",
+      "Email + WhatsApp support",
+      "Multi-channel notifications",
     ],
-    cta: "Démarrer mon essai gratuit",
+    cta: "Start — 30 days free",
     featured: false,
+    badge: null,
   },
   {
-    name: "Professional",
-    price: "À partir de 500",
-    priceFCFA: "~328 000 FCFA",
-    period: "/mois",
-    target: "Moyennes exploitations · 100-1 000 ha",
+    name: "Growth",
+    price: "$305",
+    priceLocal: "200 000 FCFA · GHS 3 700 · KES 39 300",
+    period: "/mo",
+    target: "Mid-size operations · 50-500 ha",
     features: [
-      "20–25 modules",
-      "IA prédictive + chatbot agronomique",
-      "Comptabilité OHADA + budget & trésorerie",
-      "Traçabilité parcelle-export",
-      "Gestion qualité (PDCA, 5S, Gemba)",
-      "Support prioritaire (réponse < 4h)",
-      "5 utilisateurs inclus",
+      "25 modules",
+      "15 users included",
+      "Full regulatory compliance (OHADA/IFRS)",
+      "Predictive AI (yield + quality)",
+      "Kona chatbot (FAQ + actions)",
+      "Kanban + PDCA",
+      "Priority support < 8h",
     ],
-    cta: "Essayer 60 jours gratuit",
+    cta: "Try 60 days free",
     featured: true,
+    badge: "Popular",
+  },
+  {
+    name: "Command",
+    price: "$762",
+    priceLocal: "500 000 FCFA · GHS 9 300 · KES 98 200",
+    period: "/mo",
+    target: "Large operations · 500-2 000 ha",
+    features: [
+      "All modules",
+      "50 users included",
+      "Multi-regional (OHADA CEMAC/UEMOA + anglophone, 5 jurisdictions)",
+      "Digital Chief of Staff (44 AI tools)",
+      "Kona AI full (23 write actions)",
+      "14 Lean tools",
+      "Offline ONNX + PowerSync",
+      "API & webhooks",
+      "Support < 4h + phone",
+    ],
+    cta: "Request a demo",
+    featured: false,
+    badge: "Recommended",
   },
   {
     name: "Enterprise",
-    price: "Sur mesure",
+    price: "Custom",
+    priceLocal: "",
     period: "",
-    target: "Agro-industries · 1 000+ ha",
+    target: "Agro-industries · 2 000+ ha · Multi-site",
     features: [
-      "30+ modules complets",
-      "IA avancée + chatbot agronomique (12 outils)",
-      "Excellence opérationnelle (PDCA, Kanban, SPC)",
-      "API partenaires & webhooks",
-      "Multi-sites, multi-devises",
-      "SLA sur mesure",
-      "Utilisateurs illimités",
-      "Formation & onboarding dédié",
+      "Custom modules + integrations",
+      "Unlimited users",
+      "Multi-jurisdiction + multi-currency",
+      "Custom AI models",
+      "Guaranteed SLA + dedicated manager",
+      "On-site training",
+      "Security audit + SOC 2",
     ],
-    cta: "Demander un devis",
+    cta: "Contact sales",
     featured: false,
-  },
-  {
-    name: "Public",
-    price: "Sur mesure",
-    period: "",
-    target: "Institutionnels · Ministères, agences",
-    features: [
-      "Déploiement souverain dédié",
-      "Tableau de bord filière nationale",
-      "Intégration systèmes publics",
-      "Conformité marchés publics",
-      "Support & SLA gouvernemental",
-    ],
-    cta: "Demander un devis",
-    featured: false,
+    badge: null,
   },
 ];
 
@@ -118,13 +128,13 @@ export default function Pricing({ scrollTo }) {
       <div className="pricing-grid">
         {plans.map((plan, i) => (
           <div key={i} className={`pricing-card ${plan.featured ? "featured" : ""}`} style={{ opacity: 0 }}>
-            {plan.featured && <div className="pricing-badge">Populaire</div>}
+            {plan.badge && <div className="pricing-badge">{plan.badge}</div>}
             <h3 className="pricing-name">{plan.name}</h3>
             <div className="pricing-target">{plan.target}</div>
             <div className="pricing-price">
               <span className="pricing-amount">{plan.price}</span>
-              {plan.period && <span className="pricing-currency"> EUR{plan.period}</span>}
-              {plan.priceFCFA && <div className="pricing-fcfa">{plan.priceFCFA}/mois</div>}
+              {plan.period && <span className="pricing-currency">{plan.period}</span>}
+              {plan.priceLocal && <div className="pricing-fcfa">{plan.priceLocal}</div>}
             </div>
             <ul className="pricing-features">
               {plan.features.map((f, j) => (
@@ -150,30 +160,30 @@ export default function Pricing({ scrollTo }) {
             <table>
               <thead>
                 <tr>
-                  <th>Fonctionnalité</th>
-                  <th>Starter</th>
-                  <th className="pricing-matrix-featured">Pro</th>
+                  <th>Fonctionnalite</th>
+                  <th>Foundation</th>
+                  <th className="pricing-matrix-featured">Growth</th>
+                  <th>Command</th>
                   <th>Enterprise</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ["Modules", "5–10", "20–25", "30+"],
-                  ["Utilisateurs", "1", "5", "Illimité"],
-                  ["Gestion parcellaire", "Base", "Avancée", "Complète"],
-                  ["Comptabilité OHADA", "—", "Complète", "Complète"],
-                  ["IA prédictive", "—", "Rendement + météo", "Tous modèles"],
-                  ["Traçabilité", "—", "Parcelle-export", "ISO/HACCP"],
-                  ["Mode hors-ligne", "Basique", "En dev", "En dev + ONNX"],
-                  ["Support", "Email", "Prioritaire < 4h", "SLA + manager dédié"],
-                  ["Multi-sites", "—", "—", "Illimité"],
-                  ["API & webhooks", "—", "—", "Complet"],
-                  ["Facturation annuelle", "—", "2 mois offerts", "Sur mesure"],
-                ].map(([feature, s, p, e], i) => (
+                  ["Modules", "15", "25", "Tous", "Custom"],
+                  ["Utilisateurs", "5", "15", "50", "Illimite"],
+                  ["Compliance", "Basique", "Complete", "Multi-pays", "Multi-juridictions"],
+                  ["IA/ML", "Dashboard", "Predictif", "Complet + Chief of Staff", "Custom"],
+                  ["Lean", "—", "Kanban+PDCA", "14 outils", "Custom"],
+                  ["Offline", "PWA", "+ PowerSync", "+ ONNX", "Full suite"],
+                  ["Chatbot", "FAQ", "+ Actions", "23 write actions", "Custom"],
+                  ["Support", "Email+WA", "< 8h", "< 4h + tel", "SLA dedie"],
+                  ["Facturation ann.", "—", "2 mois offerts", "2 mois offerts", "Sur mesure"],
+                ].map(([feature, f, g, c, e], i) => (
                   <tr key={i}>
                     <td>{feature}</td>
-                    <td>{s}</td>
-                    <td className="pricing-matrix-featured">{p}</td>
+                    <td>{f}</td>
+                    <td className="pricing-matrix-featured">{g}</td>
+                    <td>{c}</td>
                     <td>{e}</td>
                   </tr>
                 ))}
@@ -186,33 +196,32 @@ export default function Pricing({ scrollTo }) {
       <Reveal delay={0.4}>
         <div className="pricing-compare" style={{ marginTop: "3rem" }}>
           <h3 style={{ textAlign: "center", marginBottom: "1.5rem", fontSize: "1.1rem", fontWeight: 600 }}>
-            TerraFlow vs Alternatives
+            KALTIV vs Alternatives
           </h3>
           <div className="pricing-matrix">
             <table>
               <thead>
                 <tr>
-                  <th>Critère</th>
-                  <th className="pricing-matrix-featured">TerraFlow</th>
-                  <th>Odoo</th>
+                  <th>Critere</th>
+                  <th className="pricing-matrix-featured">KALTIV</th>
+                  <th>SAP B1</th>
+                  <th>Odoo Ent.</th>
                   <th>Excel</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ["Conformité OHADA", "Natif", "Module tiers", "Manuelle"],
-                  ["Paie multi-pays", "Cameroun + extensible", "Par extension", "Non"],
-                  ["Mode hors-ligne", "PWA (en dev)", "Non", "Fichier local"],
-                  ["IA prédictive", "CatBoost/LightGBM", "Non", "Non"],
-                  ["Agriculture spécialisé", "30+ modules", "Générique", "Non"],
-                  ["Traçabilité lot", "Parcelle-export", "Module séparé", "Non"],
-                  ["Mobile Money", "Bientôt", "Non natif", "Non"],
-                  ["Temps de déploiement", "4 semaines", "3-6 mois", "Immédiat"],
-                  ["Prix (PME)", "150-500 EUR/mois", "~1 000+ EUR/mois", "Gratuit*"],
-                ].map(([feature, tf, odoo, excel], i) => (
+                  ["Prix PME", "$115-$762/mo", "~$1 500+/mo", "~$1 000+/mo", "\"Free\""],
+                  ["Compliance Afrique", "OHADA+CEMAC+UEMOA natif", "Non", "Module tiers", "Non"],
+                  ["Chatbot IA agri", "Oui (Kona)", "Non", "Non", "Non"],
+                  ["Offline", "ONNX + PowerSync", "Non", "Non", "Oui"],
+                  ["Deploiement", "4 semaines", "6-12 mois", "3-6 mois", "Immediat"],
+                  ["Multi-regional", "5 pays", "Extensible", "Par extension", "Non"],
+                ].map(([feature, k, sap, odoo, excel], i) => (
                   <tr key={i}>
                     <td>{feature}</td>
-                    <td className="pricing-matrix-featured">{tf}</td>
+                    <td className="pricing-matrix-featured">{k}</td>
+                    <td>{sap}</td>
                     <td>{odoo}</td>
                     <td>{excel}</td>
                   </tr>
@@ -220,7 +229,7 @@ export default function Pricing({ scrollTo }) {
               </tbody>
             </table>
             <p style={{ textAlign: "center", fontSize: "0.7rem", color: "var(--gris)", marginTop: "0.75rem" }}>
-              * Excel : coût caché estimé ~15% du CA en inefficacités (source : FAO/World Bank)
+              * Excel : cout cache estime ~15% du CA en inefficacites (source : FAO/World Bank)
             </p>
           </div>
         </div>

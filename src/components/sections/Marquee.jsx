@@ -30,15 +30,15 @@ export default function Marquee() {
       <div className="marquee-track" ref={trackRef}>
         {[...Array(2)].map((_, i) => (
           <div key={i} style={{ display: "flex" }}>
-            <span className="marquee-item">Gestion Parcellaire</span>
+            <span className="marquee-item">KALTIV</span>
             <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">Paie Multi-Pays OHADA</span>
+            <span className="marquee-item">Command Platform</span>
             <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">IA Prédictive</span>
+            <span className="marquee-item">27+ Modules</span>
             <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">Traçabilité Parcelle-Export</span>
+            <span className="marquee-item">268 Tables</span>
             <span className="marquee-dot">&#10022;</span>
-            <span className="marquee-item">30+ Modules</span>
+            <span className="marquee-item">5 Pays</span>
             <span className="marquee-dot">&#10022;</span>
             <span className="marquee-item">Offline-First</span>
             <span className="marquee-dot">&#10022;</span>

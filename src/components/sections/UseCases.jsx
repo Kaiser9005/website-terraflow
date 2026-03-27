@@ -78,7 +78,7 @@ export default function UseCases({ scrollTo }) {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-lg" style={{ marginTop: "1rem", color: "var(--gris)" }}>
-            TerraFlow s'adapte à votre rôle. Sélectionnez votre profil.
+            KALTIV s'adapte a votre role. Selectionnez votre profil.
           </p>
         </Reveal>
       </div>
@@ -105,7 +105,7 @@ export default function UseCases({ scrollTo }) {
               <p>{p.pain}</p>
             </div>
             <div className="uc-solution">
-              <span className="uc-solution-label">La solution TerraFlow</span>
+              <span className="uc-solution-label">La solution KALTIV</span>
               <p>{p.solution}</p>
             </div>
           </div>

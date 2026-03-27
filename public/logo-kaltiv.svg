@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <g fill="currentColor">
+    <!-- K monogram mark -->
+    <path d="M4 4h8v16.5L26.5 4H37L20.5 22 38 44H27L12 25.5V44H4V4Z"/>
+    <!-- KALTIV wordmark -->
+    <text x="48" y="36" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="32" fill="currentColor" letter-spacing="-0.02em">KALTIV</text>
+  </g>
+</svg>

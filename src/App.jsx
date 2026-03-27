@@ -46,23 +46,23 @@ const navItems = [
 const sectionColors = {
   hero: { bg: "#0a0a0a", text: "#FFFFFF" },
   problem: { bg: "#0a0a0a", text: "#FFFFFF" },
-  features: { bg: "#FAFAF5", text: "#1A1A18" },
-  stats: { bg: "#F5F0E8", text: "#1A1A18" },
-  "use-cases": { bg: "#FAFAF5", text: "#1A1A18" },
-  "case-study": { bg: "#FAFAF5", text: "#1A1A18" },
+  features: { bg: "#FAFAFA", text: "#1A1A18" },
+  stats: { bg: "#F7F6F3", text: "#1A1A18" },
+  "use-cases": { bg: "#FAFAFA", text: "#1A1A18" },
+  "case-study": { bg: "#FAFAFA", text: "#1A1A18" },
   modules: { bg: "#1A1A18", text: "#FFFFFF" },
-  roi: { bg: "#FAFAF5", text: "#1A1A18" },
-  pricing: { bg: "#F5F0E8", text: "#1A1A18" },
-  coverage: { bg: "#F5F0E8", text: "#1A1A18" },
+  roi: { bg: "#FAFAFA", text: "#1A1A18" },
+  pricing: { bg: "#F7F6F3", text: "#1A1A18" },
+  coverage: { bg: "#F7F6F3", text: "#1A1A18" },
   onboarding: { bg: "#1A1A18", text: "#FFFFFF" },
   trust: { bg: "#1A1A18", text: "#FFFFFF" },
-  testimonials: { bg: "#FAFAF5", text: "#1A1A18" },
-  faq: { bg: "#FAFAF5", text: "#1A1A18" },
-  blog: { bg: "#F5F0E8", text: "#1A1A18" },
-  demo: { bg: "#0D3B1F", text: "#FFFFFF" },
+  testimonials: { bg: "#FAFAFA", text: "#1A1A18" },
+  faq: { bg: "#FAFAFA", text: "#1A1A18" },
+  blog: { bg: "#F7F6F3", text: "#1A1A18" },
+  demo: { bg: "#061F14", text: "#FFFFFF" },
 };
 
-export default function TerraFlowSite() {
+export default function KaltivSite() {
   const [loading, setLoading] = useState(true);
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
