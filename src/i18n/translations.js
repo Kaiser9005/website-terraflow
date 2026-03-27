@@ -32,7 +32,7 @@ const translations = {
     socialProof: {
       metrics: [
         { value: "27+", unit: "", label: "modules intégrés" },
-        { value: "268", unit: "", label: "tables de données" },
+        { value: "370+", unit: "", label: "tables de données" },
         { value: "6", unit: "", label: "modèles ML déployés" },
         { value: "17+", unit: "", label: "pays couverts" },
       ],
@@ -55,7 +55,7 @@ const translations = {
     },
     // Marquee
     marquee: {
-      items: ["KALTIV", "Command Platform", "27+ Modules", "268 Tables", "17+ Pays", "Offline-First"],
+      items: ["KALTIV", "Command Platform", "27+ Modules", "370+ Tables", "17+ Pays", "Offline-First"],
     },
     // Problem
     problem: {
@@ -95,8 +95,8 @@ const translations = {
         { value: 99, suffix: ".9%", label: "Disponibilité", desc: "objectif uptime (Sentry monitoring)" },
         { value: 6, suffix: "", label: "Modèles IA", desc: "rendement, qualité, prix (×3 produits), demande" },
         { value: 17, suffix: "", label: "Pays OHADA", desc: "architecture multi-juridictions" },
-        { value: 900, suffix: "+", label: "Tests Auto", desc: "couverture 100% hooks & services" },
-        { value: 15, suffix: "K+", label: "Clés i18n", desc: "interface bilingue FR/EN complète" },
+        { value: 5200, suffix: "+", label: "Tests Auto", desc: "couverture 100% hooks & services" },
+        { value: 19, suffix: "K+", label: "Clés i18n", desc: "interface bilingue FR/EN complète" },
         { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable Cameroun" },
       ],
     },
@@ -438,7 +438,7 @@ const translations = {
     socialProof: {
       metrics: [
         { value: "27+", unit: "", label: "integrated modules" },
-        { value: "268", unit: "", label: "data tables" },
+        { value: "370+", unit: "", label: "data tables" },
         { value: "6", unit: "", label: "ML models deployed" },
         { value: "17+", unit: "", label: "countries covered" },
       ],
@@ -460,7 +460,7 @@ const translations = {
       poweredByLabel: "Powered by",
     },
     marquee: {
-      items: ["KALTIV", "Command Platform", "27+ Modules", "268 Tables", "17+ Countries", "Offline-First"],
+      items: ["KALTIV", "Command Platform", "27+ Modules", "370+ Tables", "17+ Countries", "Offline-First"],
     },
     problem: {
       eyebrow: "The Problem",
@@ -497,8 +497,8 @@ const translations = {
         { value: 99, suffix: ".9%", label: "Availability", desc: "uptime target (Sentry monitoring)" },
         { value: 6, suffix: "", label: "AI Models", desc: "yield, quality, price (×3 products), demand" },
         { value: 17, suffix: "", label: "OHADA Countries", desc: "multi-jurisdiction architecture" },
-        { value: 900, suffix: "+", label: "Automated Tests", desc: "100% coverage hooks & services" },
-        { value: 15, suffix: "K+", label: "i18n Keys", desc: "complete bilingual FR/EN interface" },
+        { value: 5200, suffix: "+", label: "Automated Tests", desc: "100% coverage hooks & services" },
+        { value: 19, suffix: "K+", label: "i18n Keys", desc: "complete bilingual FR/EN interface" },
         { value: 100, suffix: "%", label: "OHADA", desc: "Cameroon accounting compliance" },
       ],
     },
