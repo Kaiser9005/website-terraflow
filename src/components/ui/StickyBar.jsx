@@ -20,7 +20,7 @@ export default function StickyBar({ scrollTo }) {
 
   return (
     <div className="sticky-bar">
-      <span className="sticky-bar-text">60 jours d'essai gratuit</span>
+      <span className="sticky-bar-text">30 jours d'essai gratuit</span>
       <div className="sticky-bar-actions">
         <button className="btn btn-primary btn-sm" onClick={() => scrollTo("demo")}>
           Démo Gratuite
