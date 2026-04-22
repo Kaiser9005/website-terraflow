@@ -32,7 +32,7 @@ const translations = {
     socialProof: {
       metrics: [
         { value: "27+", unit: "", label: "modules intégrés" },
-        { value: "370+", unit: "", label: "tables de données" },
+        { value: "400+", unit: "", label: "tables de données" },
         { value: "6", unit: "", label: "modèles ML déployés" },
         { value: "17+", unit: "", label: "pays couverts" },
       ],
@@ -55,7 +55,7 @@ const translations = {
     },
     // Marquee
     marquee: {
-      items: ["KALTIV", "Command Platform", "27+ Modules", "370+ Tables", "17+ Pays", "Offline-First"],
+      items: ["KALTIV", "Command Platform", "27+ Modules", "400+ Tables", "17+ Pays", "Offline-First"],
     },
     // Problem
     problem: {
@@ -82,7 +82,7 @@ const translations = {
         { title: "Lean Digital", desc: "PDCA, Kanban, BSC, OKR, VSM, SMED, TPM, SPC — 14 outils d'excellence opérationnelle intégrés.", highlight: "Amélioration continue intégrée" },
         { title: "WhatsApp Intelligence", desc: "Parsing automatique de conversations terrain, notifications multicanal, rapports WhatsApp." },
         { title: "Traçabilité Complète", desc: "De la parcelle à l'export — ISO 9001, HACCP, blockchain. Chaque lot, chaque étape, chaque certificat." },
-        { title: "Paie & RH Avancé", desc: "11 sous-modules RH, 5 juridictions fiscales, matrice de compétences, évaluations 360°." },
+        { title: "Paie & RH Avancé", desc: "11 sous-modules RH, 7 juridictions fiscales, matrice de compétences, évaluations 360°." },
       ],
     },
     // Stats
@@ -95,8 +95,8 @@ const translations = {
         { value: 99, suffix: ".9%", label: "Disponibilité", desc: "objectif uptime (Sentry monitoring)" },
         { value: 6, suffix: "", label: "Modèles IA", desc: "rendement, qualité, prix (×3 produits), demande" },
         { value: 17, suffix: "", label: "Pays OHADA", desc: "architecture multi-juridictions" },
-        { value: 5200, suffix: "+", label: "Tests Auto", desc: "couverture 100% hooks & services" },
-        { value: 19, suffix: "K+", label: "Clés i18n", desc: "interface bilingue FR/EN complète" },
+        { value: 5700, suffix: "+", label: "Tests Auto", desc: "couverture 100% hooks & services" },
+        { value: 23, suffix: "K+", label: "Clés i18n", desc: "interface 4 langues FR/EN/PT/SW" },
         { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable Cameroun" },
       ],
     },
@@ -212,7 +212,7 @@ const translations = {
         { category: "Intelligence & IA", modules: [
           { name: "Kona Chatbot", desc: "23 actions d'écriture, 4 personas, mémoire contextuelle" },
           { name: "Digital Chief of Staff", desc: "44 outils IA, conseils proactifs, rapports automatiques" },
-          { name: "RAG Knowledge Base", desc: "489 embeddings, recherche sémantique, connaissances terrain" },
+          { name: "RAG Knowledge Base", desc: "1 500+ embeddings, recherche sémantique, connaissances terrain" },
           { name: "Predictive Analytics", desc: "6 modèles ML : rendement, qualité, prix, demande, météo, risques" },
           { name: "Sentiment Analysis", desc: "Analyse de satisfaction, feedback employés et clients" },
         ]},
@@ -224,7 +224,7 @@ const translations = {
       eyebrow: "Tarification",
       title: "Un investissement, pas une {dépense}",
       subtitle: "30 jours d'essai gratuit. Aucun engagement. ROI mesurable dès le premier mois.",
-      payments: "Paiement par virement ou carte bancaire. Mobile Money bientôt disponible.",
+      payments: "Paiement par virement, carte bancaire ou Mobile Money (Orange Money, MTN MoMo, Wave).",
       compareTitle: "Comparaison détaillée",
       compareHeaders: { feature: "Fonctionnalité" },
       compareRows: [
@@ -438,7 +438,7 @@ const translations = {
     socialProof: {
       metrics: [
         { value: "27+", unit: "", label: "integrated modules" },
-        { value: "370+", unit: "", label: "data tables" },
+        { value: "400+", unit: "", label: "data tables" },
         { value: "6", unit: "", label: "ML models deployed" },
         { value: "17+", unit: "", label: "countries covered" },
       ],
@@ -460,7 +460,7 @@ const translations = {
       poweredByLabel: "Powered by",
     },
     marquee: {
-      items: ["KALTIV", "Command Platform", "27+ Modules", "370+ Tables", "17+ Countries", "Offline-First"],
+      items: ["KALTIV", "Command Platform", "27+ Modules", "400+ Tables", "17+ Countries", "Offline-First"],
     },
     problem: {
       eyebrow: "The Problem",
@@ -485,7 +485,7 @@ const translations = {
         { title: "Lean Digital", desc: "PDCA, Kanban, BSC, OKR, VSM, SMED, TPM, SPC — 14 integrated operational excellence tools.", highlight: "Integrated continuous improvement" },
         { title: "WhatsApp Intelligence", desc: "Automatic parsing of field conversations, multi-channel notifications, WhatsApp reports." },
         { title: "Full Traceability", desc: "From plot to export — ISO 9001, HACCP, blockchain. Every batch, every step, every certificate." },
-        { title: "Payroll & Advanced HR", desc: "11 HR sub-modules, 5 tax jurisdictions, skills matrix, 360° evaluations." },
+        { title: "Payroll & Advanced HR", desc: "11 HR sub-modules, 7 tax jurisdictions, skills matrix, 360° evaluations." },
       ],
     },
     stats: {
@@ -497,8 +497,8 @@ const translations = {
         { value: 99, suffix: ".9%", label: "Availability", desc: "uptime target (Sentry monitoring)" },
         { value: 6, suffix: "", label: "AI Models", desc: "yield, quality, price (×3 products), demand" },
         { value: 17, suffix: "", label: "OHADA Countries", desc: "multi-jurisdiction architecture" },
-        { value: 5200, suffix: "+", label: "Automated Tests", desc: "100% coverage hooks & services" },
-        { value: 19, suffix: "K+", label: "i18n Keys", desc: "complete bilingual FR/EN interface" },
+        { value: 5700, suffix: "+", label: "Automated Tests", desc: "100% coverage hooks & services" },
+        { value: 23, suffix: "K+", label: "i18n Keys", desc: "complete 4-language FR/EN/PT/SW interface" },
         { value: 100, suffix: "%", label: "OHADA", desc: "Cameroon accounting compliance" },
       ],
     },
@@ -610,7 +610,7 @@ const translations = {
         { category: "Intelligence & AI", modules: [
           { name: "Kona Chatbot", desc: "23 write actions, 4 personas, contextual memory" },
           { name: "Digital Chief of Staff", desc: "44 AI tools, proactive advice, automatic reports" },
-          { name: "RAG Knowledge Base", desc: "489 embeddings, semantic search, field knowledge" },
+          { name: "RAG Knowledge Base", desc: "1,500+ embeddings, semantic search, field knowledge" },
           { name: "Predictive Analytics", desc: "6 ML models: yield, quality, price, demand, weather, risk" },
           { name: "Sentiment Analysis", desc: "Satisfaction analysis, employee & customer feedback" },
         ]},
@@ -621,7 +621,7 @@ const translations = {
       eyebrow: "Pricing",
       title: "An investment, not an {expense}",
       subtitle: "30-day free trial. No commitment. Measurable ROI from the first month.",
-      payments: "Payment by wire transfer or credit card. Mobile Money coming soon.",
+      payments: "Payment by wire transfer, credit card, or Mobile Money (Orange Money, MTN MoMo, Wave).",
       compareTitle: "Detailed comparison",
       compareHeaders: { feature: "Feature" },
       compareRows: [
