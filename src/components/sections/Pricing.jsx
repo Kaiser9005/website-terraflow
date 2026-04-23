@@ -5,11 +5,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Reveal from "../ui/Reveal";
 import MagneticButton from "../ui/MagneticButton";
 import { useLang } from "../ui/LangToggle";
+import CurrencyToggle, { useCurrency } from "../ui/CurrencyToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Pricing({ scrollTo }) {
   const { t } = useLang();
+  const { format, tierPrice } = useCurrency();
   const sectionRef = useRef(null);
   const plans = t("pricing.plans");
 
@@ -52,16 +54,21 @@ export default function Pricing({ scrollTo }) {
         </Reveal>
       </div>
 
+      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+        <CurrencyToggle />
+      </div>
+
       <div className="pricing-grid">
-        {plans.map((plan, i) => (
+        {plans.map((plan, i) => {
+          const amount = tierPrice(plan.name);
+          return (
           <div key={i} className={`pricing-card ${plan.featured ? "featured" : ""}`} style={{ opacity: 0 }}>
             {plan.badge && <div className="pricing-badge">{plan.badge}</div>}
             <h3 className="pricing-name">{plan.name}</h3>
             <div className="pricing-target">{plan.target}</div>
             <div className="pricing-price">
-              <span className="pricing-amount">{plan.price}</span>
-              {plan.period && <span className="pricing-currency">{plan.period}</span>}
-              {plan.priceLocal && <div className="pricing-fcfa">{plan.priceLocal}</div>}
+              <span className="pricing-amount">{amount != null ? format(amount) : plan.price}</span>
+              {amount != null && <span className="pricing-currency">{plan.period}</span>}
             </div>
             <ul className="pricing-features">
               {plan.features.map((f, j) => (
@@ -75,7 +82,8 @@ export default function Pricing({ scrollTo }) {
               {plan.cta}
             </MagneticButton>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       <Reveal delay={0.3}>

@@ -31,6 +31,7 @@ import CustomCursor from "./components/ui/CustomCursor";
 import WhatsAppButton from "./components/ui/WhatsAppButton";
 import StickyBar from "./components/ui/StickyBar";
 import LangToggle, { LangProvider, useLang } from "./components/ui/LangToggle";
+import { CurrencyProvider } from "./components/ui/CurrencyToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,7 +183,9 @@ function KaltivSiteInner() {
 export default function KaltivSite() {
   return (
     <LangProvider>
-      <KaltivSiteInner />
+      <CurrencyProvider>
+        <KaltivSiteInner />
+      </CurrencyProvider>
     </LangProvider>
   );
 }
