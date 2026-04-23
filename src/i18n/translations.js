@@ -34,7 +34,7 @@ const translations = {
         { value: "27+", unit: "", label: "modules intégrés" },
         { value: "400+", unit: "", label: "tables de données" },
         { value: "6", unit: "", label: "modèles ML déployés" },
-        { value: "17+", unit: "", label: "pays couverts" },
+        { value: "27", unit: "", label: "pays couverts" },
       ],
       logos: [
         { name: "OHADA", sub: "Certifié" },
@@ -55,7 +55,7 @@ const translations = {
     },
     // Marquee
     marquee: {
-      items: ["KALTIV", "Command Platform", "27+ Modules", "400+ Tables", "17+ Pays", "Offline-First"],
+      items: ["KALTIV", "Command Platform", "27+ Modules", "406 Tables", "27 Pays", "Offline-First"],
     },
     // Problem
     problem: {
@@ -77,12 +77,12 @@ const translations = {
       cards: [
         { title: "Digital Chief of Staff", desc: "44 outils IA pour piloter votre exploitation — conseils proactifs, rapports automatiques, alertes intelligentes.", highlight: "Votre directeur de cabinet numérique" },
         { title: "Kona AI", desc: "Chatbot agentic avec 23 actions d'écriture, 4 personas, mémoire contextuelle. Posez une question, obtenez une action." },
-        { title: "Conformité Multi-Régionale", desc: "OHADA (CEMAC/UEMOA) + Companies Act (anglophone). 17+ pays couverts, multi-juridictions natif.", highlight: "Multi-juridictions natif" },
+        { title: "Conformité Multi-Régionale", desc: "OHADA (CEMAC/UEMOA) + Companies Act (anglophone) + lusophone + swahili. 27 pays couverts, multi-juridictions natif.", highlight: "27 pays, 4 langues" },
         { title: "Offline-First", desc: "PowerSync + 6 modèles ONNX embarqués. Travaillez sans Internet, synchronisez quand le réseau revient." },
         { title: "Lean Digital", desc: "PDCA, Kanban, BSC, OKR, VSM, SMED, TPM, SPC — 14 outils d'excellence opérationnelle intégrés.", highlight: "Amélioration continue intégrée" },
         { title: "WhatsApp Intelligence", desc: "Parsing automatique de conversations terrain, notifications multicanal, rapports WhatsApp." },
         { title: "Traçabilité Complète", desc: "De la parcelle à l'export — ISO 9001, HACCP, blockchain. Chaque lot, chaque étape, chaque certificat." },
-        { title: "Paie & RH Avancé", desc: "11 sous-modules RH, 7 juridictions fiscales, matrice de compétences, évaluations 360°." },
+        { title: "Paie & RH Avancé", desc: "11 sous-modules RH, 7 juridictions fiscales, 7 états employé, pipeline planning-to-paie, évaluations 360°.", highlight: "Pipeline Planning → Paie" },
       ],
     },
     // Stats
@@ -94,8 +94,8 @@ const translations = {
         { value: 11, suffix: "", label: "Sous-Modules RH", desc: "paie, congés, compétences, évaluations 360°..." },
         { value: 99, suffix: ".9%", label: "Disponibilité", desc: "objectif uptime (Sentry monitoring)" },
         { value: 6, suffix: "", label: "Modèles IA", desc: "rendement, qualité, prix (×3 produits), demande" },
-        { value: 17, suffix: "", label: "Pays OHADA", desc: "architecture multi-juridictions" },
-        { value: 5700, suffix: "+", label: "Tests Auto", desc: "couverture 100% hooks & services" },
+        { value: 27, suffix: "", label: "Pays Couverts", desc: "OHADA, anglophone, lusophone, swahili" },
+        { value: 6000, suffix: "+", label: "Tests Auto", desc: "couverture 100% hooks & services" },
         { value: 23, suffix: "K+", label: "Clés i18n", desc: "interface 4 langues FR/EN/PT/SW" },
         { value: 100, suffix: "%", label: "OHADA", desc: "conformité comptable Cameroun" },
       ],
@@ -246,7 +246,7 @@ const translations = {
         ["Chatbot IA agri", "Oui (Kona)", "Non", "Non", "Non"],
         ["Offline", "ONNX + PowerSync", "Non", "Non", "Oui"],
         ["Déploiement", "4 semaines", "6-12 mois", "3-6 mois", "Immédiat"],
-        ["Multi-régional", "17+ pays", "Extensible", "Par extension", "Non"],
+        ["Multi-régional", "27 pays", "Extensible", "Par extension", "Non"],
       ],
       vsFootnote: "* Excel : coût caché estimé ~15% du CA en inefficacités (source : FAO/World Bank)",
       plans: [
@@ -266,7 +266,7 @@ const translations = {
         {
           name: "Command",
           target: "Grandes exploitations · 500-2 000 ha",
-          features: ["Tous les modules", "50 utilisateurs inclus", "Multi-régional (OHADA CEMAC/UEMOA + anglophone, 17+ pays)", "Digital Chief of Staff (44 outils IA)", "Kona AI complet (23 write actions)", "14 outils Lean", "Offline ONNX + PowerSync", "API & webhooks", "Support < 4h + téléphone"],
+          features: ["Tous les modules", "50 utilisateurs inclus", "Multi-régional (OHADA + anglophone + lusophone, 27 pays)", "Digital Chief of Staff (44 outils IA)", "Kona AI complet (23 write actions)", "14 outils Lean", "Offline ONNX + PowerSync", "API & webhooks", "Support < 4h + téléphone"],
           cta: "Demander une démo",
           badge: "Recommandé",
         },
@@ -295,8 +295,8 @@ const translations = {
     // Coverage
     coverage: {
       eyebrow: "Couverture",
-      title: "17 pays, une seule {plateforme}",
-      subtitle: "Plan comptable OHADA natif. Cotisations CNPS Cameroun vérifiées. Architecture extensible aux 17 juridictions. Multi-devises FCFA, EUR, USD.",
+      title: "27 pays, une seule {plateforme}",
+      subtitle: "Plan comptable OHADA natif. Cotisations sociales multi-pays vérifiées. 27 pays couverts (francophone, anglophone, lusophone, swahili). Multi-devises XAF, XOF, GHS, KES, EUR, USD.",
       cropTitle: "Filières agricoles supportées",
       flagAlt: "Drapeau",
       crops: ["Palmier à huile", "Cacao", "Café", "Hévéa", "Coton", "Banane", "Manioc", "Ananas"],
@@ -322,7 +322,7 @@ const translations = {
       certTitle: "Certifications & Conformité",
       secTitle: "Sécurité & Infrastructure",
       certifications: [
-        { name: "OHADA / SYSCOHADA", desc: "Plan comptable conforme aux 17 pays de l'espace OHADA. Clôture automatisée." },
+        { name: "OHADA / SYSCOHADA", desc: "Plan comptable conforme aux 17 pays OHADA + 10 pays anglophones/lusophones. Clôture automatisée." },
         { name: "Caisses Sociales Multi-Pays", desc: "Cotisations CNPS Cameroun vérifiées. Architecture extensible aux autres caisses (CNSS, INSS, CSS)." },
         { name: "CEMAC / Zone Franc", desc: "Multi-devises FCFA/EUR/USD. Conformité réglementaire CEMAC intégrée." },
         { name: "ISO 9001", desc: "Traçabilité complète lot-par-lot pour certification qualité internationale." },
@@ -356,7 +356,7 @@ const translations = {
         { q: "Où sont hébergées mes données ?", a: "Vos données sont stockées sur l'infrastructure Supabase (certifiée SOC 2 Type II), avec résidence au choix en Europe (Francfort) ou en Afrique. Chiffrement AES-256 au repos et TLS 1.3 en transit." },
         { q: "KALTIV fonctionne-t-il sans Internet ?", a: "Oui. Le mode hors-ligne (PWA + ONNX) permet la saisie terrain, les prédictions IA locales, et la synchronisation automatique au retour de la connexion. Idéal pour les zones rurales." },
         { q: "Combien de temps pour migrer depuis Excel ?", a: "En moyenne 2 semaines. Notre équipe assiste l'import de vos fichiers Excel, cahiers de terrain et données existantes. Le processus est guidé et validé à chaque étape." },
-        { q: "Est-ce conforme OHADA pour mon pays ?", a: "KALTIV supporte les 17 pays de l'espace OHADA (CEMAC/UEMOA) et les pays anglophones avec plan comptable SYSCOHADA, cotisations sociales adaptées par pays (CNPS, CNSS, INSS, CSS...) et multi-devises XAF/XOF/GHS/KES/EUR/USD." },
+        { q: "Est-ce conforme OHADA pour mon pays ?", a: "KALTIV couvre 27 pays : les 17 pays OHADA (CEMAC/UEMOA), 8 pays anglophones et 5 pays lusophones. Plan comptable SYSCOHADA, cotisations sociales adaptées par pays (CNPS, CNSS, INSS, CSS...) et multi-devises XAF/XOF/GHS/KES/EUR/USD. Interface en 4 langues (FR/EN/PT/SW)." },
         { q: "Que se passe-t-il si j'annule mon abonnement ?", a: "Vos données restent accessibles en lecture pendant 90 jours après annulation. Vous pouvez exporter l'intégralité en CSV/Excel à tout moment. Aucun frais d'annulation." },
         { q: "Comment est calculé le prix ?", a: "Le tarif dépend du nombre d'utilisateurs et de modules activés. Le plan Foundation commence à $115/mois (75 000 FCFA). Essai gratuit de 30 jours, sans engagement." },
         { q: "Puis-je garder mon logiciel comptable actuel ?", a: "KALTIV peut fonctionner en complément via API et export automatique. Cependant, le module OHADA intégré remplace avantageusement la plupart des logiciels comptables du marché." },
@@ -440,7 +440,7 @@ const translations = {
         { value: "27+", unit: "", label: "integrated modules" },
         { value: "400+", unit: "", label: "data tables" },
         { value: "6", unit: "", label: "ML models deployed" },
-        { value: "17+", unit: "", label: "countries covered" },
+        { value: "27", unit: "", label: "countries covered" },
       ],
       logos: [
         { name: "OHADA", sub: "Certified" },
@@ -460,7 +460,7 @@ const translations = {
       poweredByLabel: "Powered by",
     },
     marquee: {
-      items: ["KALTIV", "Command Platform", "27+ Modules", "400+ Tables", "17+ Countries", "Offline-First"],
+      items: ["KALTIV", "Command Platform", "27+ Modules", "406 Tables", "27 Countries", "Offline-First"],
     },
     problem: {
       eyebrow: "The Problem",
@@ -480,12 +480,12 @@ const translations = {
       cards: [
         { title: "Digital Chief of Staff", desc: "44 AI tools to manage your operation — proactive advice, automatic reports, smart alerts.", highlight: "Your digital chief of staff" },
         { title: "Kona AI", desc: "Agentic chatbot with 23 write actions, 4 personas, contextual memory. Ask a question, get an action." },
-        { title: "Multi-Regional Compliance", desc: "OHADA (CEMAC/UEMOA) + Companies Act (anglophone). 17+ countries covered, native multi-jurisdiction.", highlight: "Native multi-jurisdiction" },
+        { title: "Multi-Regional Compliance", desc: "OHADA (CEMAC/UEMOA) + Companies Act (anglophone) + lusophone + swahili. 27 countries covered, native multi-jurisdiction.", highlight: "27 countries, 4 languages" },
         { title: "Offline-First", desc: "PowerSync + 6 embedded ONNX models. Work without Internet, sync when connectivity returns." },
         { title: "Lean Digital", desc: "PDCA, Kanban, BSC, OKR, VSM, SMED, TPM, SPC — 14 integrated operational excellence tools.", highlight: "Integrated continuous improvement" },
         { title: "WhatsApp Intelligence", desc: "Automatic parsing of field conversations, multi-channel notifications, WhatsApp reports." },
         { title: "Full Traceability", desc: "From plot to export — ISO 9001, HACCP, blockchain. Every batch, every step, every certificate." },
-        { title: "Payroll & Advanced HR", desc: "11 HR sub-modules, 7 tax jurisdictions, skills matrix, 360° evaluations." },
+        { title: "Payroll & Advanced HR", desc: "11 HR sub-modules, 7 tax jurisdictions, 7 employee states, schedule-to-pay pipeline, 360° evaluations.", highlight: "Schedule → Pay Pipeline" },
       ],
     },
     stats: {
@@ -496,8 +496,8 @@ const translations = {
         { value: 11, suffix: "", label: "HR Sub-Modules", desc: "payroll, leave, skills, 360° evaluations..." },
         { value: 99, suffix: ".9%", label: "Availability", desc: "uptime target (Sentry monitoring)" },
         { value: 6, suffix: "", label: "AI Models", desc: "yield, quality, price (×3 products), demand" },
-        { value: 17, suffix: "", label: "OHADA Countries", desc: "multi-jurisdiction architecture" },
-        { value: 5700, suffix: "+", label: "Automated Tests", desc: "100% coverage hooks & services" },
+        { value: 27, suffix: "", label: "Countries Covered", desc: "OHADA, anglophone, lusophone, swahili" },
+        { value: 6000, suffix: "+", label: "Automated Tests", desc: "100% coverage hooks & services" },
         { value: 23, suffix: "K+", label: "i18n Keys", desc: "complete 4-language FR/EN/PT/SW interface" },
         { value: 100, suffix: "%", label: "OHADA", desc: "Cameroon accounting compliance" },
       ],
@@ -643,7 +643,7 @@ const translations = {
         ["Agri AI Chatbot", "Yes (Kona)", "No", "No", "No"],
         ["Offline", "ONNX + PowerSync", "No", "No", "Yes"],
         ["Deployment", "4 weeks", "6-12 months", "3-6 months", "Immediate"],
-        ["Multi-regional", "17+ countries", "Extensible", "By extension", "No"],
+        ["Multi-regional", "27 countries", "Extensible", "By extension", "No"],
       ],
       vsFootnote: "* Excel: hidden cost estimated ~15% of revenue in inefficiencies (source: FAO/World Bank)",
       plans: [
@@ -663,7 +663,7 @@ const translations = {
         {
           name: "Command",
           target: "Large operations · 500-2,000 ha",
-          features: ["All modules", "50 users included", "Multi-regional (OHADA CEMAC/UEMOA + anglophone, 17+ countries)", "Digital Chief of Staff (44 AI tools)", "Kona AI full (23 write actions)", "14 Lean tools", "Offline ONNX + PowerSync", "API & webhooks", "Support < 4h + phone"],
+          features: ["All modules", "50 users included", "Multi-regional (OHADA + anglophone + lusophone, 27 countries)", "Digital Chief of Staff (44 AI tools)", "Kona AI full (23 write actions)", "14 Lean tools", "Offline ONNX + PowerSync", "API & webhooks", "Support < 4h + phone"],
           cta: "Request a demo",
           badge: "Recommended",
         },
@@ -691,8 +691,8 @@ const translations = {
     },
     coverage: {
       eyebrow: "Coverage",
-      title: "17 countries, one single {platform}",
-      subtitle: "Native OHADA chart of accounts. Cameroon CNPS contributions verified. Architecture extensible to 17 jurisdictions. Multi-currency FCFA, EUR, USD.",
+      title: "27 countries, one single {platform}",
+      subtitle: "Native OHADA chart of accounts. Multi-country social contributions verified. 27 countries covered (francophone, anglophone, lusophone, swahili). Multi-currency XAF, XOF, GHS, KES, EUR, USD.",
       cropTitle: "Supported crop value chains",
       flagAlt: "Flag of",
       crops: ["Oil Palm", "Cocoa", "Coffee", "Rubber", "Cotton", "Banana", "Cassava", "Pineapple"],
@@ -716,7 +716,7 @@ const translations = {
       certTitle: "Certifications & Compliance",
       secTitle: "Security & Infrastructure",
       certifications: [
-        { name: "OHADA / SYSCOHADA", desc: "Chart of accounts compliant with 17 OHADA countries. Automated close." },
+        { name: "OHADA / SYSCOHADA", desc: "Chart of accounts compliant with 17 OHADA countries + 10 anglophone/lusophone countries. Automated close." },
         { name: "Multi-Country Social Funds", desc: "Cameroon CNPS contributions verified. Architecture extensible to other funds (CNSS, INSS, CSS)." },
         { name: "CEMAC / Franc Zone", desc: "Multi-currency FCFA/EUR/USD. Integrated CEMAC regulatory compliance." },
         { name: "ISO 9001", desc: "Complete lot-by-lot traceability for international quality certification." },
@@ -748,7 +748,7 @@ const translations = {
         { q: "Where is my data hosted?", a: "Your data is stored on Supabase infrastructure (SOC 2 Type II certified), with residency choice in Europe (Frankfurt) or Africa. AES-256 encryption at rest and TLS 1.3 in transit." },
         { q: "Does KALTIV work without Internet?", a: "Yes. Offline mode (PWA + ONNX) enables field data entry, local AI predictions, and automatic sync when connectivity returns. Ideal for rural areas." },
         { q: "How long to migrate from Excel?", a: "On average 2 weeks. Our team assists with importing your Excel files, field notebooks, and existing data. The process is guided and validated at each step." },
-        { q: "Is it OHADA compliant for my country?", a: "KALTIV supports 17 OHADA countries (CEMAC/UEMOA) and anglophone countries with SYSCOHADA chart of accounts, country-adapted social contributions (CNPS, CNSS, INSS, CSS...) and multi-currency XAF/XOF/GHS/KES/EUR/USD." },
+        { q: "Is it OHADA compliant for my country?", a: "KALTIV covers 27 countries: 17 OHADA member states (CEMAC/UEMOA), 8 anglophone and 5 lusophone countries. SYSCOHADA chart of accounts, country-adapted social contributions (CNPS, CNSS, INSS, CSS...) and multi-currency XAF/XOF/GHS/KES/EUR/USD. Full interface in 4 languages (FR/EN/PT/SW)." },
         { q: "What happens if I cancel?", a: "Your data remains accessible in read-only for 90 days after cancellation. You can export everything in CSV/Excel at any time. No cancellation fees." },
         { q: "How is pricing calculated?", a: "Pricing depends on users and activated modules. Foundation starts at $115/month (75,000 FCFA). Free trial of 30 days, no commitment." },
         { q: "Can I keep my current accounting software?", a: "KALTIV can work alongside it via API and automatic export. However, the built-in OHADA module advantageously replaces most accounting software on the market." },
