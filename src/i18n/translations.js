@@ -252,12 +252,18 @@ const translations = {
       plans: [
         {
           name: "Foundation",
+          price: "75 000 FCFA",
+          period: "/mois",
+          priceLocal: "~$115 USD/mois",
           target: "PME agricoles · < 50 ha",
           features: ["15 modules essentiels", "5 utilisateurs inclus", "Paie + conformité réglementaire", "Dashboard KPI temps réel", "Support Email + WhatsApp", "Notifications multicanal"],
           cta: "Démarrer — 30 jours gratuit",
         },
         {
           name: "Growth",
+          price: "200 000 FCFA",
+          period: "/mois",
+          priceLocal: "~$305 USD/mois",
           target: "Exploitations moyennes · 50-500 ha",
           features: ["25 modules", "15 utilisateurs inclus", "Conformité réglementaire complète (OHADA/IFRS)", "IA prédictive (rendement + qualité)", "Kona chatbot (FAQ + actions)", "Kanban + PDCA", "Support prioritaire < 8h"],
           cta: "Essayer 30 jours gratuit",
@@ -265,6 +271,10 @@ const translations = {
         },
         {
           name: "Command",
+          price: "500 000 FCFA",
+          period: "/mois",
+          priceLocal: "~$762 USD/mois",
+          featured: true,
           target: "Grandes exploitations · 500-2 000 ha",
           features: ["Tous les modules", "50 utilisateurs inclus", "Multi-régional (OHADA + anglophone + lusophone, 27 pays)", "Digital Chief of Staff (44 outils IA)", "Kona AI complet (23 write actions)", "14 outils Lean", "Offline ONNX + PowerSync", "API & webhooks", "Support < 4h + téléphone"],
           cta: "Demander une démo",
@@ -272,6 +282,7 @@ const translations = {
         },
         {
           name: "Enterprise",
+          price: "Sur mesure",
           target: "Agro-industries · 2 000+ ha · Multi-sites",
           features: ["Modules custom + intégrations", "Utilisateurs illimités", "Multi-juridictions + multi-devises", "Modèles IA personnalisés", "SLA garanti + manager dédié", "Formation sur site", "Audit sécurité + SOC 2"],
           cta: "Contacter l'équipe",
@@ -649,12 +660,18 @@ const translations = {
       plans: [
         {
           name: "Foundation",
+          price: "$115",
+          period: "/mo",
+          priceLocal: "75,000 FCFA/mo",
           target: "Small farms · < 50 ha",
           features: ["15 essential modules", "5 users included", "Payroll + regulatory compliance", "Real-time KPI dashboard", "Email + WhatsApp support", "Multi-channel notifications"],
           cta: "Start — 30 days free",
         },
         {
           name: "Growth",
+          price: "$305",
+          period: "/mo",
+          priceLocal: "200,000 FCFA/mo",
           target: "Mid-size operations · 50-500 ha",
           features: ["25 modules", "15 users included", "Full regulatory compliance (OHADA/IFRS)", "Predictive AI (yield + quality)", "Kona chatbot (FAQ + actions)", "Kanban + PDCA", "Priority support < 8h"],
           cta: "Try 30 days free",
@@ -662,6 +679,10 @@ const translations = {
         },
         {
           name: "Command",
+          price: "$762",
+          period: "/mo",
+          priceLocal: "500,000 FCFA/mo",
+          featured: true,
           target: "Large operations · 500-2,000 ha",
           features: ["All modules", "50 users included", "Multi-regional (OHADA + anglophone + lusophone, 27 countries)", "Digital Chief of Staff (44 AI tools)", "Kona AI full (23 write actions)", "14 Lean tools", "Offline ONNX + PowerSync", "API & webhooks", "Support < 4h + phone"],
           cta: "Request a demo",
@@ -669,6 +690,7 @@ const translations = {
         },
         {
           name: "Enterprise",
+          price: "Custom",
           target: "Agro-industries · 2,000+ ha · Multi-site",
           features: ["Custom modules + integrations", "Unlimited users", "Multi-jurisdiction + multi-currency", "Custom AI models", "Guaranteed SLA + dedicated manager", "On-site training", "Security audit + SOC 2"],
           cta: "Contact sales",
