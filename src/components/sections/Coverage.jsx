@@ -8,23 +8,42 @@ import { useLang } from "../ui/LangToggle";
 gsap.registerPlugin(ScrollTrigger);
 
 const countries = [
+  // OHADA Francophone — CEMAC (6)
   { name: "Cameroun", emoji: "\uD83C\uDDE8\uD83C\uDDF2", zone: "CEMAC", social: "CNPS" },
-  { name: "Sénégal", emoji: "\uD83C\uDDF8\uD83C\uDDF3", zone: "UEMOA", social: "CSS" },
-  { name: "Côte d'Ivoire", emoji: "\uD83C\uDDE8\uD83C\uDDEE", zone: "UEMOA", social: "CNPS" },
   { name: "Gabon", emoji: "\uD83C\uDDEC\uD83C\uDDE6", zone: "CEMAC", social: "CNSS" },
   { name: "Congo", emoji: "\uD83C\uDDE8\uD83C\uDDEC", zone: "CEMAC", social: "CNSS" },
+  { name: "Tchad", emoji: "\uD83C\uDDF9\uD83C\uDDE9", zone: "CEMAC", social: "CNPS" },
+  { name: "RCA", emoji: "\uD83C\uDDE8\uD83C\uDDEB", zone: "CEMAC", social: "OCSS" },
+  { name: "Guinée Équ.", emoji: "\uD83C\uDDEC\uD83C\uDDF6", zone: "CEMAC", social: "INSESO" },
+  // OHADA Francophone — UEMOA (8)
+  { name: "Sénégal", emoji: "\uD83C\uDDF8\uD83C\uDDF3", zone: "UEMOA", social: "CSS" },
+  { name: "Côte d'Ivoire", emoji: "\uD83C\uDDE8\uD83C\uDDEE", zone: "UEMOA", social: "CNPS" },
   { name: "Mali", emoji: "\uD83C\uDDF2\uD83C\uDDF1", zone: "UEMOA", social: "INPS" },
   { name: "Burkina Faso", emoji: "\uD83C\uDDE7\uD83C\uDDEB", zone: "UEMOA", social: "CNSS" },
   { name: "Bénin", emoji: "\uD83C\uDDE7\uD83C\uDDEF", zone: "UEMOA", social: "CNSS" },
   { name: "Togo", emoji: "\uD83C\uDDF9\uD83C\uDDEC", zone: "UEMOA", social: "CNSS" },
   { name: "Niger", emoji: "\uD83C\uDDF3\uD83C\uDDEA", zone: "UEMOA", social: "CNSS" },
-  { name: "Tchad", emoji: "\uD83C\uDDF9\uD83C\uDDE9", zone: "CEMAC", social: "CNPS" },
-  { name: "Guinée", emoji: "\uD83C\uDDEC\uD83C\uDDF3", zone: "—", social: "CNSS" },
-  { name: "RCA", emoji: "\uD83C\uDDE8\uD83C\uDDEB", zone: "CEMAC", social: "OCSS" },
-  { name: "Guinée Équ.", emoji: "\uD83C\uDDEC\uD83C\uDDF6", zone: "CEMAC", social: "INSESO" },
-  { name: "Comores", emoji: "\uD83C\uDDF0\uD83C\uDDF2", zone: "—", social: "CNSS" },
   { name: "Guinée-Bissau", emoji: "\uD83C\uDDEC\uD83C\uDDFC", zone: "UEMOA", social: "INSS" },
-  { name: "RD Congo", emoji: "\uD83C\uDDE8\uD83C\uDDE9", zone: "—", social: "CNSS" },
+  // OHADA Other (3)
+  { name: "Guinée", emoji: "\uD83C\uDDEC\uD83C\uDDF3", zone: "OHADA", social: "CNSS" },
+  { name: "Comores", emoji: "\uD83C\uDDF0\uD83C\uDDF2", zone: "OHADA", social: "CNSS" },
+  { name: "RD Congo", emoji: "\uD83C\uDDE8\uD83C\uDDE9", zone: "OHADA", social: "CNSS" },
+  // Anglophone Africa (8)
+  { name: "Nigeria", emoji: "\uD83C\uDDF3\uD83C\uDDEC", zone: "Anglophone", social: "NSITF" },
+  { name: "Ghana", emoji: "\uD83C\uDDEC\uD83C\uDDED", zone: "Anglophone", social: "SSNIT" },
+  { name: "Kenya", emoji: "\uD83C\uDDF0\uD83C\uDDEA", zone: "Anglophone", social: "NSSF" },
+  { name: "Uganda", emoji: "\uD83C\uDDFA\uD83C\uDDEC", zone: "Anglophone", social: "NSSF" },
+  { name: "Rwanda", emoji: "\uD83C\uDDF7\uD83C\uDDFC", zone: "Anglophone", social: "RSSB" },
+  { name: "South Africa", emoji: "\uD83C\uDDFF\uD83C\uDDE6", zone: "Anglophone", social: "UIF" },
+  { name: "Liberia", emoji: "\uD83C\uDDF1\uD83C\uDDF7", zone: "Anglophone", social: "NASSCORP" },
+  { name: "Sierra Leone", emoji: "\uD83C\uDDF8\uD83C\uDDF1", zone: "Anglophone", social: "NASSIT" },
+  // Lusophone Africa (5)
+  { name: "Angola", emoji: "\uD83C\uDDE6\uD83C\uDDF4", zone: "Lusophone", social: "INSS" },
+  { name: "Mozambique", emoji: "\uD83C\uDDF2\uD83C\uDDFF", zone: "Lusophone", social: "INSS" },
+  { name: "Cap-Vert", emoji: "\uD83C\uDDE8\uD83C\uDDFB", zone: "Lusophone", social: "INPS" },
+  { name: "São Tomé", emoji: "\uD83C\uDDF8\uD83C\uDDF9", zone: "Lusophone", social: "INSS" },
+  // Swahili Belt (1)
+  { name: "Tanzania", emoji: "\uD83C\uDDF9\uD83C\uDDFF", zone: "Swahili", social: "NSSF" },
 ];
 
 const cropEmojis = ["🌴", "🫘", "☕", "🌳", "🧶", "🍌", "🥔", "🍍"];
