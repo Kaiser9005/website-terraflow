@@ -1,16 +1,42 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MagneticButton from "../ui/MagneticButton";
 import { useLang } from "../ui/LangToggle";
+import screenshots from "../../data/screenshots";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const HERO_SCREENSHOTS = screenshots.slice(0, 4);
+const ROTATE_INTERVAL = 5000;
+
 export default function Hero({ scrollTo }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const sectionRef = useRef(null);
   const overlayRef = useRef(null);
+  const imgRef = useRef(null);
+  const [activeScreenshot, setActiveScreenshot] = useState(0);
+
+  // Auto-rotate screenshots
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveScreenshot((prev) => (prev + 1) % HERO_SCREENSHOTS.length);
+    }, ROTATE_INTERVAL);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Crossfade animation on screenshot change
+  useEffect(() => {
+    if (!imgRef.current) return;
+    gsap.fromTo(imgRef.current,
+      { opacity: 0.3, scale: 1.02 },
+      { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }
+    );
+  }, [activeScreenshot]);
+
+  const currentShot = HERO_SCREENSHOTS[activeScreenshot];
+  const altText = lang === "en" ? currentShot.altEn : currentShot.altFr;
 
   useGSAP(() => {
     const section = sectionRef.current;
@@ -100,12 +126,25 @@ export default function Hero({ scrollTo }) {
                 <span /><span /><span />
               </div>
               <span className="hero-browser-url">app.kaltiv.com</span>
+              <div className="hero-screenshot-dots">
+                {HERO_SCREENSHOTS.map((s, i) => (
+                  <button
+                    key={s.id}
+                    className={`hero-dot ${activeScreenshot === i ? "active" : ""}`}
+                    onClick={() => setActiveScreenshot(i)}
+                    aria-label={s.module}
+                  />
+                ))}
+              </div>
             </div>
             <img
-              src="/screenshots/dashboard.webp"
-              alt={t("hero.screenshotAlt")}
+              ref={imgRef}
+              src={currentShot.src}
+              alt={altText}
               className="hero-screenshot"
               loading="eager"
+              width="1920"
+              height="1080"
             />
           </div>
           <div className="scroll-indicator">
