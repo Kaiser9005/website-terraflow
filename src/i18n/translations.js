@@ -387,11 +387,8 @@ const translations = {
       title: "Dernières {publications}",
       subtitle: "Analyses, guides pratiques et retours d'expérience pour l'agriculture africaine.",
       readMore: "Lire l'article",
-      articles: [
-        { title: "Pourquoi 72% des exploitations africaines n'ont pas d'ERP", category: "Industrie", readTime: "5 min", excerpt: "Les ERP occidentaux ignorent les réalités du terrain : pas d'OHADA, pas de hors-ligne, pas de paie locale. Analyse des freins et solutions.", tag: "Analyse" },
-        { title: "Conformité OHADA : automatiser la clôture en 1 jour", category: "Comptabilité", readTime: "4 min", excerpt: "Le plan comptable SYSCOHADA automatisé permet de passer de 3 semaines à 1 jour de clôture. Voici comment.", tag: "Guide" },
-        { title: "IA et agriculture : prédire les rendements avec CatBoost", category: "Technologie", readTime: "6 min", excerpt: "Comment nos modèles CatBoost atteignent R²=0.79 sur la prédiction de rendements palmier avec les données Open-Meteo.", tag: "Tech" },
-      ],
+      articleCta: "Prêt à transformer votre exploitation ?",
+      articleCtaButton: "Demander une démo gratuite",
     },
     // Demo
     demo: {
@@ -794,11 +791,8 @@ const translations = {
       title: "Latest {publications}",
       subtitle: "Analysis, practical guides, and experience feedback for African agriculture.",
       readMore: "Read article",
-      articles: [
-        { title: "Why 72% of African farms have no ERP", category: "Industry", readTime: "5 min", excerpt: "Western ERPs ignore field realities: no OHADA, no offline, no local payroll. Analysis of barriers and solutions.", tag: "Analysis" },
-        { title: "OHADA compliance: automate closing in 1 day", category: "Accounting", readTime: "4 min", excerpt: "The automated SYSCOHADA chart of accounts reduces closing from 3 weeks to 1 day. Here's how.", tag: "Guide" },
-        { title: "AI and agriculture: predicting yields with CatBoost", category: "Technology", readTime: "6 min", excerpt: "How our CatBoost models achieve R²=0.79 on palm yield prediction using Open-Meteo data.", tag: "Tech" },
-      ],
+      articleCta: "Ready to transform your farm?",
+      articleCtaButton: "Request a free demo",
     },
     demo: {
       eyebrow: "Free Demo",

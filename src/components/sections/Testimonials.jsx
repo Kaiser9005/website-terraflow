@@ -5,9 +5,40 @@ import Reveal from "../ui/Reveal";
 import { useLang } from "../ui/LangToggle";
 
 const authors = [
-  { author: "Jean Paul FODJO", role: "Fondateur & DG, FOFAL — 80 ha, Cameroun", initials: "JP" },
-  { author: "Jean Paul FODJO", role: "Fondateur & DG, FOFAL — 80 ha, Cameroun", initials: "JP" },
-  { author: "Jean Paul FODJO", role: "Fondateur & DG, FOFAL — 80 ha, Cameroun", initials: "JP" },
+  {
+    author: "Responsable Admin. & Financier",
+    authorEn: "Admin & Finance Manager",
+    role: "Comptabilite & Paie",
+    roleEn: "Accounting & Payroll",
+    company: "FOFAL",
+    context: "45+ employes",
+    contextEn: "45+ employees",
+    initials: "AF",
+    badge: "Finance",
+  },
+  {
+    author: "Chef de Dept. Plantation",
+    authorEn: "Plantation Dept. Head",
+    role: "Operations Terrain & IA",
+    roleEn: "Field Ops & AI",
+    company: "FOFAL",
+    context: "28 parcelles",
+    contextEn: "28 plots",
+    initials: "DP",
+    badge: "Agriculture",
+  },
+  {
+    author: "Jean Paul FODJO",
+    authorEn: "Jean Paul FODJO",
+    role: "Fondateur & Directeur General",
+    roleEn: "Founder & CEO",
+    company: "FOFAL",
+    context: "80 ha, Cameroun",
+    contextEn: "80 ha, Cameroon",
+    initials: "JP",
+    badge: "Direction",
+    badgeEn: "Leadership",
+  },
 ];
 
 const INTERVAL = 6000;
@@ -16,7 +47,7 @@ export default function Testimonials() {
   const sectionRef = useRef(null);
   const [active, setActive] = useState(0);
   const slideRef = useRef(null);
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   const items = useMemo(() => {
     const raw = t("testimonials.items");
@@ -41,6 +72,7 @@ export default function Testimonials() {
 
   const currentText = items[active] || "";
   const currentAuthor = authors[active] || authors[0];
+  const isEn = lang === "en";
 
   const titleRaw = t("testimonials.title");
   const titleParts = titleRaw.split(/\{|\}/);
@@ -65,9 +97,20 @@ export default function Testimonials() {
           <div className="testimonial-author">
             <div className="testimonial-avatar">{currentAuthor.initials}</div>
             <div>
-              <div className="testimonial-name">{currentAuthor.author}</div>
-              <div className="testimonial-role">{currentAuthor.role}</div>
+              <div className="testimonial-name">
+                {isEn ? (currentAuthor.authorEn || currentAuthor.author) : currentAuthor.author}
+              </div>
+              <div className="testimonial-role">
+                {isEn ? (currentAuthor.roleEn || currentAuthor.role) : currentAuthor.role}
+                {" — "}
+                <span className="testimonial-company">{currentAuthor.company}</span>
+                {", "}
+                {isEn ? (currentAuthor.contextEn || currentAuthor.context) : currentAuthor.context}
+              </div>
             </div>
+            <span className="testimonial-badge">
+              {isEn ? (currentAuthor.badgeEn || currentAuthor.badge) : currentAuthor.badge}
+            </span>
           </div>
         </div>
 

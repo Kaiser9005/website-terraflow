@@ -1,14 +1,24 @@
-import { useMemo } from "react";
+import { useMemo, useState, useCallback } from "react";
 import Reveal from "../ui/Reveal";
 import { useLang } from "../ui/LangToggle";
+import BlogArticle from "./BlogArticle";
+import articlesData from "../../data/articles";
 
 export default function Blog() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const [activeArticle, setActiveArticle] = useState(null);
 
   const articles = useMemo(() => {
-    const raw = t("blog.articles");
-    return Array.isArray(raw) ? raw : [];
-  }, [t]);
+    return articlesData[lang] || articlesData.fr;
+  }, [lang]);
+
+  const handleOpenArticle = useCallback((article) => {
+    setActiveArticle(article);
+  }, []);
+
+  const handleCloseArticle = useCallback(() => {
+    setActiveArticle(null);
+  }, []);
 
   const titleRaw = t("blog.title");
   const titleParts = titleRaw.split(/\{|\}/);
@@ -33,8 +43,15 @@ export default function Blog() {
 
       <div className="blog-grid">
         {articles.map((a, i) => (
-          <Reveal key={i} delay={i * 0.1}>
-            <article className="blog-card blog-card-interactive" onClick={() => { const el = document.getElementById("demo"); if (el) el.scrollIntoView({ behavior: "smooth" }); }}>
+          <Reveal key={a.id} delay={i * 0.1}>
+            <article
+              className="blog-card blog-card-interactive"
+              onClick={() => handleOpenArticle(a)}
+              role="button"
+              tabIndex={0}
+              aria-label={`${t("blog.readMore")}: ${a.title}`}
+              onKeyDown={(e) => { if (e.key === "Enter") handleOpenArticle(a); }}
+            >
               <div className="blog-card-top">
                 <span className="blog-tag">{a.tag}</span>
                 <span className="blog-read-time">{a.readTime}</span>
@@ -50,6 +67,7 @@ export default function Blog() {
         ))}
       </div>
 
+      <BlogArticle article={activeArticle} onClose={handleCloseArticle} />
     </section>
   );
 }
