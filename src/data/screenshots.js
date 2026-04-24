@@ -1,7 +1,7 @@
 /**
  * Screenshot Data — KALTIV Marketing Website
  *
- * 8 curated production screenshots, all 1920px WebP (<90KB each).
+ * 10 curated production screenshots, all 1920px WebP (<90KB each).
  * Quality-audited: no raw i18n keys, no internal text, no error states.
  *
  * Category mapping for Modules section tabs:
@@ -68,6 +68,22 @@ const screenshots = [
     altEn: "Supplier list — Purchase volume, order count, statuses",
     module: "Fournisseurs",
     category: 2,
+  },
+  {
+    id: "payroll",
+    src: "/screenshots/payroll.webp",
+    altFr: "Module de paie — Liste des salaires avec montants CFA et statuts",
+    altEn: "Payroll module — Salary list with CFA amounts and statuses",
+    module: "Paie",
+    category: 0,
+  },
+  {
+    id: "accounting",
+    src: "/screenshots/accounting.webp",
+    altFr: "Dashboard comptable OHADA — 209 comptes, répartition SYSCOHADA",
+    altEn: "OHADA accounting dashboard — 209 accounts, SYSCOHADA breakdown",
+    module: "Comptabilité",
+    category: 3,
   },
   {
     id: "analytics",
