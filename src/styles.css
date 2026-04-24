@@ -2558,3 +2558,19 @@ em { font-style: normal; color: var(--accent); }
   .scroll-progress { display: none; }
   .whatsapp-fab { transition: none; }
 }
+
+/* ─── PERFORMANCE: content-visibility for below-fold sections ─── */
+#use-cases,
+#case-study,
+#modules,
+#pricing,
+#coverage,
+#onboarding,
+#trust,
+#testimonials,
+#faq,
+#blog,
+#demo {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
