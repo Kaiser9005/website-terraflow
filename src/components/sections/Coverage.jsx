@@ -1,71 +1,67 @@
-import { useRef, useMemo } from "react";
+import { useRef, useState, useMemo, useCallback } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Reveal from "../ui/Reveal";
 import { useLang } from "../ui/LangToggle";
+import AfricaMap from "./AfricaMap";
+import MapTooltip from "../ui/MapTooltip";
+import countries, { ZONE_COLORS, ZONE_LABELS } from "../../data/africaCountries";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const countries = [
-  // OHADA Francophone — CEMAC (6)
-  { name: "Cameroun", emoji: "\uD83C\uDDE8\uD83C\uDDF2", zone: "CEMAC", social: "CNPS" },
-  { name: "Gabon", emoji: "\uD83C\uDDEC\uD83C\uDDE6", zone: "CEMAC", social: "CNSS" },
-  { name: "Congo", emoji: "\uD83C\uDDE8\uD83C\uDDEC", zone: "CEMAC", social: "CNSS" },
-  { name: "Tchad", emoji: "\uD83C\uDDF9\uD83C\uDDE9", zone: "CEMAC", social: "CNPS" },
-  { name: "RCA", emoji: "\uD83C\uDDE8\uD83C\uDDEB", zone: "CEMAC", social: "OCSS" },
-  { name: "Guinée Équ.", emoji: "\uD83C\uDDEC\uD83C\uDDF6", zone: "CEMAC", social: "INSESO" },
-  // OHADA Francophone — UEMOA (8)
-  { name: "Sénégal", emoji: "\uD83C\uDDF8\uD83C\uDDF3", zone: "UEMOA", social: "CSS" },
-  { name: "Côte d'Ivoire", emoji: "\uD83C\uDDE8\uD83C\uDDEE", zone: "UEMOA", social: "CNPS" },
-  { name: "Mali", emoji: "\uD83C\uDDF2\uD83C\uDDF1", zone: "UEMOA", social: "INPS" },
-  { name: "Burkina Faso", emoji: "\uD83C\uDDE7\uD83C\uDDEB", zone: "UEMOA", social: "CNSS" },
-  { name: "Bénin", emoji: "\uD83C\uDDE7\uD83C\uDDEF", zone: "UEMOA", social: "CNSS" },
-  { name: "Togo", emoji: "\uD83C\uDDF9\uD83C\uDDEC", zone: "UEMOA", social: "CNSS" },
-  { name: "Niger", emoji: "\uD83C\uDDF3\uD83C\uDDEA", zone: "UEMOA", social: "CNSS" },
-  { name: "Guinée-Bissau", emoji: "\uD83C\uDDEC\uD83C\uDDFC", zone: "UEMOA", social: "INSS" },
-  // OHADA Other (3)
-  { name: "Guinée", emoji: "\uD83C\uDDEC\uD83C\uDDF3", zone: "OHADA", social: "CNSS" },
-  { name: "Comores", emoji: "\uD83C\uDDF0\uD83C\uDDF2", zone: "OHADA", social: "CNSS" },
-  { name: "RD Congo", emoji: "\uD83C\uDDE8\uD83C\uDDE9", zone: "OHADA", social: "CNSS" },
-  // Anglophone Africa (8)
-  { name: "Nigeria", emoji: "\uD83C\uDDF3\uD83C\uDDEC", zone: "Anglophone", social: "NSITF" },
-  { name: "Ghana", emoji: "\uD83C\uDDEC\uD83C\uDDED", zone: "Anglophone", social: "SSNIT" },
-  { name: "Kenya", emoji: "\uD83C\uDDF0\uD83C\uDDEA", zone: "Anglophone", social: "NSSF" },
-  { name: "Uganda", emoji: "\uD83C\uDDFA\uD83C\uDDEC", zone: "Anglophone", social: "NSSF" },
-  { name: "Rwanda", emoji: "\uD83C\uDDF7\uD83C\uDDFC", zone: "Anglophone", social: "RSSB" },
-  { name: "South Africa", emoji: "\uD83C\uDDFF\uD83C\uDDE6", zone: "Anglophone", social: "UIF" },
-  { name: "Liberia", emoji: "\uD83C\uDDF1\uD83C\uDDF7", zone: "Anglophone", social: "NASSCORP" },
-  { name: "Sierra Leone", emoji: "\uD83C\uDDF8\uD83C\uDDF1", zone: "Anglophone", social: "NASSIT" },
-  // Lusophone Africa (5)
-  { name: "Angola", emoji: "\uD83C\uDDE6\uD83C\uDDF4", zone: "Lusophone", social: "INSS" },
-  { name: "Mozambique", emoji: "\uD83C\uDDF2\uD83C\uDDFF", zone: "Lusophone", social: "INSS" },
-  { name: "Cap-Vert", emoji: "\uD83C\uDDE8\uD83C\uDDFB", zone: "Lusophone", social: "INPS" },
-  { name: "São Tomé", emoji: "\uD83C\uDDF8\uD83C\uDDF9", zone: "Lusophone", social: "INSS" },
-  // Swahili Belt (1)
-  { name: "Tanzania", emoji: "\uD83C\uDDF9\uD83C\uDDFF", zone: "Swahili", social: "NSSF" },
-];
 
 const cropEmojis = ["🌴", "🫘", "☕", "🌳", "🧶", "🍌", "🥔", "🍍"];
 
 export default function Coverage() {
   const sectionRef = useRef(null);
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const [hoveredCountry, setHoveredCountry] = useState(null);
+  const [tooltipPos, setTooltipPos] = useState(null);
 
   const crops = useMemo(() => {
     const raw = t("coverage.crops");
     return Array.isArray(raw) ? raw : [];
   }, [t]);
 
+  const zoneEntries = useMemo(() => Object.entries(ZONE_COLORS), []);
+
+  const zoneCounts = useMemo(() => {
+    const counts = {};
+    countries.forEach(c => {
+      counts[c.zone] = (counts[c.zone] || 0) + 1;
+    });
+    return counts;
+  }, []);
+
+  const handleCountryHover = useCallback((country, position) => {
+    setHoveredCountry(country);
+    setTooltipPos(position);
+  }, []);
+
+  const handleCountryLeave = useCallback(() => {
+    setHoveredCountry(null);
+    setTooltipPos(null);
+  }, []);
+
   useGSAP(() => {
     const section = sectionRef.current;
     if (!section) return;
 
+    // Legend animation
+    gsap.fromTo(section.querySelectorAll(".coverage-legend-item"),
+      { opacity: 0, x: -20 },
+      {
+        opacity: 1, x: 0, duration: 0.4, stagger: 0.08, ease: "power3.out",
+        scrollTrigger: { trigger: section.querySelector(".coverage-legend"), start: "top 85%", toggleActions: "play none none none" },
+      }
+    );
+
+    // Country grid animation (kept for mobile fallback)
     gsap.fromTo(section.querySelectorAll(".coverage-country"),
       { opacity: 0, scale: 0.8 },
       {
         opacity: 1, scale: 1, duration: 0.4, stagger: 0.03, ease: "power3.out",
-        scrollTrigger: { trigger: section, start: "top 65%", toggleActions: "play none none none" },
+        scrollTrigger: { trigger: section.querySelector(".coverage-grid"), start: "top 65%", toggleActions: "play none none none" },
       }
     );
 
@@ -99,16 +95,70 @@ export default function Coverage() {
         </Reveal>
       </div>
 
-      <div className="coverage-grid">
-        {countries.map((c, i) => (
-          <div key={i} className="coverage-country" style={{ opacity: 0 }}>
-            <span className="coverage-flag-emoji" role="img" aria-label={`${t("coverage.flagAlt")} ${c.name}`}>{c.emoji}</span>
-            <div className="coverage-country-info">
-              <span className="coverage-country-name">{c.name}</span>
-              <span className="coverage-country-meta">{c.zone} · {c.social}</span>
+      {/* Map + Legend layout */}
+      <div className="coverage-map-layout">
+        {/* Interactive SVG Map */}
+        <div className="coverage-map-wrapper">
+          <AfricaMap
+            onCountryHover={handleCountryHover}
+            onCountryLeave={handleCountryLeave}
+            activeCountry={hoveredCountry}
+          />
+          <MapTooltip country={hoveredCountry} position={tooltipPos} />
+        </div>
+
+        {/* Legend + Stats sidebar */}
+        <div className="coverage-sidebar">
+          <div className="coverage-legend">
+            <h3 className="coverage-legend-title">{t("coverage.legendTitle")}</h3>
+            {zoneEntries.map(([zone, color]) => (
+              <div key={zone} className="coverage-legend-item" style={{ opacity: 0 }}>
+                <span className="coverage-legend-dot" style={{ background: color }} />
+                <span className="coverage-legend-label">{ZONE_LABELS[lang]?.[zone] || zone}</span>
+                <span className="coverage-legend-count">{zoneCounts[zone] || 0}</span>
+              </div>
+            ))}
+            <div className="coverage-legend-total">
+              <strong>{countries.length}</strong> {t("coverage.countriesTotal")}
             </div>
           </div>
-        ))}
+
+          {/* Country list — scrollable for reference */}
+          <div className="coverage-country-list">
+            {countries.map((c) => {
+              const name = lang === "en" ? c.nameEn : c.name;
+              const isActive = hoveredCountry?.id === c.id;
+              return (
+                <div
+                  key={c.id}
+                  className={`coverage-country-chip ${isActive ? "active" : ""}`}
+                  onMouseEnter={() => setHoveredCountry(c)}
+                  onMouseLeave={() => setHoveredCountry(null)}
+                  style={{ borderColor: isActive ? ZONE_COLORS[c.zone] : undefined }}
+                >
+                  <span>{c.emoji}</span>
+                  <span>{name}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Country grid — mobile view */}
+      <div className="coverage-grid coverage-grid-mobile">
+        {countries.map((c, i) => {
+          const name = lang === "en" ? c.nameEn : c.name;
+          return (
+            <div key={i} className="coverage-country" style={{ opacity: 0 }}>
+              <span className="coverage-flag-emoji" role="img" aria-label={`${t("coverage.flagAlt")} ${name}`}>{c.emoji}</span>
+              <div className="coverage-country-info">
+                <span className="coverage-country-name">{name}</span>
+                <span className="coverage-country-meta">{c.zone} · {c.social}</span>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <div className="coverage-filieres">

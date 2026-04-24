@@ -25,12 +25,14 @@ export default function CustomCursor() {
     };
 
     const onMouseEnter = (e) => {
+      if (typeof e.target.closest !== "function") return;
       const target = e.target.closest("a, button, [data-cursor]");
       if (!target) return;
       gsap.to(cursor, { width: 60, height: 60, duration: 0.3, ease: "power2.out" });
     };
 
     const onMouseLeave = (e) => {
+      if (typeof e.target.closest !== "function") return;
       const target = e.target.closest("a, button, [data-cursor]");
       if (!target) return;
       gsap.to(cursor, { width: 20, height: 20, duration: 0.3, ease: "power2.out" });

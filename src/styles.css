@@ -1605,7 +1605,195 @@ em { font-style: normal; color: var(--accent); }
   .whatsapp-fab { width: 52px; height: 52px; bottom: 1rem; right: 1rem; }
 }
 
-/* ─── COVERAGE / OHADA MAP ─── */
+/* ─── COVERAGE / INTERACTIVE AFRICA MAP ─── */
+
+/* Map + Sidebar layout */
+.coverage-map-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+  margin-top: clamp(2rem, 4vh, 4rem);
+  position: relative;
+}
+
+/* SVG map container */
+.coverage-map-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.africa-map-container {
+  width: 100%;
+  aspect-ratio: 860 / 940;
+}
+.africa-map-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.africa-map-silhouette {
+  transition: fill 0.3s;
+}
+.africa-map-dot {
+  transition: stroke 0.2s, stroke-width 0.2s;
+}
+
+/* Tooltip */
+.map-tooltip {
+  position: fixed;
+  z-index: 100;
+  transform: translate(-50%, -100%);
+  margin-top: -12px;
+  background: #1A1A18;
+  color: #FAFAFA;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  min-width: 200px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 0 1px rgba(200,160,54,0.15);
+  pointer-events: none;
+  font-family: "Space Grotesk", sans-serif;
+  opacity: 0;
+}
+.map-tooltip-header {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.map-tooltip-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.map-tooltip-zone {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.15rem;
+}
+.map-tooltip-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.map-tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.map-tooltip-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.map-tooltip-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Legend sidebar */
+.coverage-sidebar {
+  position: sticky;
+  top: 100px;
+}
+.coverage-legend {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+.coverage-legend-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  color: var(--noir);
+}
+.coverage-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+}
+.coverage-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.coverage-legend-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--noir);
+  flex: 1;
+}
+.coverage-legend-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gris);
+  background: rgba(0,0,0,0.04);
+  padding: 0.15rem 0.5rem;
+  border-radius: 100px;
+}
+.coverage-legend-total {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.85rem;
+  color: var(--noir);
+  text-align: center;
+}
+.coverage-legend-total strong {
+  font-size: 1.3rem;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* Country chip list (sidebar scroll) */
+.coverage-country-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.coverage-country-list::-webkit-scrollbar { width: 3px; }
+.coverage-country-list::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 3px; }
+
+.coverage-country-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.coverage-country-chip:hover,
+.coverage-country-chip.active {
+  border-color: var(--primary);
+  background: rgba(10,54,34,0.04);
+  transform: translateY(-1px);
+}
+
+/* Mobile country grid — hidden on desktop, shown on mobile */
+.coverage-grid-mobile {
+  display: none;
+}
+
+/* Desktop country grid (original — kept for fallback) */
 .coverage-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -1679,6 +1867,51 @@ em { font-style: normal; color: var(--accent); }
   background: rgba(217, 119, 6, 0.04);
 }
 .coverage-filiere-emoji { font-size: 1.2rem; }
+
+/* ─── COVERAGE RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .coverage-map-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .coverage-map-wrapper {
+    max-width: 400px;
+  }
+  .coverage-sidebar {
+    position: static;
+  }
+  .coverage-country-list {
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Show mobile grid, hide desktop map layout */
+  .coverage-map-layout {
+    display: none;
+  }
+  .coverage-grid-mobile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  /* Mobile tooltip: fixed bottom sheet */
+  .map-tooltip {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: none;
+    margin: 0;
+    border-radius: 16px 16px 0 0;
+    width: 100%;
+    min-width: auto;
+    padding: 1rem 1.25rem;
+  }
+}
 
 /* ─── PRICING FCFA ─── */
 .pricing-fcfa {
