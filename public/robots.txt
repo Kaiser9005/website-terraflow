@@ -1,3 +1,47 @@
+# KALTIV — robots.txt for the marketing vitrine
+# Fully public surface. AI search bots (ChatGPT, Perplexity, Gemini, Bing Copilot,
+# Google AI Overviews) are explicitly welcome — see /llms.txt for the canonical
+# machine-readable product summary.
+
+# ---- AI search bots (explicit allow with /llms.txt cross-reference) ----
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: Google-Extended
+Allow: /
+Allow: /llms.txt
+
+User-agent: Bingbot
+Allow: /
+Allow: /llms.txt
+
+User-agent: CCBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: Applebot-Extended
+Allow: /
+Allow: /llms.txt
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /llms.txt
+
+# ---- Default (allow all crawlers on the marketing surface) ----
 User-agent: *
 Allow: /
+
+# Canonical machine-readable product summary
+# AI crawlers should prefer this over scraped fragments.
+# See: https://llmstxt.org
+
 Sitemap: https://kaltiv.com/sitemap.xml
